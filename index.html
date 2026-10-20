@@ -68,6 +68,14 @@ h2{font-size:1.35rem;margin:18px 0 6px;text-wrap:balance}
 .btn.ghost:hover{background:var(--brand-soft)}
 .btn.done{background:var(--ok);border-color:var(--ok)}
 .btn[disabled]{background:#eee;border-color:#ddd;color:var(--off);cursor:not-allowed}
+.banner{margin:6px 0 4px;border-radius:16px;overflow:hidden;position:relative;background:#2a1a12}
+.banner img{width:100%;max-width:100%;aspect-ratio:16/7;object-fit:cover;display:block}
+.banner p{position:absolute;left:0;right:0;bottom:0;margin:0;padding:28px 16px 12px;color:#fff;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.gal button{padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--line);aspect-ratio:4/3}
+.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.big{width:100%;border-radius:12px;display:block}
+.gnav{display:flex;gap:8px;margin-top:12px}.gnav .btn{flex:1}
 .empty{padding:28px;text-align:center;color:var(--muted);background:#fff;border-radius:14px;border:2px dashed var(--line)}
 .tray{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:2px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.08);padding-bottom:env(safe-area-inset-bottom);z-index:5}
 .tray .wrap{display:flex;align-items:center;gap:12px;padding-block:12px}
@@ -158,7 +166,7 @@ const CATS = [
   [14,'Dry Fruits & Mukhvas','સૂકો મેવો અને મુખવાસ','सूखे मेवे और मुखवास',1048]
 ];
 const T = {
-  en:{sub:'Vadtal Dham Edmonton · Offer a dish at the lotus feet of Shri Hari',s1:'Choose dishes',s2:'Your details',s3:'Done',
+  en:{gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Vadtal Dham Edmonton · Offer a dish at the lotus feet of Shri Hari',s1:'Choose dishes',s2:'Your details',s3:'Done',
     pick:'Choose a section',pickLead:'Tap a section to see its dishes. Each dish shows its photo; tap “View recipe” to read how to make it.',
     search:'Search by dish name or number',searchPh:'For example: Ladoo, Dhokla, 229',
     back:'← All sections',dishes:'dishes',open:'open',recipe:'View recipe',select:'Select',selected:'✓ Selected',taken:'Already offered',mine:'Your choice',
@@ -170,7 +178,7 @@ const T = {
     close:'Close',ing:'Ingredients',method:'Method',note:'Note',time:'Time',serves:'Serves',noRec:'The recipe for this dish is not available yet.',
     loading:'Loading recipe…',transl:'Translating recipe…',failed:'Could not load the recipe. Please check your internet and try again.',
     notOpen:'Registration will open soon. You can still browse dishes and recipes.',err:'Something went wrong. Please try again.',total:(a,b)=>a+' of '+b+' dishes still open'},
-  gu:{sub:'વડતાલ ધામ એડમન્ટન · શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
+  gu:{gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'વડતાલ ધામ એડમન્ટન · શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
     pick:'વિભાગ પસંદ કરો',pickLead:'વિભાગ પર ટેપ કરો. દરેક વાનગી સાથે તેનો ફોટો છે; બનાવવાની રીત જોવા “રેસીપી જુઓ” દબાવો.',
     search:'વાનગીનું નામ અથવા નંબર શોધો',searchPh:'ઉદાહરણ: લાડુ, ઢોકળા, 229',
     back:'← બધા વિભાગ',dishes:'વાનગી',open:'બાકી',recipe:'રેસીપી જુઓ',select:'પસંદ કરો',selected:'✓ પસંદ કરેલ',taken:'સેવા નોંધાઈ ગઈ',mine:'તમારી પસંદ',
@@ -182,7 +190,7 @@ const T = {
     close:'બંધ કરો',ing:'સામગ્રી',method:'બનાવવાની રીત',note:'નોંધ',time:'સમય',serves:'પ્રમાણ',noRec:'આ વાનગીની રેસીપી હજુ ઉપલબ્ધ નથી.',
     loading:'રેસીપી ખુલે છે…',transl:'ભાષાંતર થાય છે…',failed:'રેસીપી ખુલી નહીં. ઇન્ટરનેટ તપાસી ફરી પ્રયત્ન કરો.',
     notOpen:'નોંધણી ટૂંક સમયમાં શરૂ થશે. ત્યાં સુધી વાનગી અને રેસીપી જોઈ શકો છો.',err:'કંઈક ખોટું થયું. ફરી પ્રયત્ન કરો.',total:(a,b)=>b+' માંથી '+a+' વાનગી બાકી'},
-  hi:{sub:'वडताल धाम एडमन्टन · श्री हरि के चरणों में अन्नकूट सेवा',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
+  hi:{gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'वडताल धाम एडमन्टन · श्री हरि के चरणों में अन्नकूट सेवा',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
     pick:'विभाग चुनें',pickLead:'विभाग पर टैप करें। हर व्यंजन के साथ उसकी फोटो है; बनाने की विधि देखने के लिए “रेसिपी देखें” दबाएँ।',
     search:'व्यंजन का नाम या नंबर खोजें',searchPh:'उदाहरण: लड्डू, ढोकला, 229',
     back:'← सभी विभाग',dishes:'व्यंजन',open:'बाकी',recipe:'रेसिपी देखें',select:'चुनें',selected:'✓ चुना गया',taken:'सेवा हो चुकी',mine:'आपकी पसंद',
@@ -253,7 +261,8 @@ function render(focus){
   const app=$('#app'); let h='';
   if(view.v==='home'){
     const open=DISHES.filter(d=>!booked.has(d[0])).length;
-    h = searchBox() + `<div id="res">${resultsHtml()}</div>`;
+    h = `<figure class="banner" style="margin-inline:0"><img src="img/g/1.webp" alt="${esc(t().cap)}" fetchpriority="high"><p>${esc(t().cap)}</p></figure>` + searchBox() + `<div id="res">${resultsHtml()}</div>
+      <h2>${esc(t().gal)}</h2><p class="lead">${esc(t().galLead)}</p><div class="gal">${Array.from({length:GAL},(_,i)=>`<button data-gal="${i+1}" aria-label="${esc(t().photo)} ${i+1}"><img src="img/g/${i+1}t.webp" alt="" loading="lazy"></button>`).join('')}</div>`;
   } else if(view.v==='cat'){
     const c=CATS.find(c=>c[0]===view.c), ds=DISHES.filter(d=>d[3]===view.c);
     h = `<div class="bar"><button class="back" data-go="home">${esc(t().back)}</button></div>
@@ -314,6 +323,12 @@ async function openRecipe(sn, rl){
       ${r.note?`<p class="note"><b>${esc(L.note)}:</b> ${esc(r.note)}</p>`:''}`;
   }catch(e){ if(!stale(sn,rl)) body.innerHTML = top + `<p class="msg err">${esc(t().failed)}</p>`; }
 }
+const GAL=14;
+function showPhoto(i){
+  $('#dlg-b').dataset.sn=''; $('#dlg-t').textContent=t().gal+' · '+i+' / '+GAL;
+  $('#dlg-b').innerHTML=`<img class="big" src="img/g/${i}.webp" alt="${esc(t().cap)}"><div class="gnav"><button class="btn ghost" data-gal="${i>1?i-1:GAL}">${esc(t().prev)}</button><button class="btn ghost" data-gal="${i<GAL?i+1:1}">${esc(t().next)}</button></div>`;
+  if(!$('#dlg').open) $('#dlg').showModal();
+}
 function stale(sn,rl){ const b=$('#dlg-b'); return Number(b.dataset.sn)!==sn || b.dataset.rl!==rl; }
 function setRec(sn,rl){ const b=$('#dlg-b'); b.dataset.sn=sn; b.dataset.rl=rl; openRecipe(sn,rl); }
 
@@ -361,6 +376,7 @@ document.addEventListener('click',e=>{
   if(x.dataset.rl){ setRec(+x.dataset.sn, x.dataset.rl); return; }
   if(x.dataset.rm){ sel.delete(+x.dataset.rm); saveSel(); view={v:'form'}; render(); return; }
   if(x.id==='tray-go'){ view={v:'form'}; render(true); return; }
+  if(x.dataset.gal){ showPhoto(+x.dataset.gal); return; }
   if(x.id==='dlg-x'){ $('#dlg').close(); return; }
 });
 document.addEventListener('input',e=>{ if(e.target.id==='q'){ q=e.target.value; $('#res').innerHTML=resultsHtml(); } });
