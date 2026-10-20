@@ -247,6 +247,15 @@ dialog.poly{position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;display:bloc
 dialog.poly::after{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,4,8,.7);z-index:-1}
 @media(max-width:360px){.langs button{padding:6px 9px;font-size:.85rem}.hero.compact .langs button{padding:6px 8px}}
 @media(orientation:landscape) and (max-height:520px){.db .hero-img{max-height:55vh;width:auto;max-width:100%}.hero{padding-bottom:110px}}
+.editbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#fff8e1,#f6e2a4);border:2px solid var(--gold);border-radius:16px;padding:14px 16px;margin:0 0 18px;box-shadow:0 10px 24px -14px rgba(51,7,15,.45)}
+.editbar b{display:block;color:var(--m8);font-size:1.05rem}
+.editbar span{display:block;color:#5a3d12;font-size:.9rem}
+.editbar .back{margin:0}
+.mydet{display:grid;gap:2px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 16px}
+.mydet b{color:var(--m8)}
+.editacts{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.editacts .btn{flex:1 1 220px}
+.lk{display:grid;gap:14px;max-width:640px}
 @media(prefers-reduced-motion:reduce){.mandala,.motif,.big,.spin,.kandil,.burst,.twinkles b,.diyas .flame{animation:none}.burst{display:none}}
 html:not([lang=en]) .caps,html:not([lang=en]) .badge,html:not([lang=en]) .eyebrow,html:not([lang=en]) .contact .tn{letter-spacing:.03em;text-transform:none}
 </style>
@@ -323,7 +332,7 @@ const CATS = [
   [14,'Dry Fruits & Mukhvas','સૂકો મેવો અને મુખવાસ','सूखे मेवे और मुखवास',1048]
 ];
 const T = {
-  en:{home:'Home',jump:'Jump to another section',ruleT:'Important when preparing prasad',rule:'When making any dish, please do not use onion, garlic or hing (asafoetida). Strain and filter all ghee, oil, milk and water before use.',moreLang:'Other languages',pickLang:'Choose a language…',hint:'You can also choose dishes from other sections.',other:'← Choose from another section',inCat:n=>'✓ '+n+' selected',pre:'Shree Hindu Swaminarayan Temple · Vadtaldham Edmonton',title:'Annakut Utsav',badge:'✦ Diwali · Nutan Varsh · Annakut ✦',fDish:'dishes to offer',fOpen:'still open',fLang:'recipe languages',fWhere:'Edmonton',bless:'Jay Swaminarayan',contact:'Contact the temple',addr:'Address',ph:'Phone',em:'Email',map:'Open in Google Maps',req:'Please fill in your name, phone and email.',gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Offer a dish at the lotus feet of Shri Hari. Choose your dish, read its recipe, and register in two easy steps.',s1:'Choose dishes',s2:'Your details',s3:'Done',
+  en:{already:'Already registered?',alreadyLead:'Change your dishes or cancel, using your reference number and email.',refLbl:'Reference number',refPh:'For example: AK1020-ABCD',find:'Find my seva',finding:'Looking up…',editing:r=>'Changing seva '+r,editHint:'Add or remove dishes from any section, then tap “Review changes”.',exitEdit:'Exit without changes',review:'Review changes →',yourDetails:'Your details',save:'Save changes',saving:'Saving…',cancelAll:'Cancel my whole seva',confirmCancel:'Cancel your whole seva? Your dishes will be released for others.',updT:'Your seva has been updated.',canT:'Your seva has been cancelled.',changeBtn:'Change my dishes',useRef:'Keep this reference number. You can use it any time to change your dishes.',noneSel:'You have removed all your dishes. Add a dish, or tap “Cancel my whole seva”.',home:'Home',jump:'Jump to another section',ruleT:'Important when preparing prasad',rule:'When making any dish, please do not use onion, garlic or hing (asafoetida). Strain and filter all ghee, oil, milk and water before use.',moreLang:'Other languages',pickLang:'Choose a language…',hint:'You can also choose dishes from other sections.',other:'← Choose from another section',inCat:n=>'✓ '+n+' selected',pre:'Shree Hindu Swaminarayan Temple · Vadtaldham Edmonton',title:'Annakut Utsav',badge:'✦ Diwali · Nutan Varsh · Annakut ✦',fDish:'dishes to offer',fOpen:'still open',fLang:'recipe languages',fWhere:'Edmonton',bless:'Jay Swaminarayan',contact:'Contact the temple',addr:'Address',ph:'Phone',em:'Email',map:'Open in Google Maps',req:'Please fill in your name, phone and email.',gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Offer a dish at the lotus feet of Shri Hari. Choose your dish, read its recipe, and register in two easy steps.',s1:'Choose dishes',s2:'Your details',s3:'Done',
     pick:'Choose a section',pickLead:'Tap a section to see its dishes. Each dish shows its photo; tap “View recipe” to read how to make it.',
     search:'Search by dish name or number',searchPh:'For example: Ladoo, Dhokla, 229',
     back:'← All sections',dishes:'dishes',open:'open',recipe:'View recipe',select:'Select',selected:'✓ Selected',taken:'Already offered',mine:'Your choice',
@@ -335,7 +344,7 @@ const T = {
     close:'Close',ing:'Ingredients',method:'Method',note:'Note',time:'Time',serves:'Serves',noRec:'The recipe for this dish is not available yet.',
     loading:'Loading recipe…',transl:'Translating recipe…',failed:'Could not load the recipe. Please check your internet and try again.',
     notOpen:'Registration will open soon. You can still browse dishes and recipes.',err:'Something went wrong. Please try again.',total:(a,b)=>a+' of '+b+' dishes still open'},
-  gu:{home:'મુખ્ય પાનું',jump:'બીજા વિભાગમાં જાઓ',ruleT:'પ્રસાદ બનાવતી વખતે ખાસ ધ્યાન રાખો',rule:'કોઈ પણ વાનગી બનાવો ત્યારે ડુંગળી, લસણ અને હિંગનો ઉપયોગ ન કરવો. ઘી, તેલ, દૂધ, પાણી બધું ગાળી-ચાળીને વાપરવું.',moreLang:'બીજી ભાષાઓ',pickLang:'ભાષા પસંદ કરો…',hint:'તમે બીજા વિભાગમાંથી પણ વાનગી પસંદ કરી શકો છો.',other:'← બીજા વિભાગમાંથી પસંદ કરો',inCat:n=>'✓ '+n+' પસંદ કરી',pre:'શ્રી હિન્દુ સ્વામિનારાયણ મંદિર · વડતાલધામ એડમન્ટન',title:'અન્નકૂટ ઉત્સવ',badge:'✦ દિવાળી · નૂતન વર્ષ · અન્નકૂટ ✦',fDish:'વાનગીઓ',fOpen:'હજી બાકી',fLang:'ભાષામાં રેસીપી',fWhere:'એડમન્ટન',bless:'જય સ્વામિનારાયણ',contact:'મંદિરનો સંપર્ક',addr:'સરનામું',ph:'ફોન',em:'ઈમેલ',map:'Google Maps માં ખોલો',req:'કૃપા કરીને નામ, ફોન અને ઈમેલ ભરો.',gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા. વાનગી પસંદ કરો, રેસીપી જુઓ અને બે સરળ પગલામાં નોંધણી કરો.',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
+  gu:{already:'પહેલેથી નોંધણી કરી છે?',alreadyLead:'તમારા નોંધણી નંબર અને ઈમેલથી વાનગી બદલો અથવા સેવા રદ કરો.',refLbl:'નોંધણી નંબર',refPh:'ઉદાહરણ: AK1020-ABCD',find:'મારી સેવા શોધો',finding:'શોધાય છે…',editing:r=>'સેવા '+r+' બદલી રહ્યા છો',editHint:'કોઈ પણ વિભાગમાંથી વાનગી ઉમેરો કે કાઢો, પછી “ફેરફાર જુઓ” દબાવો.',exitEdit:'ફેરફાર વગર બહાર નીકળો',review:'ફેરફાર જુઓ →',yourDetails:'તમારી વિગત',save:'ફેરફાર સાચવો',saving:'સચવાય છે…',cancelAll:'મારી આખી સેવા રદ કરો',confirmCancel:'આખી સેવા રદ કરવી છે? તમારી વાનગીઓ બીજા માટે ખુલ્લી થશે.',updT:'તમારી સેવા બદલાઈ ગઈ છે.',canT:'તમારી સેવા રદ થઈ ગઈ છે.',changeBtn:'મારી વાનગી બદલો',useRef:'આ નોંધણી નંબર સાચવી રાખો. પછી ક્યારેય વાનગી બદલવા માટે તેનો ઉપયોગ કરી શકો છો.',noneSel:'તમે બધી વાનગી કાઢી નાખી છે. વાનગી ઉમેરો, અથવા “મારી આખી સેવા રદ કરો” દબાવો.',home:'મુખ્ય પાનું',jump:'બીજા વિભાગમાં જાઓ',ruleT:'પ્રસાદ બનાવતી વખતે ખાસ ધ્યાન રાખો',rule:'કોઈ પણ વાનગી બનાવો ત્યારે ડુંગળી, લસણ અને હિંગનો ઉપયોગ ન કરવો. ઘી, તેલ, દૂધ, પાણી બધું ગાળી-ચાળીને વાપરવું.',moreLang:'બીજી ભાષાઓ',pickLang:'ભાષા પસંદ કરો…',hint:'તમે બીજા વિભાગમાંથી પણ વાનગી પસંદ કરી શકો છો.',other:'← બીજા વિભાગમાંથી પસંદ કરો',inCat:n=>'✓ '+n+' પસંદ કરી',pre:'શ્રી હિન્દુ સ્વામિનારાયણ મંદિર · વડતાલધામ એડમન્ટન',title:'અન્નકૂટ ઉત્સવ',badge:'✦ દિવાળી · નૂતન વર્ષ · અન્નકૂટ ✦',fDish:'વાનગીઓ',fOpen:'હજી બાકી',fLang:'ભાષામાં રેસીપી',fWhere:'એડમન્ટન',bless:'જય સ્વામિનારાયણ',contact:'મંદિરનો સંપર્ક',addr:'સરનામું',ph:'ફોન',em:'ઈમેલ',map:'Google Maps માં ખોલો',req:'કૃપા કરીને નામ, ફોન અને ઈમેલ ભરો.',gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા. વાનગી પસંદ કરો, રેસીપી જુઓ અને બે સરળ પગલામાં નોંધણી કરો.',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
     pick:'વિભાગ પસંદ કરો',pickLead:'વિભાગ પર ટેપ કરો. દરેક વાનગી સાથે તેનો ફોટો છે; બનાવવાની રીત જોવા “રેસીપી જુઓ” દબાવો.',
     search:'વાનગીનું નામ અથવા નંબર શોધો',searchPh:'ઉદાહરણ: લાડુ, ઢોકળા, 229',
     back:'← બધા વિભાગ',dishes:'વાનગી',open:'બાકી',recipe:'રેસીપી જુઓ',select:'પસંદ કરો',selected:'✓ પસંદ કરેલ',taken:'સેવા નોંધાઈ ગઈ',mine:'તમારી પસંદ',
@@ -347,7 +356,7 @@ const T = {
     close:'બંધ કરો',ing:'સામગ્રી',method:'બનાવવાની રીત',note:'નોંધ',time:'સમય',serves:'પ્રમાણ',noRec:'આ વાનગીની રેસીપી હજુ ઉપલબ્ધ નથી.',
     loading:'રેસીપી ખુલે છે…',transl:'ભાષાંતર થાય છે…',failed:'રેસીપી ખુલી નહીં. ઇન્ટરનેટ તપાસી ફરી પ્રયત્ન કરો.',
     notOpen:'નોંધણી ટૂંક સમયમાં શરૂ થશે. ત્યાં સુધી વાનગી અને રેસીપી જોઈ શકો છો.',err:'કંઈક ખોટું થયું. ફરી પ્રયત્ન કરો.',total:(a,b)=>b+' માંથી '+a+' વાનગી બાકી'},
-  hi:{home:'मुख्य पृष्ठ',jump:'दूसरे विभाग में जाएँ',ruleT:'प्रसाद बनाते समय विशेष ध्यान रखें',rule:'कोई भी व्यंजन बनाते समय प्याज़, लहसुन और हींग का उपयोग न करें। घी, तेल, दूध और पानी सब छानकर ही उपयोग करें।',moreLang:'अन्य भाषाएँ',pickLang:'भाषा चुनें…',hint:'आप दूसरे विभागों से भी व्यंजन चुन सकते हैं।',other:'← दूसरे विभाग से चुनें',inCat:n=>'✓ '+n+' चुने',pre:'श्री हिन्दू स्वामिनारायण मंदिर · वडतालधाम एडमन्टन',title:'अन्नकूट उत्सव',badge:'✦ दीपावली · नूतन वर्ष · अन्नकूट ✦',fDish:'व्यंजन',fOpen:'अभी बाकी',fLang:'भाषाओं में रेसिपी',fWhere:'एडमन्टन',bless:'जय स्वामिनारायण',contact:'मंदिर से संपर्क',addr:'पता',ph:'फ़ोन',em:'ईमेल',map:'Google Maps में खोलें',req:'कृपया नाम, फ़ोन और ईमेल भरें।',gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'श्री हरि के चरणों में अन्नकूट सेवा। व्यंजन चुनें, रेसिपी देखें और दो आसान चरणों में पंजीकरण करें।',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
+  hi:{already:'पहले से पंजीकृत?',alreadyLead:'अपने पंजीकरण नंबर और ईमेल से व्यंजन बदलें या सेवा रद्द करें।',refLbl:'पंजीकरण नंबर',refPh:'उदाहरण: AK1020-ABCD',find:'मेरी सेवा खोजें',finding:'खोज रहे हैं…',editing:r=>'सेवा '+r+' बदल रहे हैं',editHint:'किसी भी विभाग से व्यंजन जोड़ें या हटाएँ, फिर “बदलाव देखें” दबाएँ।',exitEdit:'बिना बदलाव बाहर निकलें',review:'बदलाव देखें →',yourDetails:'आपकी जानकारी',save:'बदलाव सहेजें',saving:'सहेज रहे हैं…',cancelAll:'मेरी पूरी सेवा रद्द करें',confirmCancel:'पूरी सेवा रद्द करनी है? आपके व्यंजन दूसरों के लिए खुल जाएँगे।',updT:'आपकी सेवा बदल दी गई है।',canT:'आपकी सेवा रद्द हो गई है।',changeBtn:'मेरे व्यंजन बदलें',useRef:'यह पंजीकरण नंबर संभाल कर रखें। बाद में कभी भी व्यंजन बदलने के लिए इसका उपयोग करें।',noneSel:'आपने सभी व्यंजन हटा दिए हैं। व्यंजन जोड़ें, या “मेरी पूरी सेवा रद्द करें” दबाएँ।',home:'मुख्य पृष्ठ',jump:'दूसरे विभाग में जाएँ',ruleT:'प्रसाद बनाते समय विशेष ध्यान रखें',rule:'कोई भी व्यंजन बनाते समय प्याज़, लहसुन और हींग का उपयोग न करें। घी, तेल, दूध और पानी सब छानकर ही उपयोग करें।',moreLang:'अन्य भाषाएँ',pickLang:'भाषा चुनें…',hint:'आप दूसरे विभागों से भी व्यंजन चुन सकते हैं।',other:'← दूसरे विभाग से चुनें',inCat:n=>'✓ '+n+' चुने',pre:'श्री हिन्दू स्वामिनारायण मंदिर · वडतालधाम एडमन्टन',title:'अन्नकूट उत्सव',badge:'✦ दीपावली · नूतन वर्ष · अन्नकूट ✦',fDish:'व्यंजन',fOpen:'अभी बाकी',fLang:'भाषाओं में रेसिपी',fWhere:'एडमन्टन',bless:'जय स्वामिनारायण',contact:'मंदिर से संपर्क',addr:'पता',ph:'फ़ोन',em:'ईमेल',map:'Google Maps में खोलें',req:'कृपया नाम, फ़ोन और ईमेल भरें।',gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'श्री हरि के चरणों में अन्नकूट सेवा। व्यंजन चुनें, रेसिपी देखें और दो आसान चरणों में पंजीकरण करें।',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
     pick:'विभाग चुनें',pickLead:'विभाग पर टैप करें। हर व्यंजन के साथ उसकी फोटो है; बनाने की विधि देखने के लिए “रेसिपी देखें” दबाएँ।',
     search:'व्यंजन का नाम या नंबर खोजें',searchPh:'उदाहरण: लड्डू, ढोकला, 229',
     back:'← सभी विभाग',dishes:'व्यंजन',open:'बाकी',recipe:'रेसिपी देखें',select:'चुनें',selected:'✓ चुना गया',taken:'सेवा हो चुकी',mine:'आपकी पसंद',
@@ -364,7 +373,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const store = {get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 let DISHES=[], BY={}, booked=new Set(), hiNames=store.get('hiNames',null), guRec=null, recCache={};
-let lang=store.get('lang','en'), sel=new Set(store.get('sel',[])), view={v:'home'}, q='';
+let edit=null; let lang=store.get('lang','en'), sel=new Set(store.get('sel',[])), view={v:'home'}, q='';
 const t = () => T[lang];
 
 async function api(fn, args){
@@ -404,7 +413,7 @@ function renderChrome(){
     <dt>${esc(t().em)}</dt><dd><a href="mailto:${CONFIG.EMAIL}">${esc(CONFIG.EMAIL)}</a></dd></dl><p class="blessing">${esc(t().bless)}</p></div>`;
   const showTray = sel.size>0 && view.v!=='form' && view.v!=='done';
   $('#tray').hidden = !showTray;
-  if(showTray){ $('#tray-t').innerHTML=`${esc(t().nsel(sel.size))}<small>${esc(t().hint)}</small>`; $('#tray-go').textContent=t().cont; }
+  if(showTray){ $('#tray-t').innerHTML=`${esc(t().nsel(sel.size))}<small>${esc(t().hint)}</small>`; $('#tray-go').textContent=edit?t().review:t().cont; }
   $('#dlg-x').textContent = t().close;
 }
 
@@ -431,30 +440,41 @@ function render(focus){
   const app=$('#app'); let h='';
   const step=(n,title,sub)=>`<div class="step"><span class="step-no">${n}</span><h2>${esc(title)}</h2></div>${sub?`<p class="sub">${esc(sub)}</p>`:''}`;
   if(view.v==='home'){
-    h = `<section class="card">${step('✦',t().pick,t().pickLead)}${ruleBox()}${searchBox()}<div id="res">${resultsHtml()}</div></section>
+    const mine=store.get('mine',null), me=store.get('me',{});
+    h = `${editBar()}<section class="card">${step('✦',t().pick,t().pickLead)}${ruleBox()}${searchBox()}<div id="res">${resultsHtml()}</div></section>
+      ${edit?'':`<section class="card" id="manage">${step('✎',t().already,t().alreadyLead)}
+      ${mine?`<p><button class="btn gold" data-act="mine">${esc(t().changeBtn)} · ${esc(mine.ref)}</button></p>`:''}
+      <form id="lk" class="lk" novalidate><div class="field"><label for="lr">${esc(t().refLbl)}</label><input id="lr" name="ref" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="${esc(t().refPh)}" required value="${esc(view.lkRef||'')}"></div>
+      <div class="field"><label for="le">${esc(t().email)}</label><input id="le" name="email" type="email" inputmode="email" autocomplete="email" required value="${esc(me.email||'')}"></div>
+      ${view.lkMsg?`<p class="msg err" role="alert">${esc(view.lkMsg)}</p>`:''}<button class="btn" type="submit" id="lb">${esc(t().find)}</button></form></section>`}
       <section class="card"><div class="eyebrow">${esc(t().cap)}</div><h2>${esc(t().gal)}</h2><p class="sub" style="margin-left:0">${esc(t().galLead)}</p>
       <div class="mosaic">${Array.from({length:GAL},(_,i)=>`<button data-gal="${i+1}" aria-label="${esc(t().photo)} ${i+1}"><img src="img/g/${i?i+1+'t':1}.webp" alt="" loading="lazy"></button>`).join('')}</div></section>`;
   } else if(view.v==='cat'){
     const c=CATS.find(c=>c[0]===view.c), ds=DISHES.filter(d=>d[3]===view.c);
-    h = `${chips(view.c)}<section class="card"><button class="back" data-go="home">${esc(t().back)}</button>${step('✦',catName(c),t().total(ds.filter(d=>!booked.has(d[0])).length, ds.length))}${ruleBox()}
+    h = `${editBar()}${chips(view.c)}<section class="card"><button class="back" data-go="home">${esc(t().back)}</button>${step('✦',catName(c),t().total(ds.filter(d=>!booked.has(d[0])).length, ds.length))}${ruleBox()}
       ${sel.size?`<p class="msg info">${esc(t().hint)}</p>`:''}<div class="list">${ds.map(card).join('')}</div>
       <div class="catnav"><button class="back" data-go="home">${esc(t().other)}</button>${sel.size?`<button class="btn" data-go="form">${esc(t().cont)}</button>`:''}</div></section>`;
   } else if(view.v==='form'){
     const ds=[...sel].map(n=>BY[n]).filter(Boolean), me=store.get('me',{});
-    h = `<section class="card"><button class="back" data-go="home">${esc(t().more)}</button>${step('II',t().yours)}
+    h = `${editBar()}<section class="card"><button class="back" data-go="home">${esc(t().more)}</button>${step('II',t().yours)}
       <div class="chosen" style="margin-top:14px">${ds.map(d=>{const [a,b]=nameOf(d);return `<div class="row"><img src="img/${d[0]}.webp" alt=""><div><b>#${d[0]} · ${esc(a)}</b><small>${esc(b)}</small></div><button data-rm="${d[0]}">${esc(t().remove)}</button></div>`}).join('')}</div>
       ${view.msg?`<p class="msg ${view.msgType||'err'}" role="alert">${view.msg}</p>`:''}
       ${CONFIG.API?'':`<p class="msg info">${esc(t().notOpen)}</p>`}
-      ${ruleBox()}<form id="f" novalidate>
+      ${edit?`${ruleBox()}<div class="mydet"><b>${esc(t().yourDetails)}</b><span>${esc(edit.name)}</span><span>${esc(edit.phone)}</span><span>${esc(edit.email)}</span></div>
+      ${ds.length?'':`<p class="msg info">${esc(t().noneSel)}</p>`}
+      <div class="editacts"><button class="btn" data-act="save"${ds.length?'':' disabled'}>${esc(t().save)}</button><button class="btn ghost" data-act="cancelAll">${esc(t().cancelAll)}</button></div></section>`:`${ruleBox()}<form id="f" novalidate>
         <div class="field"><label for="fn">${esc(t().name)}</label><input id="fn" name="name" autocomplete="name" required value="${esc(me.name||'')}"></div>
         <div class="field"><label for="fp">${esc(t().phone)}</label><input id="fp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required value="${esc(me.phone||'')}"><small>${esc(t().phoneHelp)}</small></div>
         <div class="field"><label for="fe">${esc(t().email)}</label><input id="fe" name="email" type="email" inputmode="email" autocomplete="email" required value="${esc(me.email||'')}"><small>${esc(t().emailHelp)}</small></div>
         <button class="btn" type="submit" id="fs"${CONFIG.API&&ds.length?'':' disabled'}>${esc(t().confirm)}</button>
-      </form></section>`;
+      </form></section>`}`;
   } else if(view.v==='done'){
-    h = `<section class="card ok" role="status">${step('III',t().okT)}<p style="margin:14px 0 4px">${esc(t().okRef)}:</p><p class="ref">${esc(view.ref)}</p>${ruleBox()}
+    const k=view.kind||'new', mine=store.get('mine',null);
+    h = `<section class="card ok" role="status">${step('III',k==='updated'?t().updT:k==='cancelled'?t().canT:t().okT)}
+      ${k==='cancelled'?'':`<p style="margin:14px 0 4px">${esc(t().okRef)}:</p><p class="ref">${esc(view.ref)}</p><p class="msg info">${esc(t().useRef)}</p>${ruleBox()}
       <div class="chosen">${view.list.map(n=>{const d=BY[n],[a,b]=nameOf(d);return `<div class="row"><img src="img/${n}.webp" alt=""><div><b>#${n} · ${esc(a)}</b><small>${esc(b)}</small></div><button data-rec="${n}">${esc(t().recipe)}</button></div>`}).join('')}</div>
-      <p>${esc(t().okShot)}</p><button class="btn" data-go="home">${esc(t().again)}</button></section>`;
+      <p>${esc(t().okShot)}</p>`}
+      <div class="editacts">${k!=='cancelled'&&mine&&mine.ref===view.ref?`<button class="btn gold" data-act="mine">${esc(t().changeBtn)}</button>`:''}<button class="btn" data-go="home">${esc(t().again)}</button></div></section>`;
   }
   app.innerHTML=h;
   const on=document.querySelector('.chip.on'); if(on) on.parentNode.scrollLeft=on.offsetLeft-on.parentNode.offsetWidth/2+on.offsetWidth/2;
@@ -503,6 +523,33 @@ async function openRecipe(sn, rl){
 }
 const ruleBox=()=>`<div class="rule" role="note"><svg aria-hidden="true"><use href="#d-diya"/></svg><div><b>${esc(t().ruleT)}</b><p lang="gu">${esc(T.gu.rule)}</p>${lang!=='gu'?`<p>${esc(t().rule)}</p>`:''}</div></div>`;
 const chips=cur=>`<nav class="chips" aria-label="${esc(t().jump)}"><span class="chips-l">${esc(t().jump)}</span><div class="chips-row"><button class="chip home" data-go="home">${esc(t().home)}</button>${CATS.map(c=>{const m=DISHES.filter(d=>d[3]===c[0]&&sel.has(d[0])).length;return `<button class="chip${c[0]===cur?' on':''}" data-cat="${c[0]}"${c[0]===cur?' aria-current="true"':''}>${esc(catName(c))}${m?`<em>${m}</em>`:''}</button>`}).join('')}</div></nav>`;
+const editBar=()=>edit?`<div class="editbar" role="status"><div><b>${esc(t().editing(edit.ref))}</b><span>${esc(t().editHint)}</span></div><button class="back" data-act="exit">${esc(t().exitEdit)}</button></div>`:'';
+async function startManage(ref,key){
+  const b=await api('getBooking',[ref,key]);
+  edit={ref:b.ref,token:b.token,name:b.name,phone:b.phone,email:b.email,orig:b.dishes};
+  store.set('mine',{ref:b.ref,token:b.token});
+  sel=new Set(b.dishes); saveSel(); b.dishes.forEach(n=>booked.delete(n));
+  view={v:b.dishes.length?'form':'home'}; render(true);
+}
+function exitEdit(){ edit=null; sel.clear(); saveSel(); view={v:'home'}; refreshBooked(); render(true); }
+async function saveEdit(btn){
+  if(btn){ btn.disabled=true; btn.textContent=t().saving; }
+  try{
+    const r=await api('updateBooking',[edit.ref,edit.token,[...sel]]);
+    if(!r.ok){ r.conflicts.forEach(n=>{sel.delete(n);booked.add(n)}); saveSel(); view={v:'form',msg:esc(t().taken2)+' '+r.conflicts.map(n=>'#'+n+' '+esc(nameOf(BY[n])[0])).join(', ')}; render(true); return; }
+    r.dishes.forEach(n=>booked.add(n)); const ref=edit.ref; edit=null; sel.clear(); saveSel();
+    if(!r.dishes.length) store.set('mine',null);
+    view={v:'done',kind:r.dishes.length?'updated':'cancelled',ref,list:r.dishes}; render(true);
+  }catch(err){ view={v:'form',msg:esc(lang==='en'?err.message:t().err)}; render(true); }
+}
+async function lookup(e){
+  e.preventDefault();
+  const f=e.target, ref=f.ref.value.trim().toUpperCase(), em=f.email.value.trim();
+  if(!ref||!em){ view={v:'home',lkMsg:t().req,lkRef:ref}; render(); $('#manage').scrollIntoView(); return; }
+  const b=$('#lb'); b.disabled=true; b.textContent=t().finding;
+  try{ await startManage(ref,em); }
+  catch(err){ view={v:'home',lkMsg:lang==='en'?err.message:t().err,lkRef:ref}; render(); $('#manage').scrollIntoView(); }
+}
 const GAL=12;
 function showPhoto(i){
   $('#dlg-b').dataset.sn=''; $('#dlg-t').textContent=t().gal+' · '+i+' / '+GAL;
@@ -533,14 +580,15 @@ async function submit(e){
       view={v:'form',msg:esc(t().taken2)+' '+r.conflicts.map(n=>'#'+n+' '+esc(nameOf(BY[n])[0])).join(', ')}; render(true); return;
     }
     r.dishes.forEach(n=>booked.add(n)); sel.clear(); saveSel();
-    view={v:'done',ref:r.ref,list:r.dishes}; render(true);
+    store.set('mine',{ref:r.ref,token:r.token});
+    view={v:'done',kind:'new',ref:r.ref,list:r.dishes}; render(true);
   }catch(err){
     view={v:'form',msg:esc(err.message==='offline'?t().notOpen:(/[a-z]/i.test(err.message)&&lang==='en'?err.message:t().err))}; render(true);
   }
 }
 
 async function refreshBooked(){
-  try{ booked=new Set(await api('getBooked',[])); if(view.v==='home'||view.v==='cat'){const y=window.scrollY;render();window.scrollTo(0,y);} }catch{}
+  try{ booked=new Set(await api('getBooked',[])); if(edit) edit.orig.forEach(n=>booked.delete(n)); if(view.v==='home'||view.v==='cat'){const y=window.scrollY;render();window.scrollTo(0,y);} }catch{}
 }
 async function loadHi(){
   if(hiNames||!CONFIG.API) return;
@@ -558,13 +606,17 @@ document.addEventListener('click',e=>{
   if(x.dataset.rm){ sel.delete(+x.dataset.rm); saveSel(); view={v:'form'}; render(); return; }
   if(x.id==='tray-go'){ view={v:'form'}; render(true); return; }
   if(x.dataset.gal){ showPhoto(+x.dataset.gal); return; }
+  if(x.dataset.act==='exit'){ exitEdit(); return; }
+  if(x.dataset.act==='save'){ saveEdit(x); return; }
+  if(x.dataset.act==='cancelAll'){ if(window.confirm(t().confirmCancel)){ sel.clear(); saveEdit(x); } return; }
+  if(x.dataset.act==='mine'){ const m=store.get('mine',null); if(m){ x.disabled=true; startManage(m.ref,m.token).catch(err=>{ x.disabled=false; alert(lang==='en'?err.message:t().err); }); } return; }
   if(x.id==='dlg-x'){ $('#dlg').close(); return; }
 });
 document.addEventListener('input',e=>{ if(e.target.id==='q'){ q=e.target.value; $('#res').innerHTML=resultsHtml(); } });
 document.addEventListener('change',e=>{ if(e.target.id==='ml'&&e.target.value) setRec(+e.target.dataset.sn, e.target.value); });
-document.addEventListener('submit',e=>{ if(e.target.id==='f') submit(e); });
+document.addEventListener('submit',e=>{ if(e.target.id==='lk') lookup(e); if(e.target.id==='f') submit(e); });
 $('#dlg').addEventListener('close',()=>{ if(/^#r\d/.test(location.hash)) history.replaceState(null,'',location.pathname+location.search); });
-function fromHash(){ const m=location.hash.match(/^#r(\d+)(?:-([a-z]{2}(?:-[A-Z]{2})?))?$/); if(m&&BY[+m[1]]) setRec(+m[1], m[2]||lang); }
+function fromHash(){ const mg=location.hash.match(/^#manage\/([A-Z0-9-]+)\/([\w-]+)$/); if(mg){ history.replaceState(null,'',location.pathname+location.search); startManage(mg[1],mg[2]).catch(err=>{ view={v:'home',lkMsg:lang==='en'?err.message:t().err,lkRef:mg[1]}; render(); }); return; } const m=location.hash.match(/^#r(\d+)(?:-([a-z]{2}(?:-[A-Z]{2})?))?$/); if(m&&BY[+m[1]]) setRec(+m[1], m[2]||lang); }
 window.addEventListener('hashchange',fromHash);
 $('#dlg').addEventListener('click',e=>{ if(e.target.id==='dlg') e.target.close(); });
 
