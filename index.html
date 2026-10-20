@@ -1,0 +1,2429 @@
+<title>Annakut Seva 2026 — Vadtal Dham Edmonton</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&family=Noto+Sans+Gujarati:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap">
+
+<style>
+/* ─── Tokens — warm white + aged gold ─────────────── */
+:root {
+  --bg:        #FFFDF8;
+  --bg-alt:    #F7F3EA;
+  --surface:   #FFFFFF;
+  --surface2:  #F9F6EF;
+  --border:    rgba(140,105,30,0.13);
+  --border-h:  rgba(140,105,30,0.32);
+  --sh:        0 2px 8px rgba(80,55,10,0.07), 0 6px 22px rgba(80,55,10,0.05);
+  --sh-lg:     0 8px 36px rgba(80,55,10,0.11);
+  --fg:        #1A1208;
+  --fg-2:      #4A3A1E;
+  --fg-muted:  #7A6848;
+  --gold:      #A87818;
+  --gold-lt:   #D4A030;
+  --gold-dim:  rgba(168,120,24,0.08);
+  --saffron:   #C04C0E;
+  --avail:     #1E7040;
+  --avail-bg:  rgba(30,112,64,0.08);
+  --booked-c:  #8B2020;
+  --booked-bg: rgba(139,32,32,0.08);
+  --font-disp: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', 'Noto Sans Gujarati', 'Noto Sans Devanagari', sans-serif;
+  --r:    6px;
+  --r-sm: 4px;
+  --hh:   66px;
+}
+/* Lighter dark mode */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#1C1509;--bg-alt:#241C0C;--surface:#2C2210;--surface2:#342A16;
+    --border:rgba(225,175,55,0.13);--border-h:rgba(225,175,55,0.33);
+    --sh:0 2px 8px rgba(0,0,0,0.35),0 6px 22px rgba(0,0,0,0.25);
+    --sh-lg:0 8px 36px rgba(0,0,0,0.45);
+    --fg:#F0E6CC;--fg-2:#CEAE78;--fg-muted:#9A8860;
+    --gold:#E0B840;--gold-lt:#F8D460;--gold-dim:rgba(224,184,64,0.08);
+    --saffron:#DC6820;--avail:#72CC8A;--avail-bg:rgba(114,204,138,0.09);
+    --booked-c:#D05050;--booked-bg:rgba(208,80,80,0.09);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#1C1509;--bg-alt:#241C0C;--surface:#2C2210;--surface2:#342A16;
+  --border:rgba(225,175,55,0.13);--border-h:rgba(225,175,55,0.33);
+  --sh:0 2px 8px rgba(0,0,0,0.35),0 6px 22px rgba(0,0,0,0.25);
+  --sh-lg:0 8px 36px rgba(0,0,0,0.45);
+  --fg:#F0E6CC;--fg-2:#CEAE78;--fg-muted:#9A8860;
+  --gold:#E0B840;--gold-lt:#F8D460;--gold-dim:rgba(224,184,64,0.08);
+  --saffron:#DC6820;--avail:#72CC8A;--avail-bg:rgba(114,204,138,0.09);
+  --booked-c:#D05050;--booked-bg:rgba(208,80,80,0.09);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.65;min-height:100%}
+[hidden]{display:none!important}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--font-disp);text-wrap:balance;line-height:1.12}
+
+/* ── Header ──────────────────────────────────────── */
+.site-header{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:100;
+  background:var(--bg);border-bottom:2px solid var(--border);
+  padding:0 max(20px,env(safe-area-inset-left,0px));
+  height:var(--hh);display:flex;align-items:center;
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+.header-brand{display:flex;flex-direction:column;gap:1px}
+.header-temple{font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-muted);line-height:1}
+.header-title{font-family:var(--font-disp);font-size:20px;font-weight:600;color:var(--fg);line-height:1}
+.header-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+
+.lang-btns{display:flex;align-items:center}
+.lang-btn{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-body);font-size:12px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--fg-muted);
+  padding:6px 10px;transition:color .18s;min-height:44px;
+}
+.lang-btn+.lang-btn{border-left:1px solid var(--border)}
+.lang-btn.active{color:var(--gold)}
+
+.cart-fab{
+  background:none;border:2px solid var(--border);
+  color:var(--fg-2);width:40px;height:40px;
+  border-radius:50%;cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .18s,color .18s;position:relative;
+}
+.cart-fab:hover{border-color:var(--gold);color:var(--gold)}
+.cart-count{
+  position:absolute;top:-6px;right:-6px;
+  background:var(--gold);color:#fff;
+  font-size:10px;font-weight:700;min-width:18px;height:18px;
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  padding:0 4px;font-family:var(--font-body);
+}
+
+/* ── Hero ────────────────────────────────────────── */
+.hero{
+  background:var(--bg);
+  padding:72px max(24px,env(safe-area-inset-left,0px)) 80px;
+  text-align:center;border-bottom:2px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 70% at 50% 30%,rgba(168,120,24,0.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:var(--font-body);font-size:11px;font-weight:500;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;display:block;
+}
+.hero-h1{
+  font-family:var(--font-disp);
+  font-size:clamp(48px,8vw,88px);
+  font-weight:300;color:var(--fg);
+  letter-spacing:-.01em;line-height:1.0;margin-bottom:16px;
+}
+.hero-h1 em{font-style:italic;color:var(--gold);font-weight:300}
+.hero-sub{
+  font-family:var(--font-disp);font-style:italic;font-weight:300;
+  font-size:clamp(16px,2.2vw,20px);color:var(--fg-2);
+  margin-bottom:48px;max-width:440px;margin-inline:auto;
+}
+.hero-rule{width:40px;height:2px;background:var(--gold);margin:0 auto 36px;opacity:.6}
+.hero-stats{display:flex;justify-content:center;max-width:460px;margin-inline:auto}
+.stat-item{text-align:center;flex:1;padding:0 24px;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:var(--font-disp);font-size:44px;font-weight:300;color:var(--fg);line-height:1;display:block;margin-bottom:6px}
+.stat-label{font-size:10px;font-weight:500;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.14em}
+
+/* ── Page ────────────────────────────────────────── */
+.page{padding-bottom:120px}
+.page-inner{padding-inline:max(20px,env(safe-area-inset-left,0px));max-width:980px;margin:0 auto}
+
+/* ── Section head ────────────────────────────────── */
+.section-head{padding:40px 0 20px}
+.section-head h2{
+  font-family:var(--font-body);font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--fg-muted);
+}
+.section-head .sub{font-size:13px;color:var(--fg-muted);margin-top:4px}
+
+/* ── Category grid ───────────────────────────────── */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+}
+.cat-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:28px 24px 26px;
+  cursor:pointer;position:relative;
+  box-shadow:var(--sh);
+  transition:box-shadow .2s,transform .2s,border-color .2s;
+}
+.cat-card:hover{box-shadow:var(--sh-lg);transform:translateY(-2px);border-color:var(--border-h)}
+.cat-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--gold);border-radius:var(--r) var(--r) 0 0;
+  opacity:0;transition:opacity .2s;
+}
+.cat-card:hover::before{opacity:1}
+.cat-icon{font-size:28px;margin-bottom:14px;display:block;line-height:1}
+.cat-name{font-family:var(--font-disp);font-size:22px;font-weight:600;color:var(--fg);margin-bottom:6px;line-height:1.2}
+.cat-avail{font-size:12px;color:var(--fg-muted);letter-spacing:.04em}
+
+/* ── Category page head ──────────────────────────── */
+.back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:none;border:none;color:var(--fg-muted);
+  font-family:var(--font-body);font-size:12px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:28px 0 22px;cursor:pointer;transition:color .18s;
+  min-height:44px;
+}
+.back-btn:hover{color:var(--gold)}
+.cat-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+.cat-header-icon{font-size:28px;opacity:.6}
+.cat-header-name{font-family:var(--font-disp);font-size:clamp(32px,5vw,50px);font-weight:600;color:var(--fg)}
+
+/* Filter bar */
+.filter-bar{display:flex;margin-bottom:24px;gap:0;flex-wrap:wrap}
+.filter-btn{
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--fg-muted);font-family:var(--font-body);font-size:12px;
+  font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  padding:10px 18px;cursor:pointer;
+  transition:all .18s;min-height:44px;
+  margin-right:8px;margin-bottom:8px;border-radius:var(--r-sm);
+}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#fff}
+.filter-btn:hover:not(.active){border-color:var(--border-h);color:var(--fg)}
+
+/* Search */
+.search-wrap{position:relative;margin-bottom:24px}
+.search-inp{
+  width:100%;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  color:var(--fg);font-family:var(--font-body);font-size:16px;
+  padding:12px 12px 12px 40px;outline:none;
+  transition:border-color .18s;box-shadow:var(--sh);
+}
+.search-inp:focus{border-color:var(--gold);outline:2px solid rgba(168,120,24,0.18)}
+.search-inp::placeholder{color:var(--fg-muted);opacity:.6}
+.search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--fg-muted);font-size:16px}
+
+/* ── Dish grid ───────────────────────────────────── */
+.dish-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.dish-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:var(--sh);
+  transition:box-shadow .22s,transform .22s,border-color .22s;
+}
+.dish-card.booked-dish{opacity:.6}
+.dish-card:not(.booked-dish):hover{box-shadow:var(--sh-lg);transform:translateY(-2px);border-color:var(--border-h)}
+.dish-card.selected-dish{border-color:var(--gold);border-width:2px;box-shadow:0 0 0 3px rgba(168,120,24,0.18)}
+
+/* Thumbnail area */
+.dish-img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;display:block;
+  transition:transform .36s;
+}
+.dish-card:not(.booked-dish):hover .dish-img{transform:scale(1.05)}
+.dish-img-placeholder{
+  width:100%;aspect-ratio:4/3;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  font-size:42px;cursor:pointer;gap:8px;
+}
+.dish-img-placeholder .recipe-hint{
+  font-size:11px;color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.30);padding:3px 10px;border-radius:20px;
+  font-family:var(--font-body);letter-spacing:.04em;
+}
+
+.dish-body{padding:14px 16px 18px;flex:1;display:flex;flex-direction:column;gap:8px}
+.dish-num{font-size:10px;color:var(--fg-muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.dish-name{font-family:var(--font-disp);font-size:18px;font-weight:600;line-height:1.3;flex:1;color:var(--fg)}
+
+.dish-status,.dish-badge{
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  align-self:flex-start;padding:3px 0;
+}
+.status-avail,.badge-avail{color:var(--avail)}
+.status-booked,.badge-booked{color:var(--booked-c)}
+
+.dish-actions{display:flex;gap:8px;margin-top:4px}
+.btn-recipe{
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--fg-muted);font-family:var(--font-body);font-size:11px;
+  font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  padding:0 10px;height:44px;cursor:pointer;flex:1;
+  border-radius:var(--r-sm);
+  transition:border-color .18s,color .18s,background .18s;
+}
+.btn-recipe:hover{border-color:var(--border-h);color:var(--fg);background:var(--surface)}
+.btn-select{
+  background:var(--fg);border:1px solid var(--fg);
+  color:var(--bg);font-family:var(--font-body);font-size:11px;
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:0 12px;height:44px;cursor:pointer;flex:2;
+  border-radius:var(--r-sm);
+  transition:background .18s,border-color .18s,color .18s;
+}
+.btn-select:hover:not(:disabled):not(.selected){background:var(--gold);border-color:var(--gold)}
+.btn-select.selected{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn-select:disabled{background:var(--bg-alt);border-color:var(--border);color:var(--fg-muted);cursor:not-allowed}
+
+/* ── Floating cart ───────────────────────────────── */
+.cart-float{
+  position:fixed;
+  bottom:max(28px,env(safe-area-inset-bottom,0px));
+  left:50%;transform:translateX(-50%);
+  background:var(--fg);color:var(--bg);border:none;
+  padding:0 6px 0 22px;height:54px;
+  display:flex;align-items:center;gap:16px;
+  cursor:pointer;font-family:var(--font-body);
+  box-shadow:0 8px 32px rgba(0,0,0,0.22);
+  z-index:200;white-space:nowrap;border-radius:var(--r);
+  transition:transform .2s,box-shadow .2s;
+}
+.cart-float:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.28)}
+.cart-float-left{display:flex;flex-direction:column;gap:2px;flex:1}
+.cart-float-name{font-size:13px;font-weight:600}
+.cart-float-items{font-size:11px;opacity:.55;letter-spacing:.03em}
+.cart-float-cta{
+  background:var(--gold);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:0 18px;height:100%;display:flex;align-items:center;flex-shrink:0;
+  border-radius:0 var(--r) var(--r) 0;
+}
+
+/* ── Cart page ───────────────────────────────────── */
+.cart-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.cart-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:16px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  box-shadow:var(--sh);
+}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-family:var(--font-disp);font-size:18px;font-weight:600}
+.cart-item-cat{font-size:12px;color:var(--fg-muted);margin-top:3px;letter-spacing:.04em}
+.btn-remove{
+  background:none;border:1px solid var(--booked-c);color:var(--booked-c);
+  font-family:var(--font-body);font-size:11px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  padding:8px 14px;min-height:40px;border-radius:var(--r-sm);
+  transition:background .18s;flex-shrink:0;
+}
+.btn-remove:hover{background:var(--booked-bg)}
+.cart-empty{text-align:center;padding:80px 20px;color:var(--fg-muted)}
+.cart-empty-icon{font-size:36px;display:block;margin-bottom:20px;opacity:.4}
+
+/* ── Registration form ───────────────────────────── */
+.reg-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:40px;margin-bottom:32px;box-shadow:var(--sh-lg)}
+.reg-form h2{font-family:var(--font-disp);font-size:32px;font-weight:600;margin-bottom:8px}
+.reg-form .reg-note{font-size:14px;color:var(--fg-muted);margin-bottom:32px}
+.form-group{margin-bottom:28px}
+.form-group label{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--fg-muted);margin-bottom:10px;
+}
+.form-group input{
+  width:100%;background:var(--surface2);
+  border:1px solid var(--border);border-radius:var(--r-sm);
+  color:var(--fg);font-family:var(--font-body);font-size:18px;
+  padding:14px 16px;outline:none;transition:border-color .18s;
+}
+.form-group input:focus{border-color:var(--gold);outline:2px solid rgba(168,120,24,0.18)}
+.form-group input::placeholder{color:var(--fg-muted);opacity:.45}
+.btn-confirm{
+  width:100%;background:var(--fg);border:none;color:var(--bg);
+  font-family:var(--font-disp);font-size:22px;font-weight:600;
+  padding:20px;cursor:pointer;letter-spacing:.04em;
+  border-radius:var(--r);transition:background .18s;
+}
+.btn-confirm:hover:not(:disabled){background:var(--gold)}
+.btn-confirm:disabled{background:var(--bg-alt);color:var(--fg-muted);cursor:not-allowed}
+.form-error{
+  background:var(--booked-bg);border:1px solid var(--booked-c);
+  color:var(--booked-c);font-size:14px;padding:14px 16px;
+  margin-bottom:20px;border-radius:var(--r-sm);line-height:1.5;
+}
+.reg-summary{border:1px solid var(--border);border-radius:var(--r-sm);padding:20px;margin-bottom:28px;background:var(--surface2)}
+.reg-summary h3{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:14px}
+.reg-summary-item{display:flex;align-items:baseline;gap:12px;font-size:14px;padding:7px 0;border-bottom:1px solid var(--border)}
+.reg-summary-item:last-child{border-bottom:none}
+.reg-summary-num{font-size:10px;color:var(--fg-muted);font-variant-numeric:tabular-nums;min-width:40px}
+
+/* ── Success ─────────────────────────────────────── */
+.success-wrap{text-align:center;padding:80px 20px}
+.success-icon{font-size:52px;display:block;margin-bottom:24px}
+.success-title{font-family:var(--font-disp);font-size:clamp(36px,6vw,64px);font-weight:300;color:var(--fg);margin-bottom:12px}
+.success-sub{font-family:var(--font-disp);font-style:italic;font-weight:300;font-size:18px;color:var(--fg-2);margin-bottom:44px;max-width:400px;margin-inline:auto}
+.success-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px;max-width:440px;margin:0 auto 44px;box-shadow:var(--sh);text-align:left}
+.success-box h3{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:16px}
+.success-dish{padding:10px 0;border-bottom:1px solid var(--border);font-family:var(--font-disp);font-size:17px;color:var(--fg)}
+.success-dish:last-child{border-bottom:none}
+.btn-home{
+  background:var(--gold);border:none;color:#fff;
+  font-family:var(--font-disp);font-size:20px;font-weight:600;
+  padding:16px 44px;cursor:pointer;border-radius:var(--r);
+  transition:background .18s;
+}
+.btn-home:hover{background:var(--fg)}
+
+/* ── Recipe modal ────────────────────────────────── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal-box{background:var(--surface);border-radius:var(--r);max-width:640px;width:100%;max-height:90vh;overflow:auto;box-shadow:var(--sh-lg)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:1}
+.modal-head h3{font-family:var(--font-disp);font-size:24px;font-weight:600}
+.modal-close{background:none;border:1px solid var(--border);color:var(--fg-muted);font-size:18px;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.modal-close:hover{border-color:var(--fg);color:var(--fg)}
+.modal-body{padding:24px}
+.modal-img{width:100%;display:block;border-radius:var(--r-sm)}
+.modal-no-img{text-align:center;padding:48px 20px;color:var(--fg-muted)}
+.modal-no-img-icon{font-size:40px;display:block;margin-bottom:16px;opacity:.4}
+
+/* ── Loading ─────────────────────────────────────── */
+.loading-wrap{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.loading-spinner{width:36px;height:36px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-muted)}
+
+/* ── Misc ────────────────────────────────────────── */
+.no-results{text-align:center;padding:60px 20px;color:var(--fg-muted);font-size:14px;letter-spacing:.05em}
+
+@media(max-width:600px){
+  .hero{padding:56px max(16px,env(safe-area-inset-left,0px)) 64px}
+  .hero-h1{font-size:42px}
+  .stat-item{padding:0 16px}
+  .stat-num{font-size:32px}
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .dish-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .reg-form{padding:24px}
+  .cart-float{border-radius:28px}
+}
+
+/* ── Gallery ──────────────────────────────────────────────────── */
+.gallery-section{padding:2.5rem 0;border-top:1px solid var(--border);margin-top:0}
+.gallery-title{text-align:center;font-family:var(--font-disp);font-size:1.6rem;color:var(--gold);margin-bottom:.25rem}
+.gallery-sub{text-align:center;color:var(--fg-muted);font-size:.9rem;margin-bottom:1.5rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.gallery-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);cursor:zoom-in;transition:transform .2s,box-shadow .2s}
+.gallery-img:hover{transform:scale(1.04);box-shadow:var(--sh-lg)}
+.gallery-placeholder{width:100%;aspect-ratio:4/3;background:var(--bg-alt);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--fg-muted);font-size:.75rem;border:1.5px dashed var(--border-h)}
+.gallery-placeholder span{font-size:1.8rem}
+.gallery-year{font-family:var(--font-disp);font-size:1.1rem;color:var(--fg-2);margin:1.25rem 0 .5rem;font-weight:600}
+.gallery-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem}
+.gallery-lightbox img{max-width:100%;max-height:90vh;border-radius:var(--r);box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.gallery-lightbox-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* ── Confirmation actions ────────────────────────────────────── */
+.confirm-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+.btn-wa{background:#25D366;color:#fff;border:none;border-radius:var(--r);padding:.65rem 1.1rem;font-size:.9rem;cursor:pointer;display:flex;align-items:center;gap:.4rem;font-weight:600}
+.btn-wa:hover{background:#1EBE5B}
+.btn-email-info{background:var(--bg-alt);color:var(--fg-2);border:1px solid var(--border);border-radius:var(--r);padding:.65rem 1.1rem;font-size:.85rem;display:flex;align-items:center;gap:.4rem}
+
+</style>
+
+<!-- Loading overlay -->
+<div id="loading-overlay" class="loading-wrap">
+  <div class="loading-spinner"></div>
+  <span class="loading-text" id="loading-text">Loading Annakut Seva…</span>
+</div>
+
+<!-- Site Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <span class="header-temple" id="hdr-temple"></span>
+      <span class="header-title" id="hdr-title"></span>
+    </div>
+    <div class="header-right">
+      <div class="lang-btns" role="group" aria-label="Language">
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="gu" onclick="setLang('gu')">ગુ</button>
+        <button class="lang-btn" data-lang="hi" onclick="setLang('hi')">हि</button>
+      </div>
+      <button class="cart-fab" onclick="goCart()" aria-label="Seva Cart" id="cart-fab-btn" hidden>
+        🛒
+        <span class="cart-count" id="cart-count-badge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE: Home -->
+<div id="page-home" class="page">
+  <div class="hero">
+    <span class="hero-eyebrow" id="hero-eyebrow"></span>
+    <h1 class="hero-h1" id="hero-h1"></h1>
+    <p class="hero-sub" id="hero-sub"></p>
+    <div class="hero-rule"></div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num" id="stat-avail">—</span><div class="stat-label" id="stat-avail-lbl"></div></div>
+      <div class="stat-item"><span class="stat-num" id="stat-booked">—</span><div class="stat-label" id="stat-booked-lbl"></div></div>
+      <div class="stat-item"><span class="stat-num" id="stat-total">—</span><div class="stat-label" id="stat-total-lbl"></div></div>
+    </div>
+  </div>
+  <div class="page-inner">
+    <div class="section-head"><h2 id="sec-categories"></h2></div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+
+  <!-- Previous Years Gallery -->
+  <div class="page-inner gallery-section">
+    <div class="gallery-title">Annakut Seva — Previous Years</div>
+    <div class="gallery-sub">A glimpse of our community's devotion and seva</div>
+
+    <div class="gallery-year">2024 — Diwali Annakut</div>
+    <div class="gallery-grid" id="gallery-2024">
+      <!-- To add real photos: replace each gallery-placeholder div with:
+           <img class="gallery-img" src="YOUR_PHOTO_URL" alt="Annakut 2024"> -->
+      <div class="gallery-placeholder"><span>🙏</span><small>2024 Photo 1</small></div>
+      <div class="gallery-placeholder"><span>🍛</span><small>2024 Photo 2</small></div>
+      <div class="gallery-placeholder"><span>🪔</span><small>2024 Photo 3</small></div>
+      <div class="gallery-placeholder"><span>🌸</span><small>2024 Photo 4</small></div>
+      <div class="gallery-placeholder"><span>🎊</span><small>2024 Photo 5</small></div>
+      <div class="gallery-placeholder"><span>✨</span><small>2024 Photo 6</small></div>
+    </div>
+
+    <div class="gallery-year">2023 — Diwali Annakut</div>
+    <div class="gallery-grid" id="gallery-2023">
+      <div class="gallery-placeholder"><span>🙏</span><small>2023 Photo 1</small></div>
+      <div class="gallery-placeholder"><span>🍛</span><small>2023 Photo 2</small></div>
+      <div class="gallery-placeholder"><span>🪔</span><small>2023 Photo 3</small></div>
+      <div class="gallery-placeholder"><span>🌸</span><small>2023 Photo 4</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery Lightbox -->
+<div class="gallery-lightbox" id="gallery-lightbox" hidden onclick="this.hidden=true">
+  <button class="gallery-lightbox-close" onclick="event.stopPropagation();byId('gallery-lightbox').hidden=true">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- PAGE: Category -->
+<div id="page-cat" hidden class="page">
+  <div class="page-inner">
+    <button class="back-btn" onclick="goHome()">← <span id="back-home-lbl"></span></button>
+    <div class="cat-header">
+      <span class="cat-header-icon" id="cat-hdr-icon"></span>
+      <h1 class="cat-header-name" id="cat-hdr-name"></h1>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')" id="filter-all"></button>
+      <button class="filter-btn" data-filter="avail" onclick="setFilter('avail')" id="filter-avail"></button>
+      <button class="filter-btn" data-filter="booked" onclick="setFilter('booked')" id="filter-booked"></button>
+    </div>
+    <div class="search-wrap">
+      <span class="search-ico">🔍</span>
+      <input type="search" class="search-inp" id="dish-search" placeholder="" oninput="renderDishes()">
+    </div>
+    <div class="dish-grid" id="dish-grid"></div>
+    <div class="no-results" id="no-results" hidden></div>
+  </div>
+</div>
+
+<!-- PAGE: Cart -->
+<div id="page-cart" hidden class="page">
+  <div class="page-inner">
+    <button class="back-btn" onclick="goBack()">← <span id="back-browse-lbl"></span></button>
+    <div class="section-head"><h2 id="cart-title"></h2></div>
+    <div id="cart-list" class="cart-list"></div>
+    <button class="btn-confirm" id="btn-to-register" onclick="goRegister()"></button>
+  </div>
+</div>
+
+<!-- PAGE: Register -->
+<div id="page-register" hidden class="page">
+  <div class="page-inner">
+    <button class="back-btn" onclick="goCart()">← <span id="back-cart-lbl"></span></button>
+    <div class="section-head"><h2 id="reg-title"></h2></div>
+    <div class="reg-form">
+      <div class="reg-summary" id="reg-summary"></div>
+      <div class="form-error" id="form-error" hidden></div>
+      <div class="form-group">
+        <label for="inp-name" id="lbl-name"></label>
+        <input type="text" id="inp-name" autocomplete="name" required>
+      </div>
+      <div class="form-group">
+        <label for="inp-phone" id="lbl-phone"></label>
+        <input type="tel" id="inp-phone" autocomplete="tel" required>
+      </div>
+      <div class="form-group">
+        <label for="inp-email" id="lbl-email"></label>
+        <input type="email" id="inp-email" autocomplete="email" required>
+      </div>
+      <button class="btn-confirm" id="btn-confirm-seva" onclick="submitBooking()"></button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: Success -->
+<div id="page-success" hidden class="page">
+  <div class="page-inner">
+    <div class="success-wrap">
+      <span class="success-icon">🙏</span>
+      <h1 class="success-title" id="success-title"></h1>
+      <p class="success-sub" id="success-sub"></p>
+      <div class="success-box" id="success-box"></div>
+      <button class="btn-home" onclick="goHome()" id="btn-back-home"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating cart -->
+<button class="cart-float" id="cart-float-btn" hidden onclick="goCart()">
+  <div class="cart-float-left">
+    <span class="cart-float-name" id="cf-count"></span>
+    <span class="cart-float-items" id="cf-items"></span>
+  </div>
+  <span class="cart-float-cta" id="cf-cta"></span>
+</button>
+
+<!-- Recipe modal -->
+<div class="modal-bg" id="modal-recipe" hidden onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modal-dish-name"></h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  GITHUB PAGES SETUP GUIDE                           ║
+  ╠══════════════════════════════════════════════════════╣
+  ║                                                      ║
+  ║  Step 1 — Create a Firebase project                  ║
+  ║    a. Go to: console.firebase.google.com             ║
+  ║    b. Click "Add project" → name it "annakut-seva"   ║
+  ║    c. Click through the steps (no Analytics needed)  ║
+  ║                                                      ║
+  ║  Step 2 — Add a Realtime Database                    ║
+  ║    a. Left sidebar → Build → Realtime Database       ║
+  ║    b. Click "Create Database"                        ║
+  ║    c. Choose "Start in test mode" (allow 30 days)    ║
+  ║    d. Copy the database URL shown                    ║
+  ║                                                      ║
+  ║  Step 3 — Get your Firebase config                   ║
+  ║    a. Project Settings (gear icon) → General         ║
+  ║    b. Scroll to "Your apps" → Web (</>)              ║
+  ║    c. Register the app → copy the firebaseConfig     ║
+  ║                                                      ║
+  ║  Step 4 — Paste config in FIREBASE_CONFIG below      ║
+  ║                                                      ║
+  ║  Step 5 — Deploy to GitHub Pages                     ║
+  ║    a. Create new repo OR add to vadtal1008.github.io ║
+  ║    b. Push this file as index.html (or any .html)    ║
+  ║    c. Settings → Pages → Deploy from main branch     ║
+  ║    d. Your URL: username.github.io/repo-name         ║
+  ║                                                      ║
+  ║  Step 6 — Lock your database (after event)           ║
+  ║    Firebase Console → Database → Rules               ║
+  ║    Change ".write": true  →  ".write": false         ║
+  ║                                                      ║
+  ╚══════════════════════════════════════════════════════╝
+-->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+
+// ─── PASTE YOUR FIREBASE CONFIG HERE ─────────────────────────────────────────
+// Get this from: Firebase Console → Project Settings → Your apps → Web app
+const FIREBASE_CONFIG = {
+  apiKey:            "YOUR_API_KEY",
+  authDomain:        "YOUR_PROJECT.firebaseapp.com",
+  databaseURL:       "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+  projectId:         "YOUR_PROJECT",
+  storageBucket:     "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId:             "YOUR_APP_ID"
+};
+// ─────────────────────────────────────────────────────────────────────────────
+
+/* ============================================================
+   DATA — Categories & Dishes
+   ============================================================ */
+const CATEGORIES = [
+  {id:'c1', icon:'🥬', color:'#2D6A4F', en:'Vegetables',       gu:'શાક',          hi:'सब्जी'},
+  {id:'c2', icon:'🍲', color:'#774936', en:'Dal & Kadhi',      gu:'દાળ-કઢી',      hi:'दाल-कढ़ी'},
+  {id:'c3', icon:'🍚', color:'#5C4033', en:'Rice Dishes',      gu:'ભાત',           hi:'चावल'},
+  {id:'c4', icon:'🫓', color:'#8B5E3C', en:'Roti & Bhakhri',   gu:'રોટી-ભાખરી',   hi:'रोटी-भाखरी'},
+  {id:'c5', icon:'🥙', color:'#7B4000', en:'Farsan & Snacks',  gu:'ફરસાણ',        hi:'फरसाण'},
+  {id:'c6', icon:'🍮', color:'#8B2252', en:'Sweets',           gu:'મીઠાઈ',         hi:'मिठाई'},
+  {id:'c7', icon:'🥘', color:'#5A3E28', en:'Khichdi',          gu:'ખીચડી',         hi:'खिचड़ी'},
+  {id:'c8', icon:'🥤', color:'#1A6B8B', en:'Soup & Drinks',    gu:'સૂપ-શરબત',      hi:'सूप-शरबत'},
+  {id:'c9', icon:'🫙', color:'#4A7C3F', en:'Chutney & Pickles',gu:'ચટણી-અથાણું',  hi:'चटनी-अचार'},
+  {id:'c10',icon:'🥗', color:'#6B5A1A', en:'Snacks & Chaat',   gu:'સ્નૅક્સ-ચાટ',  hi:'स्नैक्स-चाट'},
+  {id:'c11',icon:'🥛', color:'#3A5A7C', en:'Kheer & Dairy',    gu:'ક્ષીર-દૂધ',    hi:'खीर-दूध'},
+  {id:'c12',icon:'🍽️',color:'#5A5A5A', en:'Other',            gu:'અન્ય',           hi:'अन्य'},
+];
+
+const DISHES = [
+  {id:'d0001',cat:'c1',sn:'0001',en:'Okra Vegetable',gu:'ભીંડાનું શાક',hi:'भिंडी की सब्जी'},
+  {id:'d0002',cat:'c1',sn:'0002',en:'Brinjal Bharta',gu:'રીંગણાનું ભરતું',hi:'बैंगन का भरता'},
+  {id:'d0003',cat:'c1',sn:'0003',en:'Bottle Gourd & Chickpea',gu:'દૂધી-ચણા ની સૂકી ભાજી',hi:'लौकी-चना की सब्जी'},
+  {id:'d0004',cat:'c1',sn:'0004',en:'Bitter Gourd',gu:'કારેલાનું શાક',hi:'करेले की सब्जी'},
+  {id:'d0005',cat:'c1',sn:'0005',en:'Tomato Stir-fry',gu:'ટામેટાં ભૂંઝ',hi:'टमाटर की भुंज'},
+  {id:'d0006',cat:'c1',sn:'0006',en:'Potato & Peas',gu:'બટેટા-મટર ની ભૂંઝ',hi:'आलू-मटर की भुंज'},
+  {id:'d0007',cat:'c1',sn:'0007',en:'Cauliflower Vegetable',gu:'ફ્લાવર ની ભૂંઝ',hi:'फूलगोभी की सब्जी'},
+  {id:'d0008',cat:'c1',sn:'0008',en:'Cabbage Vegetable',gu:'કોબી ની ભૂંઝ',hi:'पत्तागोभी की सब्जी'},
+  {id:'d0009',cat:'c1',sn:'0009',en:'Spinach Vegetable',gu:'પાલક ની ભૂંઝ',hi:'पालक की सब्जी'},
+  {id:'d0010',cat:'c1',sn:'0010',en:'Fenugreek Leaves',gu:'મેથી ની ભૂંઝ',hi:'मेथी की सब्जी'},
+  {id:'d0011',cat:'c1',sn:'0011',en:'Ridge Gourd',gu:'તૂરિયા ની ભૂંઝ',hi:'तुरई की सब्जी'},
+  {id:'d0012',cat:'c1',sn:'0012',en:'Cluster Beans',gu:'ગવાર ની ભૂંઝ',hi:'गवार की सब्जी'},
+  {id:'d0013',cat:'c1',sn:'0013',en:'French Beans',gu:'ફ્રેન્ચ ફળી ની ભૂંઝ',hi:'फ्रेंच बीन्स की सब्जी'},
+  {id:'d0014',cat:'c1',sn:'0014',en:'Green Peas',gu:'મટર ની ભૂંઝ',hi:'मटर की सब्जी'},
+  {id:'d0015',cat:'c1',sn:'0015',en:'Sweet Potato',gu:'શક્કરિયા ની ભૂંઝ',hi:'शकरकंद की सब्जी'},
+  {id:'d0016',cat:'c1',sn:'0016',en:'Yam Vegetable',gu:'સૂરણ ની ભૂંઝ',hi:'सूरन की सब्जी'},
+  {id:'d0017',cat:'c1',sn:'0017',en:'Raw Banana Vegetable',gu:'કાચા કેળા ની ભૂંઝ',hi:'कच्चे केले की सब्जी'},
+  {id:'d0018',cat:'c1',sn:'0018',en:'Tinda Vegetable',gu:'ટિંડોળ ની ભૂંઝ',hi:'टिंडे की सब्जी'},
+  {id:'d0019',cat:'c1',sn:'0019',en:'Parval Vegetable',gu:'પરવળ ની ભૂંઝ',hi:'परवल की सब्जी'},
+  {id:'d0020',cat:'c1',sn:'0020',en:'Drumstick Vegetable',gu:'સરગવો ની ભૂંઝ',hi:'सहजन की सब्जी'},
+  {id:'d0021',cat:'c1',sn:'0021',en:'Pumpkin Vegetable',gu:'કોળા ની ભૂંઝ',hi:'कद्दू की सब्जी'},
+  {id:'d0022',cat:'c1',sn:'0022',en:'Mixed Vegetables',gu:'મિક્સ ભૂંઝ',hi:'मिक्स सब्जी'},
+  {id:'d0023',cat:'c1',sn:'0023',en:'Brinjal Curry',gu:'રીંગણા ની ભૂंज',hi:'बैंगन की भुंज'},
+  {id:'d0024',cat:'c1',sn:'0024',en:'Turnip Vegetable',gu:'સલગમ ની ભૂંઝ',hi:'शलजम की सब्जी'},
+  {id:'d0025',cat:'c1',sn:'0025',en:'Radish Vegetable',gu:'મૂળો ની ભૂંઝ',hi:'मूली की सब्जी'},
+  {id:'d0026',cat:'c1',sn:'0026',en:'Carrot Vegetable',gu:'ગાજર ની ભૂંઝ',hi:'गाजर की सब्जी'},
+  {id:'d0027',cat:'c1',sn:'0027',en:'Potato Sabzi',gu:'બટેટા ની ભૂંઝ',hi:'आलू की सब्जी'},
+  {id:'d0028',cat:'c1',sn:'0028',en:'Beet Vegetable',gu:'બીટ ની ભૂંઝ',hi:'चुकंदर की सब्जी'},
+  {id:'d0029',cat:'c1',sn:'0029',en:'Capsicum Vegetable',gu:'સિમ્લા મિર્ચ ની ભૂંઝ',hi:'शिमला मिर्च की सब्जी'},
+  {id:'d0030',cat:'c1',sn:'0030',en:'Colocasia Vegetable',gu:'અળવી ની ભૂંઝ',hi:'अरबी की सब्जी'},
+  {id:'d0031',cat:'c1',sn:'0031',en:'Brinjal & Peas',gu:'રીંગણા-મટર ની ભૂंज',hi:'बैंगन-मटर की भुंज'},
+  {id:'d0032',cat:'c1',sn:'0032',en:'Bottle Gourd Curry',gu:'દૂધી ની ભૂंज',hi:'लौकी की सब्जी'},
+  {id:'d0033',cat:'c1',sn:'0033',en:'Brinjal Stuffed',gu:'ભરેલા રીંગણા',hi:'भरवां बैंगन'},
+  {id:'d0034',cat:'c1',sn:'0034',en:'Potato Stuffed',gu:'ભરેલા બટેટા',hi:'भरवां आलू'},
+  {id:'d0035',cat:'c1',sn:'0035',en:'Capsicum Stuffed',gu:'ભરેલા સિમ્લા',hi:'भरवां शिमला मिर्च'},
+  {id:'d0036',cat:'c1',sn:'0036',en:'Dum Aloo',gu:'ડમ આલૂ',hi:'दम आलू'},
+  {id:'d0037',cat:'c1',sn:'0037',en:'Aloo Jeera',gu:'આળૂ-જીરા',hi:'आलू जीरा'},
+  {id:'d0038',cat:'c1',sn:'0038',en:'Palak Paneer',gu:'પાલક-પનીર',hi:'पालक पनीर'},
+  {id:'d0039',cat:'c1',sn:'0039',en:'Paneer Butter Masala',gu:'પનીર બટર મસાલા',hi:'पनीर बटर मसाला'},
+  {id:'d0040',cat:'c1',sn:'0040',en:'Shahi Paneer',gu:'શાહી પનીર',hi:'शाही पनीर'},
+  {id:'d0041',cat:'c1',sn:'0041',en:'Paneer Bhurji',gu:'પનીર ભૂંઝ',hi:'पनीर भुर्जी'},
+  {id:'d0042',cat:'c1',sn:'0042',en:'Matar Paneer',gu:'મટર-પનીર',hi:'मटर पनीर'},
+  {id:'d0043',cat:'c1',sn:'0043',en:'Kadai Paneer',gu:'કડાઈ પનીર',hi:'कड़ाई पनीर'},
+  {id:'d0044',cat:'c1',sn:'0044',en:'Paneer Tikka Masala',gu:'પનીર ટિક્કા',hi:'पनीर टिक्का मसाला'},
+  {id:'d0045',cat:'c1',sn:'0045',en:'Tofu Masala',gu:'ટોફૂ મસાલા',hi:'टोफू मसाला'},
+  {id:'d0046',cat:'c1',sn:'0046',en:'Aloo Capsicum',gu:'આળૂ-સિમ્લા',hi:'आलू शिमला'},
+  {id:'d0047',cat:'c1',sn:'0047',en:'Aloo Gobi',gu:'આળૂ-ફ્લાવર',hi:'आलू गोभी'},
+  {id:'d0048',cat:'c1',sn:'0048',en:'Aloo Palak',gu:'આળૂ-પાલક',hi:'आलू पालक'},
+  {id:'d0049',cat:'c1',sn:'0049',en:'Aloo Tamatar',gu:'આળૂ-ટામેટા',hi:'आलू टमाटर'},
+  {id:'d0050',cat:'c1',sn:'0050',en:'Aloo Methi',gu:'આળૂ-મેથી',hi:'आलू मेथी'},
+  {id:'d0051',cat:'c1',sn:'0051',en:'Gobi Masala',gu:'ફ્લાવર મસાલા',hi:'गोभी मसाला'},
+  {id:'d0052',cat:'c1',sn:'0052',en:'Matar Mushroom dry',gu:'મટર ભૂंज',hi:'मटर भुंज'},
+  {id:'d0053',cat:'c1',sn:'0053',en:'Lauki Chana Dal',gu:'દૂધી-ચણા દાળ',hi:'लौकी चना दाल'},
+  {id:'d0054',cat:'c1',sn:'0054',en:'Brinjal Masala',gu:'રીંગણા મસાલા',hi:'बैंगन मसाला'},
+  {id:'d0055',cat:'c1',sn:'0055',en:'Sukhi Arbi',gu:'સૂકી અળવી',hi:'सूखी अरबी'},
+  {id:'d0056',cat:'c1',sn:'0056',en:'Rajma',gu:'રાજમા',hi:'राजमा'},
+  {id:'d0057',cat:'c1',sn:'0057',en:'Kala Chana Masala',gu:'કાળા ચણા',hi:'काले चने'},
+  {id:'d0058',cat:'c1',sn:'0058',en:'White Peas Masala',gu:'સફેદ વટાણા',hi:'सफेद मटर'},
+  {id:'d0059',cat:'c1',sn:'0059',en:'Chana Masala',gu:'ચણા મસાલા',hi:'चना मसाला'},
+  {id:'d0060',cat:'c1',sn:'0060',en:'Dal Fry',gu:'દાળ ફ્રાઈ',hi:'दाल फ्राई'},
+  {id:'d0061',cat:'c1',sn:'0061',en:'Mixed Dal',gu:'મિક્સ દાળ',hi:'मिक्स दाल'},
+  {id:'d0062',cat:'c1',sn:'0062',en:'Paneer Lababdar',gu:'પનીર લબ્બ઼ દ઼ ઼ ',hi:'पनीर लबाबदार'},
+  {id:'d0063',cat:'c1',sn:'0063',en:'Chili Paneer',gu:'ચિલ્લી પનીર',hi:'चिली पनीर'},
+  {id:'d0064',cat:'c1',sn:'0064',en:'Methi Malai Paneer',gu:'મેથી મલાઈ પનીર',hi:'मेथी मलाई पनीर'},
+  {id:'d0065',cat:'c1',sn:'0065',en:'Paneer Pasanda',gu:'પનીર પસંદ',hi:'पनीर पसंदा'},
+  {id:'d0066',cat:'c1',sn:'0066',en:'Paneer Do Pyaza',gu:'પનીર \'ડો \'',hi:'पनीर दो प्याजा'},
+  {id:'d0067',cat:'c1',sn:'0067',en:'Khoya Paneer',gu:'ખોયા-પનીર',hi:'खोया पनीर'},
+  {id:'d0068',cat:'c1',sn:'0068',en:'Paneer Kofta Curry',gu:'પનીર કોફ્તા',hi:'पनीर कोफ्ता'},
+  {id:'d0069',cat:'c1',sn:'0069',en:'Veg Jalfrezi',gu:'વેજ ઝળ્ ઝ',hi:'वेज जलफ्रेजी'},
+  {id:'d0070',cat:'c1',sn:'0070',en:'Mixed Veg Curry',gu:'મિક્સ વેજ \'',hi:'मिक्स वेज करी'},
+  {id:'d0071',cat:'c1',sn:'0071',en:'Navratan Korma',gu:'નવ-ઝ \'',hi:'नवरतन कोरमा'},
+  {id:'d0072',cat:'c1',sn:'0072',en:'Veg Kolhapuri',gu:'વેજ \'\'',hi:'वेज कोल्हापुरी'},
+  {id:'d0073',cat:'c1',sn:'0073',en:'Veg Kadai',gu:'વેજ \'\'',hi:'वेज कड़ाई'},
+  {id:'d0074',cat:'c1',sn:'0074',en:'Veg Handi',gu:'વેજ \'',hi:'वेज हांडी'},
+  {id:'d0075',cat:'c1',sn:'0075',en:'Aloo Bhindi',gu:'આળૂ-ભીંડા',hi:'आलू भिंडी'},
+  {id:'d0076',cat:'c1',sn:'0076',en:'Aloo Baingan',gu:'આળૂ-રીંગણા',hi:'आलू बैंगन'},
+  {id:'d0077',cat:'c1',sn:'0077',en:'Suran Sabzi',gu:'સૂરણ-ભૂंज',hi:'सूरन की सब्जी'},
+  {id:'d0078',cat:'c1',sn:'0078',en:'Kachalu Sabzi',gu:'કચ્ચ-ભૂंज',hi:'कचालू सब्जी'},
+  {id:'d0079',cat:'c1',sn:'0079',en:'Veg Patiala',gu:'વેજ \'',hi:'वेज पटियाला'},
+  {id:'d0080',cat:'c1',sn:'0080',en:'Veg Angara',gu:'વેજ \'',hi:'वेज अंगारा'},
+  {id:'d0081',cat:'c1',sn:'0081',en:'Paneer Angara',gu:'પનીર \'',hi:'पनीर अंगारा'},
+  {id:'d0082',cat:'c1',sn:'0082',en:'Malai Kofta',gu:'મ \'',hi:'मलाई कोफ्ता'},
+  {id:'d0083',cat:'c1',sn:'0083',en:'Dahi Paneer',gu:'દહીં-પનીર',hi:'दही पनीर'},
+  {id:'d0084',cat:'c1',sn:'0084',en:'Bhindi Masala',gu:'ભીંડા-મસાળ',hi:'भिंडी मसाला'},
+  {id:'d0085',cat:'c1',sn:'0085',en:'Bhindi Kadai',gu:'ભીંડા-\'',hi:'भिंडी कड़ाई'},
+  {id:'d0086',cat:'c1',sn:'0086',en:'Aloo Beans',gu:'આળૂ-ફળી',hi:'आलू बीन्स'},
+  {id:'d0087',cat:'c1',sn:'0087',en:'Gatte ki Sabzi',gu:'ગટ્ - ',hi:'गट्टे की सब्जी'},
+  {id:'d0088',cat:'c1',sn:'0088',en:'Kurkuri Bhindi',gu:'ભીંડ - ',hi:'कुरकुरी भिंडी'},
+  {id:'d0089',cat:'c1',sn:'0089',en:'Stuffed Parval',gu:'ભ \'',hi:'भरवां परवल'},
+  {id:'d0090',cat:'c1',sn:'0090',en:'Kacha Papaya Sabzi',gu:'ક \'',hi:'कच्चा पपीता'},
+  {id:'d0091',cat:'c1',sn:'0091',en:'Arhar Dal Sabzi',gu:'ત \'',hi:'तुवर दाल सब्जी'},
+  {id:'d0092',cat:'c1',sn:'0092',en:'Rava Upma Sabzi',gu:'ઉ \'',hi:'उपमा सब्जी'},
+  {id:'d0093',cat:'c1',sn:'0093',en:'Sabudana Khichdi',gu:'સ \'',hi:'साबुदाना खिचड़ी'},
+  {id:'d0094',cat:'c1',sn:'0094',en:'Makhani Gravy',gu:'મ \'',hi:'मखनी ग्रेवी'},
+  {id:'d0095',cat:'c1',sn:'0095',en:'Veg Bhurani Raita',gu:'ભ \'',hi:'भुरानी रायता'},
+  {id:'d0096',cat:'c1',sn:'0096',en:'Pyaaz Kachori Sabzi',gu:'ભ \'',hi:'प्याज कचौड़ी'},
+  {id:'d0097',cat:'c1',sn:'0097',en:'Gatte Pulao',gu:'ગ \'',hi:'गट्टे पुलाव'},
+  {id:'d0098',cat:'c1',sn:'0098',en:'Paneer Tikka',gu:'પ \'',hi:'पनीर टिक्का'},
+  {id:'d0099',cat:'c1',sn:'0099',en:'Achari Paneer',gu:'પ \'',hi:'अचारी पनीर'},
+  {id:'d0100',cat:'c1',sn:'0100',en:'Hariyali Paneer',gu:'પ \'',hi:'हरियाली पनीर'},
+  {id:'d0101',cat:'c1',sn:'0101',en:'Tandoori Paneer',gu:'ત \'',hi:'तंदूरी पनीर'},
+  {id:'d0102',cat:'c1',sn:'0102',en:'Dahi ke Aloo',gu:'ઈ \'',hi:'दही के आलू'},
+  {id:'d0103',cat:'c2',sn:'0103',en:'Gujarati Dal',gu:'ગુજરાતી દાળ',hi:'गुजराती दाल'},
+  {id:'d0104',cat:'c2',sn:'0104',en:'Odh',gu:'ઓઢ',hi:'ओढ'},
+  {id:'d0105',cat:'c2',sn:'0105',en:'Wheat Kadhi',gu:'ઘઉં ની કઢી',hi:'गेहूं की कढ़ी'},
+  {id:'d0106',cat:'c2',sn:'0106',en:'Rice Kadhi',gu:'ચોખા ની કઢી',hi:'चावल की कढ़ी'},
+  {id:'d0107',cat:'c2',sn:'0107',en:'Sem Dal',gu:'સેમ ની દાળ',hi:'सेम की दाल'},
+  {id:'d0108',cat:'c2',sn:'0108',en:'Tuvar Dal',gu:'તૂવર ની દાળ',hi:'तुवर दाल'},
+  {id:'d0109',cat:'c2',sn:'0109',en:'Moong Dal',gu:'મૂંગ ની દाળ',hi:'मूंग दाल'},
+  {id:'d0110',cat:'c2',sn:'0110',en:'Urad Dal',gu:'અડદ ની દaળ',hi:'उड़द दाल'},
+  {id:'d0111',cat:'c2',sn:'0111',en:'Chana Dal',gu:'ચણા ની દaળ',hi:'चना दाल'},
+  {id:'d0112',cat:'c2',sn:'0112',en:'Masoor Dal',gu:'મસૂર ની દaળ',hi:'मसूर दाल'},
+  {id:'d0113',cat:'c2',sn:'0113',en:'Dal Tadka',gu:'દaળ \'',hi:'दाल तड़का'},
+  {id:'d0114',cat:'c2',sn:'0114',en:'Dal Makhani',gu:'દaળ \'',hi:'दाल मखनी'},
+  {id:'d0115',cat:'c2',sn:'0115',en:'Dal Baati',gu:'દaળ-બ \'',hi:'दाल बाटी'},
+  {id:'d0116',cat:'c2',sn:'0116',en:'Rajma Dal',gu:'ર \'',hi:'राजमा दाल'},
+  {id:'d0117',cat:'c2',sn:'0117',en:'Mixed Dal',gu:'મ \'',hi:'मिक्स दाल'},
+  {id:'d0118',cat:'c2',sn:'0118',en:'Dal Palak',gu:'દaળ-પ \'',hi:'दाल पालक'},
+  {id:'d0119',cat:'c2',sn:'0119',en:'Dal Lasooni',gu:'દaળ-\'',hi:'दाल लहसुनी'},
+  {id:'d0120',cat:'c2',sn:'0120',en:'Amti',gu:'આ \'',hi:'आमटी'},
+  {id:'d0121',cat:'c2',sn:'0121',en:'Varan',gu:'વ \'',hi:'वरण'},
+  {id:'d0122',cat:'c2',sn:'0122',en:'Pitla',gu:'પ \'',hi:'पिठला'},
+  {id:'d0123',cat:'c2',sn:'0123',en:'Gujarati Khatta Dhokla',gu:'ખ \'',hi:'गुजराती खट्टा ढोकला'},
+  {id:'d0124',cat:'c2',sn:'0124',en:'Pakwan',gu:'પ \'',hi:'पकवान'},
+  {id:'d0125',cat:'c2',sn:'0125',en:'Dal Soup',gu:'દaળ \'',hi:'दाल सूप'},
+  {id:'d0126',cat:'c2',sn:'0126',en:'Lahsun Kadhi',gu:'ક \'',hi:'लहसुन कढ़ी'},
+  {id:'d0127',cat:'c2',sn:'0127',en:'Besan Kadhi',gu:'ક \'',hi:'बेसन कढ़ी'},
+  {id:'d0128',cat:'c2',sn:'0128',en:'Curd Kadhi',gu:'ક \'',hi:'दही कढ़ी'},
+  {id:'d0129',cat:'c2',sn:'0129',en:'Sindhi Kadhi',gu:'ક \'',hi:'सिंधी कढ़ी'},
+  {id:'d0130',cat:'c2',sn:'0130',en:'Punjabi Kadhi Pakora',gu:'ક \'',hi:'पंजाबी कढ़ी पकोड़ा'},
+  {id:'d0131',cat:'c2',sn:'0131',en:'Rajasthani Kadhi',gu:'ક \'',hi:'राजस्थानी कढ़ी'},
+  {id:'d0132',cat:'c2',sn:'0132',en:'Coconut Milk Kadhi',gu:'ક \'',hi:'नारियल दूध कढ़ी'},
+  {id:'d0133',cat:'c2',sn:'0133',en:'Yellow Moong Dal',gu:'મ \'',hi:'पीली मूंग दाल'},
+  {id:'d0134',cat:'c2',sn:'0134',en:'Dal Dhokli',gu:'ઘ \'',hi:'दाल ढोकली'},
+  {id:'d0135',cat:'c2',sn:'0135',en:'Surti Locho',gu:'સ \'',hi:'सूरती लोचो'},
+  {id:'d0136',cat:'c2',sn:'0136',en:'Amritsari Dal',gu:'ä \'',hi:'अमृतसरी दाल'},
+  {id:'d0137',cat:'c2',sn:'0137',en:'Panchmel Dal',gu:'ä \'',hi:'पंचमेल दाल'},
+  {id:'d0138',cat:'c2',sn:'0138',en:'Lauki Dal',gu:'ä \'',hi:'लौकी दाल'},
+  {id:'d0139',cat:'c2',sn:'0139',en:'Spinach Dal',gu:'ä \'',hi:'पालक दाल'},
+  {id:'d0140',cat:'c2',sn:'0140',en:'Carrot Dal',gu:'ä \'',hi:'गाजर दाल'},
+  {id:'d0141',cat:'c2',sn:'0141',en:'Tomato Dal',gu:'ä \'',hi:'टमाटर दाल'},
+  {id:'d0142',cat:'c2',sn:'0142',en:'Aloo Dal',gu:'ä \'',hi:'आलू दाल'},
+  {id:'d0143',cat:'c2',sn:'0143',en:'Chana Masala Dal',gu:'ä \'',hi:'चना मसाला दाल'},
+  {id:'d0144',cat:'c2',sn:'0144',en:'Urad Dal Makhani',gu:'ä \'',hi:'उड़द दाल मखनी'},
+  {id:'d0145',cat:'c2',sn:'0145',en:'Lobia Dal',gu:'ä \'',hi:'लोबिया दाल'},
+  {id:'d0146',cat:'c2',sn:'0146',en:'Horsegram Dal',gu:'ä \'',hi:'कुलथ दाल'},
+  {id:'d0147',cat:'c2',sn:'0147',en:'Vatana Dal',gu:'ä \'',hi:'वटाणा दाल'},
+  {id:'d0148',cat:'c2',sn:'0148',en:'Moth Bean Dal',gu:'ä \'',hi:'मोठ दाल'},
+  {id:'d0149',cat:'c2',sn:'0149',en:'Moong Sprout Dal',gu:'ä \'',hi:'मूंग अंकुर दाल'},
+  {id:'d0150',cat:'c2',sn:'0150',en:'Methi Dal',gu:'ä \'',hi:'मेथी दाल'},
+  {id:'d0151',cat:'c2',sn:'0151',en:'Bhindi Dal',gu:'ä \'',hi:'भिंडी दाल'},
+  {id:'d0152',cat:'c2',sn:'0152',en:'Drumstick Dal',gu:'ä \'',hi:'सहजन दाल'},
+  {id:'d0153',cat:'c2',sn:'0153',en:'Ridge Gourd Dal',gu:'ä \'',hi:'तुरई दाल'},
+  {id:'d0154',cat:'c2',sn:'0154',en:'Bottle Gourd Dal',gu:'ä \'',hi:'लौकी दाल'},
+  {id:'d0155',cat:'c2',sn:'0155',en:'Tinda Dal',gu:'ä \'',hi:'टिंडे दाल'},
+  {id:'d0156',cat:'c2',sn:'0156',en:'Parval Dal',gu:'ä \'',hi:'परवल दाल'},
+  {id:'d0157',cat:'c2',sn:'0157',en:'Green Pea Dal',gu:'ä \'',hi:'हरे मटर दाल'},
+  {id:'d0158',cat:'c2',sn:'0158',en:'Kadhi Chawal',gu:'ä \'',hi:'कढ़ी चावल'},
+  {id:'d0159',cat:'c2',sn:'0159',en:'Kadhi Pakora',gu:'ä \'',hi:'कढ़ी पकोड़ा'},
+  {id:'d0160',cat:'c2',sn:'0160',en:'Boondi Kadhi',gu:'ä \'',hi:'बूंदी कढ़ी'},
+  {id:'d0161',cat:'c2',sn:'0161',en:'Methi Kadhi',gu:'ä \'',hi:'मेथी कढ़ी'},
+  {id:'d0162',cat:'c2',sn:'0162',en:'Palak Kadhi',gu:'ä \'',hi:'पालक कढ़ी'},
+  {id:'d0163',cat:'c2',sn:'0163',en:'Tomato Kadhi',gu:'ä \'',hi:'टमाटर कढ़ी'},
+  {id:'d0164',cat:'c2',sn:'0164',en:'Kokum Kadhi',gu:'ä \'',hi:'कोकम कढ़ी'},
+  {id:'d0165',cat:'c2',sn:'0165',en:'Tamarind Kadhi',gu:'ä \'',hi:'इमली कढ़ी'},
+  {id:'d0166',cat:'c2',sn:'0166',en:'Coriander Kadhi',gu:'ä \'',hi:'धनिया कढ़ी'},
+  {id:'d0167',cat:'c2',sn:'0167',en:'Green Kadhi',gu:'ä \'',hi:'हरी कढ़ी'},
+  {id:'d0168',cat:'c2',sn:'0168',en:'White Kadhi',gu:'ä \'',hi:'सफेद कढ़ी'},
+  {id:'d0169',cat:'c2',sn:'0169',en:'Sweet Kadhi',gu:'ä \'',hi:'मीठी कढ़ी'},
+  {id:'d0170',cat:'c2',sn:'0170',en:'Spicy Kadhi',gu:'ä \'',hi:'तीखी कढ़ी'},
+  {id:'d0171',cat:'c2',sn:'0171',en:'Gujarati Sweet Dal',gu:'ä \'',hi:'गुजराती मीठी दाल'},
+  {id:'d0172',cat:'c2',sn:'0172',en:'Amriti Dal',gu:'ä \'',hi:'अमृती दाल'},
+  {id:'d0173',cat:'c2',sn:'0173',en:'Ghee Dal',gu:'ä \'',hi:'घी दाल'},
+  {id:'d0174',cat:'c2',sn:'0174',en:'Satvic Dal',gu:'ä \'',hi:'सात्विक दाल'},
+  {id:'d0175',cat:'c2',sn:'0175',en:'Temple Dal',gu:'ä \'',hi:'मंदिर दाल'},
+  {id:'d0176',cat:'c2',sn:'0176',en:'Prasad Dal',gu:'ä \'',hi:'प्रसाद दाल'},
+  {id:'d0177',cat:'c2',sn:'0177',en:'Sabut Moong Dal',gu:'ä \'',hi:'साबुत मूंग दाल'},
+  {id:'d0178',cat:'c2',sn:'0178',en:'Sabut Masoor Dal',gu:'ä \'',hi:'साबुत मसूर दाल'},
+  {id:'d0179',cat:'c3',sn:'0179',en:'Wheat Rice',gu:'ઘઉં ભાત',hi:'गेहूं भात'},
+  {id:'d0180',cat:'c3',sn:'0180',en:'Steamed Rice',gu:'સ્ટીમ રાઇસ',hi:'स्टीम राइस'},
+  {id:'d0181',cat:'c3',sn:'0181',en:'Seasoned Rice',gu:'વઘારેલ ભાત',hi:'वघारेल भात'},
+  {id:'d0182',cat:'c3',sn:'0182',en:'Tomato Rice',gu:'ટામેટાં ભાત',hi:'टमाटर भात'},
+  {id:'d0183',cat:'c3',sn:'0183',en:'Cold Rice',gu:'ઠંડો ભાત',hi:'ठंडा भात'},
+  {id:'d0184',cat:'c3',sn:'0184',en:'Jeera Rice',gu:'જ \'',hi:'जीरा राइस'},
+  {id:'d0185',cat:'c3',sn:'0185',en:'Matar Pulao',gu:'મ \'',hi:'मटर पुलाव'},
+  {id:'d0186',cat:'c3',sn:'0186',en:'Veg Pulao',gu:'વ \'',hi:'वेज पुलाव'},
+  {id:'d0187',cat:'c3',sn:'0187',en:'Kashmiri Pulao',gu:'ä \'',hi:'कश्मीरी पुलाव'},
+  {id:'d0188',cat:'c3',sn:'0188',en:'Peas Pulao',gu:'ä \'',hi:'मटर पुलाव'},
+  {id:'d0189',cat:'c3',sn:'0189',en:'Coconut Rice',gu:'ä \'',hi:'नारियल चावल'},
+  {id:'d0190',cat:'c3',sn:'0190',en:'Lemon Rice',gu:'ä \'',hi:'नींबू चावल'},
+  {id:'d0191',cat:'c3',sn:'0191',en:'Tamarind Rice',gu:'ä \'',hi:'इमली चावल'},
+  {id:'d0192',cat:'c3',sn:'0192',en:'Curd Rice',gu:'ä \'',hi:'दही चावल'},
+  {id:'d0193',cat:'c3',sn:'0193',en:'Poha',gu:'ä \'',hi:'पोहा'},
+  {id:'d0194',cat:'c3',sn:'0194',en:'Upma',gu:'ä \'',hi:'उपमा'},
+  {id:'d0195',cat:'c3',sn:'0195',en:'Sabudana Khichdi',gu:'ä \'',hi:'साबुदाना खिचड़ी'},
+  {id:'d0196',cat:'c3',sn:'0196',en:'Corn Pulao',gu:'ä \'',hi:'मकई पुलाव'},
+  {id:'d0197',cat:'c3',sn:'0197',en:'Pineapple Rice',gu:'ä \'',hi:'अनानास चावल'},
+  {id:'d0198',cat:'c3',sn:'0198',en:'Paneer Pulao',gu:'ä \'',hi:'पनीर पुलाव'},
+  {id:'d0199',cat:'c3',sn:'0199',en:'Saffron Rice',gu:'ä \'',hi:'केसर चावल'},
+  {id:'d0200',cat:'c3',sn:'0200',en:'Ghee Rice',gu:'ä \'',hi:'घी भात'},
+  {id:'d0201',cat:'c3',sn:'0201',en:'Brown Rice',gu:'ä \'',hi:'ब्राउन राइस'},
+  {id:'d0202',cat:'c3',sn:'0202',en:'Red Rice',gu:'ä \'',hi:'लाल चावल'},
+  {id:'d0203',cat:'c3',sn:'0203',en:'Broken Wheat Pulao',gu:'ä \'',hi:'दलिया पुलाव'},
+  {id:'d0204',cat:'c3',sn:'0204',en:'Barley Rice',gu:'ä \'',hi:'जौ चावल'},
+  {id:'d0205',cat:'c3',sn:'0205',en:'Millets Pulao',gu:'ä \'',hi:'बाजरा पुलाव'},
+  {id:'d0206',cat:'c3',sn:'0206',en:'Quinoa Pulao',gu:'ä \'',hi:'क्विनोआ पुलाव'},
+  {id:'d0207',cat:'c3',sn:'0207',en:'Spinach Rice',gu:'ä \'',hi:'पालक चावल'},
+  {id:'d0208',cat:'c3',sn:'0208',en:'Methi Rice',gu:'ä \'',hi:'मेथी चावल'},
+  {id:'d0209',cat:'c3',sn:'0209',en:'Carrot Rice',gu:'ä \'',hi:'गाजर चावल'},
+  {id:'d0210',cat:'c3',sn:'0210',en:'Beetroot Rice',gu:'ä \'',hi:'चुकंदर चावल'},
+  {id:'d0211',cat:'c3',sn:'0211',en:'Pumpkin Rice',gu:'ä \'',hi:'कद्दू चावल'},
+  {id:'d0212',cat:'c3',sn:'0212',en:'Cabbage Rice',gu:'ä \'',hi:'पत्तागोभी चावल'},
+  {id:'d0213',cat:'c3',sn:'0213',en:'Cauliflower Rice',gu:'ä \'',hi:'फूलगोभी चावल'},
+  {id:'d0214',cat:'c3',sn:'0214',en:'Capsicum Rice',gu:'ä \'',hi:'शिमला मिर्च चावल'},
+  {id:'d0215',cat:'c3',sn:'0215',en:'Beans Rice',gu:'ä \'',hi:'फली चावल'},
+  {id:'d0216',cat:'c3',sn:'0216',en:'Sweet Rice',gu:'ä \'',hi:'मीठा भात'},
+  {id:'d0217',cat:'c3',sn:'0217',en:'Kheer Rice',gu:'ä \'',hi:'खीर भात'},
+  {id:'d0218',cat:'c3',sn:'0218',en:'Biriyani Satvik',gu:'ä \'',hi:'सात्विक बिरयानी'},
+  {id:'d0219',cat:'c3',sn:'0219',en:'Tawa Pulao',gu:'ä \'',hi:'तवा पुलाव'},
+  {id:'d0220',cat:'c3',sn:'0220',en:'Bamboo Rice',gu:'ä \'',hi:'बांस चावल'},
+  {id:'d0221',cat:'c3',sn:'0221',en:'Pudina Rice',gu:'ä \'',hi:'पुदीना चावल'},
+  {id:'d0222',cat:'c3',sn:'0222',en:'Coriander Rice',gu:'ä \'',hi:'धनिया चावल'},
+  {id:'d0223',cat:'c3',sn:'0223',en:'Mixed Herb Rice',gu:'ä \'',hi:'मिक्स हर्ब चावल'},
+  {id:'d0224',cat:'c3',sn:'0224',en:'Amla Rice',gu:'ä \'',hi:'आंवला चावल'},
+  {id:'d0225',cat:'c3',sn:'0225',en:'Dry Fruit Rice',gu:'ä \'',hi:'ड्राई फ्रूट चावल'},
+  {id:'d0226',cat:'c3',sn:'0226',en:'Cashew Rice',gu:'ä \'',hi:'काजू चावल'},
+  {id:'d0227',cat:'c3',sn:'0227',en:'Almond Rice',gu:'ä \'',hi:'बादाम चावल'},
+  {id:'d0228',cat:'c3',sn:'0228',en:'Pista Rice',gu:'ä \'',hi:'पिस्ता चावल'},
+  {id:'d0229',cat:'c3',sn:'0229',en:'Raisin Rice',gu:'ä \'',hi:'किशमिश चावल'},
+  {id:'d0230',cat:'c3',sn:'0230',en:'Sweet Corn Pulao',gu:'ä \'',hi:'मकई पुलाव'},
+  {id:'d0231',cat:'c3',sn:'0231',en:'Soya Pulao',gu:'ä \'',hi:'सोया पुलाव'},
+  {id:'d0232',cat:'c3',sn:'0232',en:'Tofu Pulao',gu:'ä \'',hi:'टोफू पुलाव'},
+  {id:'d0233',cat:'c3',sn:'0233',en:'Rajma Rice',gu:'ä \'',hi:'राजमा चावल'},
+  {id:'d0234',cat:'c3',sn:'0234',en:'Chana Pulao',gu:'ä \'',hi:'चना पुलाव'},
+  {id:'d0235',cat:'c3',sn:'0235',en:'Moong Pulao',gu:'ä \'',hi:'मूंग पुलाव'},
+  {id:'d0236',cat:'c3',sn:'0236',en:'Urad Pulao',gu:'ä \'',hi:'उड़द पुलाव'},
+  {id:'d0237',cat:'c3',sn:'0237',en:'Lobia Pulao',gu:'ä \'',hi:'लोबिया पुलाव'},
+  {id:'d0238',cat:'c3',sn:'0238',en:'Aloo Pulao',gu:'ä \'',hi:'आलू पुलाव'},
+  {id:'d0239',cat:'c3',sn:'0239',en:'Yam Pulao',gu:'ä \'',hi:'सूरन पुलाव'},
+  {id:'d0240',cat:'c3',sn:'0240',en:'Colocasia Pulao',gu:'ä \'',hi:'अरबी पुलाव'},
+  {id:'d0241',cat:'c3',sn:'0241',en:'Kathal Pulao',gu:'ä \'',hi:'कटहल पुलाव'},
+  {id:'d0242',cat:'c3',sn:'0242',en:'Raw Mango Pulao',gu:'ä \'',hi:'कच्चे आम का पुलाव'},
+  {id:'d0243',cat:'c3',sn:'0243',en:'Drumstick Pulao',gu:'ä \'',hi:'सहजन पुलाव'},
+  {id:'d0244',cat:'c3',sn:'0244',en:'Puffed Rice',gu:'ä \'',hi:'मुरमुरे'},
+  {id:'d0245',cat:'c3',sn:'0245',en:'Chiura',gu:'ä \'',hi:'चिउड़ा'},
+  {id:'d0246',cat:'c3',sn:'0246',en:'Akki Roti Rice',gu:'ä \'',hi:'अक्की रोटी'},
+  {id:'d0247',cat:'c3',sn:'0247',en:'Ambali',gu:'ä \'',hi:'अंबली'},
+  {id:'d0248',cat:'c3',sn:'0248',en:'Kanji',gu:'ä \'',hi:'कांजी'},
+  {id:'d0249',cat:'c3',sn:'0249',en:'Congee',gu:'ä \'',hi:'कांजी भात'},
+  {id:'d0250',cat:'c3',sn:'0250',en:'Tender Coconut Rice',gu:'ä \'',hi:'नारियल पानी भात'},
+  {id:'d0251',cat:'c3',sn:'0251',en:'Ambrosia Rice',gu:'ä \'',hi:'पंचामृत भात'},
+  {id:'d0252',cat:'c3',sn:'0252',en:'Prasad Rice',gu:'ä \'',hi:'प्रसाद भात'},
+  {id:'d0253',cat:'c3',sn:'0253',en:'Satvik Biryani',gu:'ä \'',hi:'सात्विक बिरयानी'},
+  {id:'d0254',cat:'c3',sn:'0254',en:'Temple Prasad',gu:'ä \'',hi:'मंदिर प्रसाद'},
+  {id:'d0255',cat:'c4',sn:'0255',en:'Wheat Roti',gu:'ઘઉં ની રોટી',hi:'गेहूं की रोटी'},
+  {id:'d0256',cat:'c4',sn:'0256',en:'Sorghum Bhakhri',gu:'જુવાર ભાખરી',hi:'ज्वार भाखरी'},
+  {id:'d0257',cat:'c4',sn:'0257',en:'Puri',gu:'ઘઉ ની પૂ',hi:'गेहूं की पूरी'},
+  {id:'d0258',cat:'c4',sn:'0258',en:'Methi Thepla',gu:'મ \'',hi:'मेथी के थेपले'},
+  {id:'d0259',cat:'c4',sn:'0259',en:'Bajri Bhakhri',gu:'ä \'',hi:'बाजरी की भाखरी'},
+  {id:'d0260',cat:'c4',sn:'0260',en:'Makki Roti',gu:'ä \'',hi:'मक्की की रोटी'},
+  {id:'d0261',cat:'c4',sn:'0261',en:'Paratha',gu:'ä \'',hi:'पराठा'},
+  {id:'d0262',cat:'c4',sn:'0262',en:'Aloo Paratha',gu:'ä \'',hi:'आलू पराठा'},
+  {id:'d0263',cat:'c4',sn:'0263',en:'Methi Paratha',gu:'ä \'',hi:'मेथी पराठा'},
+  {id:'d0264',cat:'c4',sn:'0264',en:'Gobi Paratha',gu:'ä \'',hi:'गोभी पराठा'},
+  {id:'d0265',cat:'c4',sn:'0265',en:'Paneer Paratha',gu:'ä \'',hi:'पनीर पराठा'},
+  {id:'d0266',cat:'c4',sn:'0266',en:'Mixed Veg Paratha',gu:'ä \'',hi:'मिक्स वेज पराठा'},
+  {id:'d0267',cat:'c4',sn:'0267',en:'Radish Paratha',gu:'ä \'',hi:'मूली पराठा'},
+  {id:'d0268',cat:'c4',sn:'0268',en:'Spinach Paratha',gu:'ä \'',hi:'पालक पराठा'},
+  {id:'d0269',cat:'c4',sn:'0269',en:'Peas Paratha',gu:'ä \'',hi:'मटर पराठा'},
+  {id:'d0270',cat:'c4',sn:'0270',en:'Coriander Paratha',gu:'ä \'',hi:'धनिया पराठा'},
+  {id:'d0271',cat:'c4',sn:'0271',en:'Pudina Paratha',gu:'ä \'',hi:'पुदीना पराठा'},
+  {id:'d0272',cat:'c4',sn:'0272',en:'Sattu Paratha',gu:'ä \'',hi:'सत्तू पराठा'},
+  {id:'d0273',cat:'c4',sn:'0273',en:'Sweet Paratha',gu:'ä \'',hi:'मीठा पराठा'},
+  {id:'d0274',cat:'c4',sn:'0274',en:'Ragi Roti',gu:'ä \'',hi:'रागी रोटी'},
+  {id:'d0275',cat:'c4',sn:'0275',en:'Jowar Roti',gu:'ä \'',hi:'ज्वार रोटी'},
+  {id:'d0276',cat:'c4',sn:'0276',en:'Bajra Roti',gu:'ä \'',hi:'बाजरा रोटी'},
+  {id:'d0277',cat:'c4',sn:'0277',en:'Rice Roti',gu:'ä \'',hi:'चावल की रोटी'},
+  {id:'d0278',cat:'c4',sn:'0278',en:'Maize Roti',gu:'ä \'',hi:'मक्के की रोटी'},
+  {id:'d0279',cat:'c4',sn:'0279',en:'Oats Roti',gu:'ä \'',hi:'ओट्स रोटी'},
+  {id:'d0280',cat:'c4',sn:'0280',en:'Multigrain Roti',gu:'ä \'',hi:'मल्टीग्रेन रोटी'},
+  {id:'d0281',cat:'c4',sn:'0281',en:'Navratri Roti',gu:'ä \'',hi:'नवरात्रि रोटी'},
+  {id:'d0282',cat:'c4',sn:'0282',en:'Kuttu Puri',gu:'ä \'',hi:'कुट्टू की पूरी'},
+  {id:'d0283',cat:'c4',sn:'0283',en:'Singhara Puri',gu:'ä \'',hi:'सिंघाड़े की पूरी'},
+  {id:'d0284',cat:'c4',sn:'0284',en:'Samak Puri',gu:'ä \'',hi:'सामक पूरी'},
+  {id:'d0285',cat:'c4',sn:'0285',en:'Luchi',gu:'ä \'',hi:'लुची'},
+  {id:'d0286',cat:'c4',sn:'0286',en:'Poori Bhaji',gu:'ä \'',hi:'पूरी भाजी'},
+  {id:'d0287',cat:'c4',sn:'0287',en:'Bedmi Puri',gu:'ä \'',hi:'बेड़मी पूरी'},
+  {id:'d0288',cat:'c4',sn:'0288',en:'Kachori',gu:'ä \'',hi:'कचौड़ी'},
+  {id:'d0289',cat:'c4',sn:'0289',en:'Moong Kachori',gu:'ä \'',hi:'मूंग कचौड़ी'},
+  {id:'d0290',cat:'c4',sn:'0290',en:'Dal Kachori',gu:'ä \'',hi:'दाल कचौड़ी'},
+  {id:'d0291',cat:'c4',sn:'0291',en:'Mawa Kachori',gu:'ä \'',hi:'मावा कचौड़ी'},
+  {id:'d0292',cat:'c4',sn:'0292',en:'Khasta Kachori',gu:'ä \'',hi:'खस्ता कचौड़ी'},
+  {id:'d0293',cat:'c4',sn:'0293',en:'Layered Paratha',gu:'ä \'',hi:'लच्छा पराठा'},
+  {id:'d0294',cat:'c4',sn:'0294',en:'Rumali Roti',gu:'ä \'',hi:'रुमाली रोटी'},
+  {id:'d0295',cat:'c4',sn:'0295',en:'Tandoori Roti',gu:'ä \'',hi:'तंदूरी रोटी'},
+  {id:'d0296',cat:'c4',sn:'0296',en:'Naan',gu:'ä \'',hi:'नान'},
+  {id:'d0297',cat:'c4',sn:'0297',en:'Kulcha',gu:'ä \'',hi:'कुलचा'},
+  {id:'d0298',cat:'c4',sn:'0298',en:'Amritsari Kulcha',gu:'ä \'',hi:'अमृतसरी कुलचा'},
+  {id:'d0299',cat:'c4',sn:'0299',en:'Bhatura',gu:'ä \'',hi:'भटूरा'},
+  {id:'d0300',cat:'c4',sn:'0300',en:'Appam',gu:'ä \'',hi:'अप्पम'},
+  {id:'d0301',cat:'c4',sn:'0301',en:'Dosa',gu:'ä \'',hi:'डोसा'},
+  {id:'d0302',cat:'c4',sn:'0302',en:'Uttapam',gu:'ä \'',hi:'उत्तपम'},
+  {id:'d0303',cat:'c4',sn:'0303',en:'Pesarattu',gu:'ä \'',hi:'पेसरट्टू'},
+  {id:'d0304',cat:'c4',sn:'0304',en:'Akki Roti',gu:'ä \'',hi:'अक्की रोटी'},
+  {id:'d0305',cat:'c4',sn:'0305',en:'Jolada Roti',gu:'ä \'',hi:'जोलड़ा रोटी'},
+  {id:'d0306',cat:'c4',sn:'0306',en:'Bhakri',gu:'ä \'',hi:'भाकरी'},
+  {id:'d0307',cat:'c4',sn:'0307',en:'Thalipeeth',gu:'ä \'',hi:'थालीपीठ'},
+  {id:'d0308',cat:'c4',sn:'0308',en:'Ghavane',gu:'ä \'',hi:'घावणे'},
+  {id:'d0309',cat:'c4',sn:'0309',en:'Khakhra',gu:'ä \'',hi:'खाखरा'},
+  {id:'d0310',cat:'c4',sn:'0310',en:'Rotla',gu:'ä \'',hi:'રોટળા'},
+  {id:'d0311',cat:'c4',sn:'0311',en:'Dhebra',gu:'ä \'',hi:'ढेबरा'},
+  {id:'d0312',cat:'c4',sn:'0312',en:'Vada Pav Roti',gu:'ä \'',hi:'वड़ा पाव रोटी'},
+  {id:'d0313',cat:'c4',sn:'0313',en:'Missi Roti',gu:'ä \'',hi:'मिस्सी रोटी'},
+  {id:'d0314',cat:'c4',sn:'0314',en:'Besan Roti',gu:'ä \'',hi:'बेसन रोटी'},
+  {id:'d0315',cat:'c4',sn:'0315',en:'Coconut Roti',gu:'ä \'',hi:'नारियल रोटी'},
+  {id:'d0316',cat:'c4',sn:'0316',en:'Corn Roti',gu:'ä \'',hi:'मकई रोटी'},
+  {id:'d0317',cat:'c4',sn:'0317',en:'Soya Roti',gu:'ä \'',hi:'सोया रोटी'},
+  {id:'d0318',cat:'c4',sn:'0318',en:'Flaxseed Roti',gu:'ä \'',hi:'अलसी रोटी'},
+  {id:'d0319',cat:'c4',sn:'0319',en:'Sesame Roti',gu:'ä \'',hi:'तिल की रोटी'},
+  {id:'d0320',cat:'c4',sn:'0320',en:'Ajwain Roti',gu:'ä \'',hi:'अजवाइन रोटी'},
+  {id:'d0321',cat:'c4',sn:'0321',en:'Coriander Roti',gu:'ä \'',hi:'धनिया रोटी'},
+  {id:'d0322',cat:'c4',sn:'0322',en:'Methi Puri',gu:'ä \'',hi:'मेथी पूरी'},
+  {id:'d0323',cat:'c4',sn:'0323',en:'Palak Puri',gu:'ä \'',hi:'पालक पूरी'},
+  {id:'d0324',cat:'c4',sn:'0324',en:'Tomato Puri',gu:'ä \'',hi:'टमाटर पूरी'},
+  {id:'d0325',cat:'c4',sn:'0325',en:'Beet Puri',gu:'ä \'',hi:'चुकंदर पूरी'},
+  {id:'d0326',cat:'c4',sn:'0326',en:'Moong Dal Puri',gu:'ä \'',hi:'मूंग दाल पूरी'},
+  {id:'d0327',cat:'c4',sn:'0327',en:'Urad Dal Puri',gu:'ä \'',hi:'उड़द दाल पूरी'},
+  {id:'d0328',cat:'c4',sn:'0328',en:'Chana Dal Puri',gu:'ä \'',hi:'चना दाल पूरी'},
+  {id:'d0329',cat:'c4',sn:'0329',en:'Lentil Puri',gu:'ä \'',hi:'मसूर पूरी'},
+  {id:'d0330',cat:'c4',sn:'0330',en:'Stuffed Puri',gu:'ä \'',hi:'भरवां पूरी'},
+  {id:'d0331',cat:'c4',sn:'0331',en:'Sweet Puri',gu:'ä \'',hi:'मीठी पूरी'},
+  {id:'d0332',cat:'c4',sn:'0332',en:'Suji Roti',gu:'ä \'',hi:'सूजी रोटी'},
+  {id:'d0333',cat:'c4',sn:'0333',en:'Paneer Roti',gu:'ä \'',hi:'पनीर रोटी'},
+  {id:'d0334',cat:'c4',sn:'0334',en:'Onion Roti no onion',gu:'ä \'',hi:'हरी प्याज रोटी'},
+  {id:'d0335',cat:'c4',sn:'0335',en:'Dry Fruit Roti',gu:'ä \'',hi:'ड्राई फ्रूट रोटी'},
+  {id:'d0336',cat:'c4',sn:'0336',en:'Festival Roti',gu:'ä \'',hi:'त्योहार रोटी'},
+  {id:'d0337',cat:'c4',sn:'0337',en:'Satvik Roti',gu:'ä \'',hi:'सात्विक रोटी'},
+  {id:'d0338',cat:'c4',sn:'0338',en:'Prasad Puri',gu:'ä \'',hi:'प्रसाद पूरी'},
+  {id:'d0339',cat:'c4',sn:'0339',en:'Temple Bhakhri',gu:'ä \'',hi:'मंदिर भाखरी'},
+  {id:'d0340',cat:'c4',sn:'0340',en:'Holy Roti',gu:'ä \'',hi:'पवित्र रोटी'},
+  {id:'d0341',cat:'c4',sn:'0341',en:'Divine Puri',gu:'ä \'',hi:'दिव्य पूरी'},
+  {id:'d0342',cat:'c4',sn:'0342',en:'Blessing Bread',gu:'ä \'',hi:'आशीर्वाद रोटी'},
+  {id:'d0343',cat:'c4',sn:'0343',en:'Khichiya Papad',gu:'ä \'',hi:'खिचिया पापड़'},
+  {id:'d0344',cat:'c4',sn:'0344',en:'Masala Puri',gu:'ä \'',hi:'मसाला पूरी'},
+  {id:'d0345',cat:'c4',sn:'0345',en:'Spinach Roti',gu:'ä \'',hi:'पालक रोटी'},
+  {id:'d0346',cat:'c4',sn:'0346',en:'Carrot Roti',gu:'ä \'',hi:'गाजर रोटी'},
+  {id:'d0347',cat:'c4',sn:'0347',en:'Pumpkin Puri',gu:'ä \'',hi:'कद्दू पूरी'},
+  {id:'d0348',cat:'c4',sn:'0348',en:'Yam Bhakhri',gu:'ä \'',hi:'सूरन भाखरी'},
+  {id:'d0349',cat:'c4',sn:'0349',en:'Colocasia Puri',gu:'ä \'',hi:'अरबी पूरी'},
+  {id:'d0350',cat:'c4',sn:'0350',en:'Millet Bhakhri',gu:'ä \'',hi:'मिलेट भाखरी'},
+  {id:'d0351',cat:'c4',sn:'0351',en:'Grain Roti',gu:'ä \'',hi:'अनाज रोटी'},
+  {id:'d0352',cat:'c4',sn:'0352',en:'Sacred Flatbread',gu:'ä \'',hi:'पवित्र रोटी'},
+  {id:'d0353',cat:'c4',sn:'0353',en:'Diwali Puri',gu:'ä \'',hi:'दिवाली पूरी'},
+  {id:'d0354',cat:'c4',sn:'0354',en:'Annakut Roti',gu:'ä \'',hi:'अन्नकूट रोटी'},
+  {id:'d0355',cat:'c5',sn:'0355',en:'Wheat Gathiya',gu:'ઘઉ \'',hi:'गेहूं गांठिया'},
+  {id:'d0356',cat:'c5',sn:'0356',en:'Cowpea Bhujia',gu:'ä \'',hi:'लोबिया भुजिया'},
+  {id:'d0357',cat:'c5',sn:'0357',en:'Chavana',gu:'ä \'',hi:'चवाणा'},
+  {id:'d0358',cat:'c5',sn:'0358',en:'Wheat Fafda',gu:'ä \'',hi:'गेहूं फाफड़ा'},
+  {id:'d0359',cat:'c5',sn:'0359',en:'Wheat Khara',gu:'ä \'',hi:'गेहूं खारा'},
+  {id:'d0360',cat:'c5',sn:'0360',en:'Sev',gu:'ä \'',hi:'सेव'},
+  {id:'d0361',cat:'c5',sn:'0361',en:'Chakli',gu:'ä \'',hi:'चकली'},
+  {id:'d0362',cat:'c5',sn:'0362',en:'Murukku',gu:'ä \'',hi:'मुरुक्कू'},
+  {id:'d0363',cat:'c5',sn:'0363',en:'Ribbon Pakoda',gu:'ä \'',hi:'रिबन पकोड़ा'},
+  {id:'d0364',cat:'c5',sn:'0364',en:'Namkeen Boondi',gu:'ä \'',hi:'नमकीन बूंदी'},
+  {id:'d0365',cat:'c5',sn:'0365',en:'Aloo Bhujia',gu:'ä \'',hi:'आलू भुजिया'},
+  {id:'d0366',cat:'c5',sn:'0366',en:'Methi Sev',gu:'ä \'',hi:'मेथी सेव'},
+  {id:'d0367',cat:'c5',sn:'0367',en:'Ratlami Sev',gu:'ä \'',hi:'रतलामी सेव'},
+  {id:'d0368',cat:'c5',sn:'0368',en:'Indori Sev',gu:'ä \'',hi:'इंदौरी सेव'},
+  {id:'d0369',cat:'c5',sn:'0369',en:'Dhokla',gu:'ä \'',hi:'ढोकला'},
+  {id:'d0370',cat:'c5',sn:'0370',en:'Khandvi',gu:'ä \'',hi:'खांडवी'},
+  {id:'d0371',cat:'c5',sn:'0371',en:'Patra',gu:'ä \'',hi:'पात्रा'},
+  {id:'d0372',cat:'c5',sn:'0372',en:'Thepla Farsan',gu:'ä \'',hi:'थेपला फरसाण'},
+  {id:'d0373',cat:'c5',sn:'0373',en:'Bhajiya',gu:'ä \'',hi:'भजिया'},
+  {id:'d0374',cat:'c5',sn:'0374',en:'Mixed Bhajiya',gu:'ä \'',hi:'मिक्स भजिया'},
+  {id:'d0375',cat:'c5',sn:'0375',en:'Moong Dal Bhajiya',gu:'ä \'',hi:'मूंग दाल भजिया'},
+  {id:'d0376',cat:'c5',sn:'0376',en:'Makai Bhajiya',gu:'ä \'',hi:'मकई भजिया'},
+  {id:'d0377',cat:'c5',sn:'0377',en:'Palak Bhajiya',gu:'ä \'',hi:'पालक भजिया'},
+  {id:'d0378',cat:'c5',sn:'0378',en:'Mirchi Bhajiya',gu:'ä \'',hi:'मिर्च भजिया'},
+  {id:'d0379',cat:'c5',sn:'0379',en:'Baingan Bhajiya',gu:'ä \'',hi:'बैंगन भजिया'},
+  {id:'d0380',cat:'c5',sn:'0380',en:'Aloo Tikki',gu:'ä \'',hi:'आलू टिक्की'},
+  {id:'d0381',cat:'c5',sn:'0381',en:'Samosa',gu:'ä \'',hi:'समोसा'},
+  {id:'d0382',cat:'c5',sn:'0382',en:'Veg Samosa',gu:'ä \'',hi:'वेज समोसा'},
+  {id:'d0383',cat:'c5',sn:'0383',en:'Mini Samosa',gu:'ä \'',hi:'मिनी समोसा'},
+  {id:'d0384',cat:'c5',sn:'0384',en:'Kachori',gu:'ä \'',hi:'कचौड़ी'},
+  {id:'d0385',cat:'c5',sn:'0385',en:'Paneer Roll',gu:'ä \'',hi:'पनीर रोल'},
+  {id:'d0386',cat:'c5',sn:'0386',en:'Veg Roll',gu:'ä \'',hi:'वेज रोल'},
+  {id:'d0387',cat:'c5',sn:'0387',en:'Spring Roll',gu:'ä \'',hi:'स्प्रिंग रोल'},
+  {id:'d0388',cat:'c5',sn:'0388',en:'Idli',gu:'ä \'',hi:'इडली'},
+  {id:'d0389',cat:'c5',sn:'0389',en:'Medu Vada',gu:'ä \'',hi:'मेदू वड़ा'},
+  {id:'d0390',cat:'c5',sn:'0390',en:'Mysore Bajji',gu:'ä \'',hi:'मैसूर बज्जी'},
+  {id:'d0391',cat:'c5',sn:'0391',en:'Bread Pakora',gu:'ä \'',hi:'ब्रेड पकोड़ा'},
+  {id:'d0392',cat:'c5',sn:'0392',en:'Paneer Pakora',gu:'ä \'',hi:'पनीर पकोड़ा'},
+  {id:'d0393',cat:'c5',sn:'0393',en:'Veg Pakora',gu:'ä \'',hi:'वेज पकोड़ा'},
+  {id:'d0394',cat:'c5',sn:'0394',en:'Suji Pakora',gu:'ä \'',hi:'सूजी पकोड़ा'},
+  {id:'d0395',cat:'c5',sn:'0395',en:'Dahi Ke Pakore',gu:'ä \'',hi:'दही के पकोड़े'},
+  {id:'d0396',cat:'c5',sn:'0396',en:'Corn Pakora',gu:'ä \'',hi:'मकई पकोड़ा'},
+  {id:'d0397',cat:'c5',sn:'0397',en:'Spinach Fritters',gu:'ä \'',hi:'पालक पकोड़ा'},
+  {id:'d0398',cat:'c5',sn:'0398',en:'Moong Sprout Farsan',gu:'ä \'',hi:'मूंग अंकुर फरसाण'},
+  {id:'d0399',cat:'c5',sn:'0399',en:'Chana Dal Farsan',gu:'ä \'',hi:'चना दाल फरसाण'},
+  {id:'d0400',cat:'c5',sn:'0400',en:'Besan Sev',gu:'ä \'',hi:'बेसन सेव'},
+  {id:'d0401',cat:'c5',sn:'0401',en:'Thin Sev',gu:'ä \'',hi:'पतली सेव'},
+  {id:'d0402',cat:'c5',sn:'0402',en:'Thick Sev',gu:'ä \'',hi:'मोटी सेव'},
+  {id:'d0403',cat:'c5',sn:'0403',en:'Garlic Sev no garlic',gu:'ä \'',hi:'सात्विक सेव'},
+  {id:'d0404',cat:'c5',sn:'0404',en:'Butter Sev',gu:'ä \'',hi:'बटर सेव'},
+  {id:'d0405',cat:'c5',sn:'0405',en:'Rice Sev',gu:'ä \'',hi:'चावल सेव'},
+  {id:'d0406',cat:'c5',sn:'0406',en:'Papdi',gu:'ä \'',hi:'पापड़ी'},
+  {id:'d0407',cat:'c5',sn:'0407',en:'Mathri',gu:'ä \'',hi:'मठरी'},
+  {id:'d0408',cat:'c5',sn:'0408',en:'Shakarpara',gu:'ä \'',hi:'शक्करपारे'},
+  {id:'d0409',cat:'c5',sn:'0409',en:'Namak Para',gu:'ä \'',hi:'नमक पारे'},
+  {id:'d0410',cat:'c5',sn:'0410',en:'Thikha Para',gu:'ä \'',hi:'तीखा पारा'},
+  {id:'d0411',cat:'c5',sn:'0411',en:'Meetha Para',gu:'ä \'',hi:'मीठा पारा'},
+  {id:'d0412',cat:'c5',sn:'0412',en:'Kara Sev',gu:'ä \'',hi:'करा सेव'},
+  {id:'d0413',cat:'c5',sn:'0413',en:'Chivda',gu:'ä \'',hi:'चिवड़ा'},
+  {id:'d0414',cat:'c5',sn:'0414',en:'Poha Chivda',gu:'ä \'',hi:'पोहा चिवड़ा'},
+  {id:'d0415',cat:'c5',sn:'0415',en:'Corn Flakes Chivda',gu:'ä \'',hi:'कॉर्न फ्लेक्स चिवड़ा'},
+  {id:'d0416',cat:'c5',sn:'0416',en:'Murmura Mix',gu:'ä \'',hi:'मुरमुरा मिक्स'},
+  {id:'d0417',cat:'c5',sn:'0417',en:'Trail Mix',gu:'ä \'',hi:'ट्रेल मिक्स'},
+  {id:'d0418',cat:'c5',sn:'0418',en:'Roasted Chana',gu:'ä \'',hi:'भुने चने'},
+  {id:'d0419',cat:'c5',sn:'0419',en:'Makhana',gu:'ä \'',hi:'मखाना'},
+  {id:'d0420',cat:'c5',sn:'0420',en:'Spiced Peanuts',gu:'ä \'',hi:'मसाला मूंगफली'},
+  {id:'d0421',cat:'c5',sn:'0421',en:'Masala Cashews',gu:'ä \'',hi:'मसाला काजू'},
+  {id:'d0422',cat:'c5',sn:'0422',en:'Roasted Almonds',gu:'ä \'',hi:'भुने बादाम'},
+  {id:'d0423',cat:'c5',sn:'0423',en:'Dry Fruit Mix',gu:'ä \'',hi:'ड्राई फ्रूट मिक्स'},
+  {id:'d0424',cat:'c5',sn:'0424',en:'Chikki Farsan',gu:'ä \'',hi:'चिक्की फरसाण'},
+  {id:'d0425',cat:'c5',sn:'0425',en:'Festival Mix',gu:'ä \'',hi:'त्योहार मिक्स'},
+  {id:'d0426',cat:'c5',sn:'0426',en:'Annakut Mix',gu:'ä \'',hi:'अन्नकूट मिक्स'},
+  {id:'d0427',cat:'c5',sn:'0427',en:'Diwali Farsan',gu:'ä \'',hi:'दिवाली फरसाण'},
+  {id:'d0428',cat:'c5',sn:'0428',en:'Holy Farsan',gu:'ä \'',hi:'पवित्र फरसाण'},
+  {id:'d0429',cat:'c5',sn:'0429',en:'Satvik Snack',gu:'ä \'',hi:'सात्विक नाश्ता'},
+  {id:'d0430',cat:'c5',sn:'0430',en:'Temple Prasad Farsan',gu:'ä \'',hi:'मंदिर प्रसाद'},
+  {id:'d0431',cat:'c5',sn:'0431',en:'Mini Dhokla',gu:'ä \'',hi:'मिनी ढोकला'},
+  {id:'d0432',cat:'c5',sn:'0432',en:'Steamed Khandvi',gu:'ä \'',hi:'स्टीम्ड खांडवी'},
+  {id:'d0433',cat:'c5',sn:'0433',en:'Sabudana Vada',gu:'ä \'',hi:'साबुदाना वड़ा'},
+  {id:'d0434',cat:'c5',sn:'0434',en:'Sabudana Thalipeeth',gu:'ä \'',hi:'साबुदाना थालीपीठ'},
+  {id:'d0435',cat:'c5',sn:'0435',en:'Moong Cheela',gu:'ä \'',hi:'मूंग चीला'},
+  {id:'d0436',cat:'c5',sn:'0436',en:'Besan Cheela',gu:'ä \'',hi:'बेसन चीला'},
+  {id:'d0437',cat:'c5',sn:'0437',en:'Suji Cheela',gu:'ä \'',hi:'सूजी चीला'},
+  {id:'d0438',cat:'c5',sn:'0438',en:'Rice Cheela',gu:'ä \'',hi:'चावल चीला'},
+  {id:'d0439',cat:'c5',sn:'0439',en:'Mixed Lentil Cheela',gu:'ä \'',hi:'मिश्रित दाल चीला'},
+  {id:'d0440',cat:'c5',sn:'0440',en:'Oats Cheela',gu:'ä \'',hi:'ओट्स चीला'},
+  {id:'d0441',cat:'c5',sn:'0441',en:'Banana Pakoda',gu:'ä \'',hi:'केला पकोड़ा'},
+  {id:'d0442',cat:'c5',sn:'0442',en:'Sweet Potato Tikki',gu:'ä \'',hi:'शकरकंद टिक्की'},
+  {id:'d0443',cat:'c5',sn:'0443',en:'Yam Tikki',gu:'ä \'',hi:'सूरन टिक्की'},
+  {id:'d0444',cat:'c5',sn:'0444',en:'Beet Tikki',gu:'ä \'',hi:'चुकंदर टिक्की'},
+  {id:'d0445',cat:'c5',sn:'0445',en:'Corn Tikki',gu:'ä \'',hi:'मकई टिक्की'},
+  {id:'d0446',cat:'c5',sn:'0446',en:'Carrot Tikki',gu:'ä \'',hi:'गाजर टिक्की'},
+  {id:'d0447',cat:'c5',sn:'0447',en:'Mixed Veg Tikki',gu:'ä \'',hi:'मिक्स वेज टिक्की'},
+  {id:'d0448',cat:'c5',sn:'0448',en:'Quinoa Tikki',gu:'ä \'',hi:'क्विनोआ टिक्की'},
+  {id:'d0449',cat:'c5',sn:'0449',en:'Rajma Tikki',gu:'ä \'',hi:'राजमा टिक्की'},
+  {id:'d0450',cat:'c5',sn:'0450',en:'Chana Tikki',gu:'ä \'',hi:'चना टिक्की'},
+  {id:'d0451',cat:'c5',sn:'0451',en:'Paneer Tikki',gu:'ä \'',hi:'पनीर टिक्की'},
+  {id:'d0452',cat:'c5',sn:'0452',en:'Tofu Tikki',gu:'ä \'',hi:'टोफू टिक्की'},
+  {id:'d0453',cat:'c5',sn:'0453',en:'Bread Tikki',gu:'ä \'',hi:'ब्रेड टिक्की'},
+  {id:'d0454',cat:'c6',sn:'0454',en:'Mohanbhog',gu:'ä \'',hi:'मोहनभोग'},
+  {id:'d0455',cat:'c6',sn:'0455',en:'Mohanthal',gu:'ä \'',hi:'मोहनथाल'},
+  {id:'d0456',cat:'c6',sn:'0456',en:'Wheat Sukhdi',gu:'ä \'',hi:'गेहूं सुखड़ी'},
+  {id:'d0457',cat:'c6',sn:'0457',en:'Wheat Ghughra',gu:'ä \'',hi:'गेहूं घुघरा'},
+  {id:'d0458',cat:'c6',sn:'0458',en:'Wheat Ghari',gu:'ä \'',hi:'गेहूं घारी'},
+  {id:'d0459',cat:'c6',sn:'0459',en:'Halwa',gu:'ä \'',hi:'हलवा'},
+  {id:'d0460',cat:'c6',sn:'0460',en:'Gajar Halwa',gu:'ä \'',hi:'गाजर हलवा'},
+  {id:'d0461',cat:'c6',sn:'0461',en:'Suji Halwa',gu:'ä \'',hi:'सूजी हलवा'},
+  {id:'d0462',cat:'c6',sn:'0462',en:'Besan Halwa',gu:'ä \'',hi:'बेसन हलवा'},
+  {id:'d0463',cat:'c6',sn:'0463',en:'Moong Dal Halwa',gu:'ä \'',hi:'मूंग दाल हलवा'},
+  {id:'d0464',cat:'c6',sn:'0464',en:'Lauki Halwa',gu:'ä \'',hi:'लौकी हलवा'},
+  {id:'d0465',cat:'c6',sn:'0465',en:'Aloo Halwa',gu:'ä \'',hi:'आलू हलवा'},
+  {id:'d0466',cat:'c6',sn:'0466',en:'Badam Halwa',gu:'ä \'',hi:'बादाम हलवा'},
+  {id:'d0467',cat:'c6',sn:'0467',en:'Kaju Halwa',gu:'ä \'',hi:'काजू हलवा'},
+  {id:'d0468',cat:'c6',sn:'0468',en:'Pista Halwa',gu:'ä \'',hi:'पिस्ता हलवा'},
+  {id:'d0469',cat:'c6',sn:'0469',en:'Mixed Nut Halwa',gu:'ä \'',hi:'मिक्स नट हलवा'},
+  {id:'d0470',cat:'c6',sn:'0470',en:'Atta Halwa',gu:'ä \'',hi:'आटा हलवा'},
+  {id:'d0471',cat:'c6',sn:'0471',en:'Poha Halwa',gu:'ä \'',hi:'पोहा हलवा'},
+  {id:'d0472',cat:'c6',sn:'0472',en:'Bread Halwa',gu:'ä \'',hi:'ब्रेड हलवा'},
+  {id:'d0473',cat:'c6',sn:'0473',en:'Mawa Halwa',gu:'ä \'',hi:'मावा हलवा'},
+  {id:'d0474',cat:'c6',sn:'0474',en:'Panjiri',gu:'ä \'',hi:'पंजीरी'},
+  {id:'d0475',cat:'c6',sn:'0475',en:'Churma',gu:'ä \'',hi:'चूरमा'},
+  {id:'d0476',cat:'c6',sn:'0476',en:'Churma Ladoo',gu:'ä \'',hi:'चूरमा लड्डू'},
+  {id:'d0477',cat:'c6',sn:'0477',en:'Besan Ladoo',gu:'ä \'',hi:'बेसन लड्डू'},
+  {id:'d0478',cat:'c6',sn:'0478',en:'Motichoor Ladoo',gu:'ä \'',hi:'मोतीचूर लड्डू'},
+  {id:'d0479',cat:'c6',sn:'0479',en:'Nariyal Ladoo',gu:'ä \'',hi:'नारियल लड्डू'},
+  {id:'d0480',cat:'c6',sn:'0480',en:'Peanut Ladoo',gu:'ä \'',hi:'मूंगफली लड्डू'},
+  {id:'d0481',cat:'c6',sn:'0481',en:'Sesame Ladoo',gu:'ä \'',hi:'तिल के लड्डू'},
+  {id:'d0482',cat:'c6',sn:'0482',en:'Jaggery Ladoo',gu:'ä \'',hi:'गुड़ के लड्डू'},
+  {id:'d0483',cat:'c6',sn:'0483',en:'Dry Fruit Ladoo',gu:'ä \'',hi:'ड्राई फ्रूट लड्डू'},
+  {id:'d0484',cat:'c6',sn:'0484',en:'Suji Ladoo',gu:'ä \'',hi:'सूजी लड्डू'},
+  {id:'d0485',cat:'c6',sn:'0485',en:'Moong Dal Ladoo',gu:'ä \'',hi:'मूंग दाल लड्डू'},
+  {id:'d0486',cat:'c6',sn:'0486',en:'Atta Ladoo',gu:'ä \'',hi:'आटा लड्डू'},
+  {id:'d0487',cat:'c6',sn:'0487',en:'Makhane Ladoo',gu:'ä \'',hi:'मखाने लड्डू'},
+  {id:'d0488',cat:'c6',sn:'0488',en:'Badam Ladoo',gu:'ä \'',hi:'बादाम लड्डू'},
+  {id:'d0489',cat:'c6',sn:'0489',en:'Kaju Ladoo',gu:'ä \'',hi:'काजू लड्डू'},
+  {id:'d0490',cat:'c6',sn:'0490',en:'Coconut Ladoo',gu:'ä \'',hi:'नारियल लड्डू'},
+  {id:'d0491',cat:'c6',sn:'0491',en:'Anjeer Ladoo',gu:'ä \'',hi:'अंजीर लड्डू'},
+  {id:'d0492',cat:'c6',sn:'0492',en:'Dates Ladoo',gu:'ä \'',hi:'खजूर लड्डू'},
+  {id:'d0493',cat:'c6',sn:'0493',en:'Oats Ladoo',gu:'ä \'',hi:'ओट्स लड्डू'},
+  {id:'d0494',cat:'c6',sn:'0494',en:'Kaju Katli',gu:'ä \'',hi:'काजू कतली'},
+  {id:'d0495',cat:'c6',sn:'0495',en:'Badam Katli',gu:'ä \'',hi:'बादाम कतली'},
+  {id:'d0496',cat:'c6',sn:'0496',en:'Pista Katli',gu:'ä \'',hi:'पिस्ता कतली'},
+  {id:'d0497',cat:'c6',sn:'0497',en:'Mixed Nut Katli',gu:'ä \'',hi:'मिक्स नट कतली'},
+  {id:'d0498',cat:'c6',sn:'0498',en:'Coconut Katli',gu:'ä \'',hi:'नारियल कतली'},
+  {id:'d0499',cat:'c6',sn:'0499',en:'Chocolate Katli',gu:'ä \'',hi:'चॉकलेट कतली'},
+  {id:'d0500',cat:'c6',sn:'0500',en:'Gulab Jamun',gu:'ä \'',hi:'गुलाब जामुन'},
+  {id:'d0501',cat:'c6',sn:'0501',en:'Rasgulla',gu:'ä \'',hi:'रसगुल्ला'},
+  {id:'d0502',cat:'c6',sn:'0502',en:'Rasmalai',gu:'ä \'',hi:'रसमलाई'},
+  {id:'d0503',cat:'c6',sn:'0503',en:'Cham Cham',gu:'ä \'',hi:'चम चम'},
+  {id:'d0504',cat:'c6',sn:'0504',en:'Sandesh',gu:'ä \'',hi:'संदेश'},
+  {id:'d0505',cat:'c6',sn:'0505',en:'Mishti Doi',gu:'ä \'',hi:'मिष्टी दोई'},
+  {id:'d0506',cat:'c6',sn:'0506',en:'Pantua',gu:'ä \'',hi:'पंतुआ'},
+  {id:'d0507',cat:'c6',sn:'0507',en:'Langcha',gu:'ä \'',hi:'लांगचा'},
+  {id:'d0508',cat:'c6',sn:'0508',en:'Kheer Kadam',gu:'ä \'',hi:'खीर कदम'},
+  {id:'d0509',cat:'c6',sn:'0509',en:'Nolen Gurer Sandesh',gu:'ä \'',hi:'नोलेन गुड़ संदेश'},
+  {id:'d0510',cat:'c6',sn:'0510',en:'Jalebi',gu:'ä \'',hi:'जलेबी'},
+  {id:'d0511',cat:'c6',sn:'0511',en:'Imarti',gu:'ä \'',hi:'इमरती'},
+  {id:'d0512',cat:'c6',sn:'0512',en:'Balushahi',gu:'ä \'',hi:'बालूशाही'},
+  {id:'d0513',cat:'c6',sn:'0513',en:'Malpua',gu:'ä \'',hi:'मालपुआ'},
+  {id:'d0514',cat:'c6',sn:'0514',en:'Ghevar',gu:'ä \'',hi:'घेवर'},
+  {id:'d0515',cat:'c6',sn:'0515',en:'Rabri Ghevar',gu:'ä \'',hi:'रबड़ी घेवर'},
+  {id:'d0516',cat:'c6',sn:'0516',en:'Mawa Kachori',gu:'ä \'',hi:'मावा कचौड़ी'},
+  {id:'d0517',cat:'c6',sn:'0517',en:'Sutar Feni',gu:'ä \'',hi:'सूतर फेणी'},
+  {id:'d0518',cat:'c6',sn:'0518',en:'Gujiya',gu:'ä \'',hi:'गुजिया'},
+  {id:'d0519',cat:'c6',sn:'0519',en:'Karanji',gu:'ä \'',hi:'करंजी'},
+  {id:'d0520',cat:'c6',sn:'0520',en:'Chirote',gu:'ä \'',hi:'चिरोटे'},
+  {id:'d0521',cat:'c6',sn:'0521',en:'Shankarpali',gu:'ä \'',hi:'शंकरपाळी'},
+  {id:'d0522',cat:'c6',sn:'0522',en:'Badam Puri',gu:'ä \'',hi:'बादाम पूरी'},
+  {id:'d0523',cat:'c6',sn:'0523',en:'Mawa Puri',gu:'ä \'',hi:'मावा पूरी'},
+  {id:'d0524',cat:'c6',sn:'0524',en:'Chawal Ki Kheer',gu:'ä \'',hi:'चावल की खीर'},
+  {id:'d0525',cat:'c6',sn:'0525',en:'Sabudana Kheer',gu:'ä \'',hi:'साबुदाना खीर'},
+  {id:'d0526',cat:'c6',sn:'0526',en:'Sewai Kheer',gu:'ä \'',hi:'सेवइयां खीर'},
+  {id:'d0527',cat:'c6',sn:'0527',en:'Makhane Ki Kheer',gu:'ä \'',hi:'मखाने की खीर'},
+  {id:'d0528',cat:'c6',sn:'0528',en:'Moong Dal Kheer',gu:'ä \'',hi:'मूंग दाल खीर'},
+  {id:'d0529',cat:'c6',sn:'0529',en:'Chana Dal Kheer',gu:'ä \'',hi:'चना दाल खीर'},
+  {id:'d0530',cat:'c6',sn:'0530',en:'Corn Kheer',gu:'ä \'',hi:'मकई खीर'},
+  {id:'d0531',cat:'c6',sn:'0531',en:'Coconut Kheer',gu:'ä \'',hi:'नारियल खीर'},
+  {id:'d0532',cat:'c6',sn:'0532',en:'Mango Kheer',gu:'ä \'',hi:'आम की खीर'},
+  {id:'d0533',cat:'c6',sn:'0533',en:'Strawberry Kheer',gu:'ä \'',hi:'स्ट्रॉबेरी खीर'},
+  {id:'d0534',cat:'c6',sn:'0534',en:'Basundi',gu:'ä \'',hi:'बासुंदी'},
+  {id:'d0535',cat:'c6',sn:'0535',en:'Peda',gu:'ä \'',hi:'पेड़ा'},
+  {id:'d0536',cat:'c6',sn:'0536',en:'Mathura Peda',gu:'ä \'',hi:'मथुरा पेड़ा'},
+  {id:'d0537',cat:'c6',sn:'0537',en:'Doodh Peda',gu:'ä \'',hi:'दूध पेड़ा'},
+  {id:'d0538',cat:'c6',sn:'0538',en:'Kesar Peda',gu:'ä \'',hi:'केसर पेड़ा'},
+  {id:'d0539',cat:'c6',sn:'0539',en:'Badam Peda',gu:'ä \'',hi:'बादाम पेड़ा'},
+  {id:'d0540',cat:'c6',sn:'0540',en:'Barfi',gu:'ä \'',hi:'बर्फी'},
+  {id:'d0541',cat:'c6',sn:'0541',en:'Milk Barfi',gu:'ä \'',hi:'दूध बर्फी'},
+  {id:'d0542',cat:'c6',sn:'0542',en:'Coconut Barfi',gu:'ä \'',hi:'नारियल बर्फी'},
+  {id:'d0543',cat:'c6',sn:'0543',en:'Gajar Barfi',gu:'ä \'',hi:'गाजर बर्फी'},
+  {id:'d0544',cat:'c6',sn:'0544',en:'Chocolate Barfi',gu:'ä \'',hi:'चॉकलेट बर्फी'},
+  {id:'d0545',cat:'c6',sn:'0545',en:'Besan Barfi',gu:'ä \'',hi:'बेसन बर्फी'},
+  {id:'d0546',cat:'c6',sn:'0546',en:'Lauki Barfi',gu:'ä \'',hi:'लौकी बर्फी'},
+  {id:'d0547',cat:'c6',sn:'0547',en:'Atta Barfi',gu:'ä \'',hi:'आटा बर्फी'},
+  {id:'d0548',cat:'c6',sn:'0548',en:'Phirni',gu:'ä \'',hi:'फिरनी'},
+  {id:'d0549',cat:'c6',sn:'0549',en:'Shrikhand',gu:'ä \'',hi:'श्रीखंड'},
+  {id:'d0550',cat:'c6',sn:'0550',en:'Amrakhand',gu:'ä \'',hi:'आम्रखंड'},
+  {id:'d0551',cat:'c6',sn:'0551',en:'Kesar Shrikhand',gu:'ä \'',hi:'केसर श्रीखंड'},
+  {id:'d0552',cat:'c6',sn:'0552',en:'Strawberry Shrikhand',gu:'ä \'',hi:'स्ट्रॉबेरी श्रीखंड'},
+  {id:'d0553',cat:'c6',sn:'0553',en:'Mixed Fruit Shrikhand',gu:'ä \'',hi:'मिक्स फ्रूट श्रीखंड'},
+  {id:'d0554',cat:'c6',sn:'0554',en:'Paneer Shrikhand',gu:'ä \'',hi:'पनीर श्रीखंड'},
+  {id:'d0555',cat:'c6',sn:'0555',en:'Kalakand',gu:'ä \'',hi:'कलाकंद'},
+  {id:'d0556',cat:'c6',sn:'0556',en:'Rabri',gu:'ä \'',hi:'रबड़ी'},
+  {id:'d0557',cat:'c6',sn:'0557',en:'Suji Barfi',gu:'ä \'',hi:'सूजी बर्फी'},
+  {id:'d0558',cat:'c6',sn:'0558',en:'Mawa Barfi',gu:'ä \'',hi:'मावा बर्फी'},
+  {id:'d0559',cat:'c6',sn:'0559',en:'Paneer Barfi',gu:'ä \'',hi:'पनीर बर्फी'},
+  {id:'d0560',cat:'c6',sn:'0560',en:'Anjeer Barfi',gu:'ä \'',hi:'अंजीर बर्फी'},
+  {id:'d0561',cat:'c6',sn:'0561',en:'Dates Barfi',gu:'ä \'',hi:'खजूर बर्फी'},
+  {id:'d0562',cat:'c6',sn:'0562',en:'Pineapple Barfi',gu:'ä \'',hi:'अनानास बर्फी'},
+  {id:'d0563',cat:'c6',sn:'0563',en:'Lychee Sweet',gu:'ä \'',hi:'लीची मिठाई'},
+  {id:'d0564',cat:'c6',sn:'0564',en:'Sitafal Sweet',gu:'ä \'',hi:'सीताफल मिठाई'},
+  {id:'d0565',cat:'c6',sn:'0565',en:'Amla Sweet',gu:'ä \'',hi:'आंवला मिठाई'},
+  {id:'d0566',cat:'c6',sn:'0566',en:'Pomegranate Sweet',gu:'ä \'',hi:'अनार मिठाई'},
+  {id:'d0567',cat:'c6',sn:'0567',en:'Banana Sweet',gu:'ä \'',hi:'केला मिठाई'},
+  {id:'d0568',cat:'c6',sn:'0568',en:'Papaya Sweet',gu:'ä \'',hi:'पपीता मिठाई'},
+  {id:'d0569',cat:'c6',sn:'0569',en:'Guava Sweet',gu:'ä \'',hi:'अमरूद मिठाई'},
+  {id:'d0570',cat:'c6',sn:'0570',en:'Jackfruit Sweet',gu:'ä \'',hi:'कटहल मिठाई'},
+  {id:'d0571',cat:'c6',sn:'0571',en:'Kesar Burfi',gu:'ä \'',hi:'केसर बर्फी'},
+  {id:'d0572',cat:'c6',sn:'0572',en:'Paan Barfi',gu:'ä \'',hi:'पान बर्फी'},
+  {id:'d0573',cat:'c6',sn:'0573',en:'Rose Barfi',gu:'ä \'',hi:'गुलाब बर्फी'},
+  {id:'d0574',cat:'c6',sn:'0574',en:'Lavender Sweet',gu:'ä \'',hi:'लैवेंडर मिठाई'},
+  {id:'d0575',cat:'c6',sn:'0575',en:'Thandai Barfi',gu:'ä \'',hi:'ठंडाई बर्फी'},
+  {id:'d0576',cat:'c6',sn:'0576',en:'Chai Sweet',gu:'ä \'',hi:'चाय मिठाई'},
+  {id:'d0577',cat:'c6',sn:'0577',en:'Gulkand Sweet',gu:'ä \'',hi:'गुलकंद मिठाई'},
+  {id:'d0578',cat:'c6',sn:'0578',en:'Halwasan',gu:'ä \'',hi:'हलवासन'},
+  {id:'d0579',cat:'c6',sn:'0579',en:'Sukhdi',gu:'ä \'',hi:'सुखड़ी'},
+  {id:'d0580',cat:'c6',sn:'0580',en:'Adhirasam',gu:'ä \'',hi:'अधिरसम'},
+  {id:'d0581',cat:'c6',sn:'0581',en:'Tirunelveli Halwa',gu:'ä \'',hi:'तिरुनेलवेली हलवा'},
+  {id:'d0582',cat:'c6',sn:'0582',en:'Mysore Pak',gu:'ä \'',hi:'मैसूर पाक'},
+  {id:'d0583',cat:'c6',sn:'0583',en:'Palkova',gu:'ä \'',hi:'पालकोवा'},
+  {id:'d0584',cat:'c6',sn:'0584',en:'Payasam',gu:'ä \'',hi:'पायसम'},
+  {id:'d0585',cat:'c6',sn:'0585',en:'Ada Pradhaman',gu:'ä \'',hi:'अडा प्रधामन'},
+  {id:'d0586',cat:'c6',sn:'0586',en:'Chakkarapongal',gu:'ä \'',hi:'चक्करपोंगल'},
+  {id:'d0587',cat:'c6',sn:'0587',en:'Puttu Sweet',gu:'ä \'',hi:'पुट्टू मिठाई'},
+  {id:'d0588',cat:'c6',sn:'0588',en:'Appam Sweet',gu:'ä \'',hi:'अप्पम मिठाई'},
+  {id:'d0589',cat:'c6',sn:'0589',en:'Unniyappam',gu:'ä \'',hi:'उन्नियप्पम'},
+  {id:'d0590',cat:'c6',sn:'0590',en:'Mothagam',gu:'ä \'',hi:'मोदक'},
+  {id:'d0591',cat:'c6',sn:'0591',en:'Ukadiche Modak',gu:'ä \'',hi:'उकडीचे मोदक'},
+  {id:'d0592',cat:'c6',sn:'0592',en:'Fried Modak',gu:'ä \'',hi:'तले मोदक'},
+  {id:'d0593',cat:'c6',sn:'0593',en:'Chocolate Modak',gu:'ä \'',hi:'चॉकलेट मोदक'},
+  {id:'d0594',cat:'c6',sn:'0594',en:'Mawa Modak',gu:'ä \'',hi:'मावा मोदक'},
+  {id:'d0595',cat:'c6',sn:'0595',en:'Coconut Modak',gu:'ä \'',hi:'नारियल मोदक'},
+  {id:'d0596',cat:'c6',sn:'0596',en:'Diwali Sweet',gu:'ä \'',hi:'दिवाली मिठाई'},
+  {id:'d0597',cat:'c6',sn:'0597',en:'Annakut Prasad',gu:'ä \'',hi:'अन्नकूट प्रसाद'},
+  {id:'d0598',cat:'c6',sn:'0598',en:'Temple Halwa',gu:'ä \'',hi:'मंदिर हलवा'},
+  {id:'d0599',cat:'c6',sn:'0599',en:'Sacred Modak',gu:'ä \'',hi:'पवित्र मोदक'},
+  {id:'d0600',cat:'c7',sn:'0600',en:'Wheat Khichdi',gu:'ä \'',hi:'गेहूं खिचड़ी'},
+  {id:'d0601',cat:'c7',sn:'0601',en:'Cowpea Khichdi',gu:'ä \'',hi:'लोबिया खिचड़ी'},
+  {id:'d0602',cat:'c7',sn:'0602',en:'Rice Khichdi',gu:'ä \'',hi:'चावल खिचड़ी'},
+  {id:'d0603',cat:'c7',sn:'0603',en:'Moong Khichdi',gu:'ä \'',hi:'मूंग खिचड़ी'},
+  {id:'d0604',cat:'c7',sn:'0604',en:'Wheat Aul',gu:'ä \'',hi:'गेहूं औंल'},
+  {id:'d0605',cat:'c7',sn:'0605',en:'Sabudana Khichdi',gu:'ä \'',hi:'साबुदाना खिचड़ी'},
+  {id:'d0606',cat:'c7',sn:'0606',en:'Vegetable Khichdi',gu:'ä \'',hi:'सब्जी खिचड़ी'},
+  {id:'d0607',cat:'c7',sn:'0607',en:'Bajra Khichdi',gu:'ä \'',hi:'बाजरा खिचड़ी'},
+  {id:'d0608',cat:'c7',sn:'0608',en:'Jowar Khichdi',gu:'ä \'',hi:'ज्वार खिचड़ी'},
+  {id:'d0609',cat:'c7',sn:'0609',en:'Makki Khichdi',gu:'ä \'',hi:'मक्की खिचड़ी'},
+  {id:'d0610',cat:'c7',sn:'0610',en:'Oats Khichdi',gu:'ä \'',hi:'ओट्स खिचड़ी'},
+  {id:'d0611',cat:'c7',sn:'0611',en:'Quinoa Khichdi',gu:'ä \'',hi:'क्विनोआ खिचड़ी'},
+  {id:'d0612',cat:'c7',sn:'0612',en:'Lentil Khichdi',gu:'ä \'',hi:'मसूर खिचड़ी'},
+  {id:'d0613',cat:'c7',sn:'0613',en:'Chana Dal Khichdi',gu:'ä \'',hi:'चना दाल खिचड़ी'},
+  {id:'d0614',cat:'c7',sn:'0614',en:'Urad Dal Khichdi',gu:'ä \'',hi:'उड़द दाल खिचड़ी'},
+  {id:'d0615',cat:'c7',sn:'0615',en:'Toor Dal Khichdi',gu:'ä \'',hi:'तुवर दाल खिचड़ी'},
+  {id:'d0616',cat:'c7',sn:'0616',en:'Masoor Khichdi',gu:'ä \'',hi:'मसूर खिचड़ी'},
+  {id:'d0617',cat:'c7',sn:'0617',en:'Lauki Khichdi',gu:'ä \'',hi:'लौकी खिचड़ी'},
+  {id:'d0618',cat:'c7',sn:'0618',en:'Spinach Khichdi',gu:'ä \'',hi:'पालक खिचड़ी'},
+  {id:'d0619',cat:'c7',sn:'0619',en:'Methi Khichdi',gu:'ä \'',hi:'मेथी खिचड़ी'},
+  {id:'d0620',cat:'c7',sn:'0620',en:'Tomato Khichdi',gu:'ä \'',hi:'टमाटर खिचड़ी'},
+  {id:'d0621',cat:'c7',sn:'0621',en:'Carrot Khichdi',gu:'ä \'',hi:'गाजर खिचड़ी'},
+  {id:'d0622',cat:'c7',sn:'0622',en:'Peas Khichdi',gu:'ä \'',hi:'मटर खिचड़ी'},
+  {id:'d0623',cat:'c7',sn:'0623',en:'Corn Khichdi',gu:'ä \'',hi:'मकई खिचड़ी'},
+  {id:'d0624',cat:'c7',sn:'0624',en:'Coconut Khichdi',gu:'ä \'',hi:'नारियल खिचड़ी'},
+  {id:'d0625',cat:'c7',sn:'0625',en:'Sweet Khichdi',gu:'ä \'',hi:'मीठी खिचड़ी'},
+  {id:'d0626',cat:'c7',sn:'0626',en:'Saffron Khichdi',gu:'ä \'',hi:'केसर खिचड़ी'},
+  {id:'d0627',cat:'c7',sn:'0627',en:'Festival Khichdi',gu:'ä \'',hi:'त्योहार खिचड़ी'},
+  {id:'d0628',cat:'c7',sn:'0628',en:'Temple Khichdi',gu:'ä \'',hi:'मंदिर खिचड़ी'},
+  {id:'d0629',cat:'c7',sn:'0629',en:'Prasad Khichdi',gu:'ä \'',hi:'प्रसाद खिचड़ी'},
+  {id:'d0630',cat:'c7',sn:'0630',en:'Satvic Khichdi',gu:'ä \'',hi:'सात्विक खिचड़ी'},
+  {id:'d0631',cat:'c7',sn:'0631',en:'Amla Khichdi',gu:'ä \'',hi:'आंवला खिचड़ी'},
+  {id:'d0632',cat:'c7',sn:'0632',en:'Dry Fruit Khichdi',gu:'ä \'',hi:'ड्राई फ्रूट खिचड़ी'},
+  {id:'d0633',cat:'c7',sn:'0633',en:'Ghee Khichdi',gu:'ä \'',hi:'घी खिचड़ी'},
+  {id:'d0634',cat:'c7',sn:'0634',en:'Dal Rice Khichdi',gu:'ä \'',hi:'दाल चावल खिचड़ी'},
+  {id:'d0635',cat:'c7',sn:'0635',en:'Mixed Dal Khichdi',gu:'ä \'',hi:'मिक्स दाल खिचड़ी'},
+  {id:'d0636',cat:'c7',sn:'0636',en:'Panchratna Khichdi',gu:'ä \'',hi:'पंचरत्न खिचड़ी'},
+  {id:'d0637',cat:'c7',sn:'0637',en:'Panchadhari Khichdi',gu:'ä \'',hi:'पंचधारी खिचड़ी'},
+  {id:'d0638',cat:'c7',sn:'0638',en:'Suva Khichdi',gu:'ä \'',hi:'सुआ खिचड़ी'},
+  {id:'d0639',cat:'c7',sn:'0639',en:'Ambali Khichdi',gu:'ä \'',hi:'अंबली खिचड़ी'},
+  {id:'d0640',cat:'c7',sn:'0640',en:'Sago Khichdi',gu:'ä \'',hi:'सागो खिचड़ी'},
+  {id:'d0641',cat:'c7',sn:'0641',en:'Arrowroot Khichdi',gu:'ä \'',hi:'अरारोट खिचड़ी'},
+  {id:'d0642',cat:'c7',sn:'0642',en:'Rajgira Khichdi',gu:'ä \'',hi:'राजगिरा खिचड़ी'},
+  {id:'d0643',cat:'c7',sn:'0643',en:'Buckwheat Khichdi',gu:'ä \'',hi:'कुट्टू खिचड़ी'},
+  {id:'d0644',cat:'c7',sn:'0644',en:'Barnyard Millet Khichdi',gu:'ä \'',hi:'सामक खिचड़ी'},
+  {id:'d0645',cat:'c7',sn:'0645',en:'Little Millet Khichdi',gu:'ä \'',hi:'कुटकी खिचड़ी'},
+  {id:'d0646',cat:'c7',sn:'0646',en:'Foxtail Millet Khichdi',gu:'ä \'',hi:'कंगनी खिचड़ी'},
+  {id:'d0647',cat:'c7',sn:'0647',en:'Pearl Millet Khichdi',gu:'ä \'',hi:'बाजरी खिचड़ी'},
+  {id:'d0648',cat:'c7',sn:'0648',en:'Finger Millet Khichdi',gu:'ä \'',hi:'रागी खिचड़ी'},
+  {id:'d0649',cat:'c7',sn:'0649',en:'Sorghum Khichdi',gu:'ä \'',hi:'ज्वारी खिचड़ी'},
+  {id:'d0650',cat:'c7',sn:'0650',en:'Teff Khichdi',gu:'ä \'',hi:'टेफ खिचड़ी'},
+  {id:'d0651',cat:'c7',sn:'0651',en:'Amaranth Khichdi',gu:'ä \'',hi:'अमरंथ खिचड़ी'},
+  {id:'d0652',cat:'c7',sn:'0652',en:'Ragi Khichdi',gu:'ä \'',hi:'रागी खिचड़ी'},
+  {id:'d0653',cat:'c7',sn:'0653',en:'Varagu Khichdi',gu:'ä \'',hi:'वरागु खिचड़ी'},
+  {id:'d0654',cat:'c7',sn:'0654',en:'Kodo Khichdi',gu:'ä \'',hi:'कोदो खिचड़ी'},
+  {id:'d0655',cat:'c7',sn:'0655',en:'Proso Khichdi',gu:'ä \'',hi:'प्रोसो खिचड़ी'},
+  {id:'d0656',cat:'c7',sn:'0656',en:'Kuthiraivali Khichdi',gu:'ä \'',hi:'कुथिरईवाली खिचड़ी'},
+  {id:'d0657',cat:'c7',sn:'0657',en:'Moth Bean Khichdi',gu:'ä \'',hi:'मोठ खिचड़ी'},
+  {id:'d0658',cat:'c7',sn:'0658',en:'Horsegram Khichdi',gu:'ä \'',hi:'कुलथ खिचड़ी'},
+  {id:'d0659',cat:'c7',sn:'0659',en:'Kabuli Chana Khichdi',gu:'ä \'',hi:'काबुली चना खिचड़ी'},
+  {id:'d0660',cat:'c7',sn:'0660',en:'Vatana Khichdi',gu:'ä \'',hi:'वटाणा खिचड़ी'},
+  {id:'d0661',cat:'c7',sn:'0661',en:'Rajma Khichdi',gu:'ä \'',hi:'राजमा खिचड़ी'},
+  {id:'d0662',cat:'c7',sn:'0662',en:'Lobia Khichdi',gu:'ä \'',hi:'लोबिया खिचड़ी'},
+  {id:'d0663',cat:'c7',sn:'0663',en:'Sem Khichdi',gu:'ä \'',hi:'सेम खिचड़ी'},
+  {id:'d0664',cat:'c7',sn:'0664',en:'Gawar Khichdi',gu:'ä \'',hi:'ग्वार खिचड़ी'},
+  {id:'d0665',cat:'c7',sn:'0665',en:'Val Khichdi',gu:'ä \'',hi:'वाल खिचड़ी'},
+  {id:'d0666',cat:'c7',sn:'0666',en:'Matki Khichdi',gu:'ä \'',hi:'मटकी खिचड़ी'},
+  {id:'d0667',cat:'c7',sn:'0667',en:'Black Eyed Peas Khichdi',gu:'ä \'',hi:'काली आंख मटर खिचड़ी'},
+  {id:'d0668',cat:'c7',sn:'0668',en:'Nutritious Khichdi',gu:'ä \'',hi:'पोषक खिचड़ी'},
+  {id:'d0669',cat:'c7',sn:'0669',en:'Healing Khichdi',gu:'ä \'',hi:'उपचार खिचड़ी'},
+  {id:'d0670',cat:'c7',sn:'0670',en:'Detox Khichdi',gu:'ä \'',hi:'डिटॉक्स खिचड़ी'},
+  {id:'d0671',cat:'c7',sn:'0671',en:'Immunity Khichdi',gu:'ä \'',hi:'इम्यूनिटी खिचड़ी'},
+  {id:'d0672',cat:'c7',sn:'0672',en:'Energy Khichdi',gu:'ä \'',hi:'ऊर्जा खिचड़ी'},
+  {id:'d0673',cat:'c7',sn:'0673',en:'Divine Khichdi',gu:'ä \'',hi:'दिव्य खिचड़ी'},
+  {id:'d0674',cat:'c7',sn:'0674',en:'Blessed Khichdi',gu:'ä \'',hi:'आशीर्वाद खिचड़ी'},
+  {id:'d0675',cat:'c7',sn:'0675',en:'Annakut Khichdi',gu:'ä \'',hi:'अन्नकूट खिचड़ी'},
+  {id:'d0676',cat:'c8',sn:'0676',en:'Thandai',gu:'ä \'',hi:'ठंडाई'},
+  {id:'d0677',cat:'c8',sn:'0677',en:'Buttermilk Chaas',gu:'ä \'',hi:'छाछ'},
+  {id:'d0678',cat:'c8',sn:'0678',en:'Wheat Ghol',gu:'ä \'',hi:'गेहूं घोल'},
+  {id:'d0679',cat:'c8',sn:'0679',en:'Amras',gu:'ä \'',hi:'आमरस'},
+  {id:'d0680',cat:'c8',sn:'0680',en:'Shikhanji',gu:'ä \'',hi:'शिकंजी'},
+  {id:'d0681',cat:'c8',sn:'0681',en:'Rose Sharbat',gu:'ä \'',hi:'गुलाब शरबत'},
+  {id:'d0682',cat:'c8',sn:'0682',en:'Kewra Sharbat',gu:'ä \'',hi:'केवड़ा शरबत'},
+  {id:'d0683',cat:'c8',sn:'0683',en:'Khus Sharbat',gu:'ä \'',hi:'खस शरबत'},
+  {id:'d0684',cat:'c8',sn:'0684',en:'Sandalwood Sharbat',gu:'ä \'',hi:'चंदन शरबत'},
+  {id:'d0685',cat:'c8',sn:'0685',en:'Aam Panna',gu:'ä \'',hi:'आम पन्ना'},
+  {id:'d0686',cat:'c8',sn:'0686',en:'Bel Sharbat',gu:'ä \'',hi:'बेल शरबत'},
+  {id:'d0687',cat:'c8',sn:'0687',en:'Kokum Sharbat',gu:'ä \'',hi:'कोकम शरबत'},
+  {id:'d0688',cat:'c8',sn:'0688',en:'Imli Sharbat',gu:'ä \'',hi:'इमली शरबत'},
+  {id:'d0689',cat:'c8',sn:'0689',en:'Jaljeera',gu:'ä \'',hi:'जलजीरा'},
+  {id:'d0690',cat:'c8',sn:'0690',en:'Pudina Sharbat',gu:'ä \'',hi:'पुदीना शरबत'},
+  {id:'d0691',cat:'c8',sn:'0691',en:'Ginger Lemon Drink',gu:'ä \'',hi:'अदरक नींबू पेय'},
+  {id:'d0692',cat:'c8',sn:'0692',en:'Tulsi Tea',gu:'ä \'',hi:'तुलसी चाय'},
+  {id:'d0693',cat:'c8',sn:'0693',en:'Masala Chai',gu:'ä \'',hi:'मसाला चाय'},
+  {id:'d0694',cat:'c8',sn:'0694',en:'Saffron Milk',gu:'ä \'',hi:'केसर दूध'},
+  {id:'d0695',cat:'c8',sn:'0695',en:'Turmeric Milk',gu:'ä \'',hi:'हल्दी दूध'},
+  {id:'d0696',cat:'c8',sn:'0696',en:'Dry Fruit Milk',gu:'ä \'',hi:'ड्राई फ्रूट दूध'},
+  {id:'d0697',cat:'c8',sn:'0697',en:'Almond Milk',gu:'ä \'',hi:'बादाम दूध'},
+  {id:'d0698',cat:'c8',sn:'0698',en:'Cashew Milk',gu:'ä \'',hi:'काजू दूध'},
+  {id:'d0699',cat:'c8',sn:'0699',en:'Coconut Milk Drink',gu:'ä \'',hi:'नारियल दूध पेय'},
+  {id:'d0700',cat:'c8',sn:'0700',en:'Banana Shake',gu:'ä \'',hi:'केला शेक'},
+  {id:'d0701',cat:'c8',sn:'0701',en:'Mango Shake',gu:'ä \'',hi:'आम शेक'},
+  {id:'d0702',cat:'c8',sn:'0702',en:'Strawberry Shake',gu:'ä \'',hi:'स्ट्रॉबेरी शेक'},
+  {id:'d0703',cat:'c8',sn:'0703',en:'Mixed Fruit Juice',gu:'ä \'',hi:'मिक्स फ्रूट जूस'},
+  {id:'d0704',cat:'c8',sn:'0704',en:'Pomegranate Juice',gu:'ä \'',hi:'अनार जूस'},
+  {id:'d0705',cat:'c8',sn:'0705',en:'Orange Juice',gu:'ä \'',hi:'संतरा जूस'},
+  {id:'d0706',cat:'c8',sn:'0706',en:'Apple Juice',gu:'ä \'',hi:'सेब जूस'},
+  {id:'d0707',cat:'c8',sn:'0707',en:'Watermelon Juice',gu:'ä \'',hi:'तरबूज जूस'},
+  {id:'d0708',cat:'c8',sn:'0708',en:'Pineapple Juice',gu:'ä \'',hi:'अनानास जूस'},
+  {id:'d0709',cat:'c8',sn:'0709',en:'Sugarcane Juice',gu:'ä \'',hi:'गन्ने का रस'},
+  {id:'d0710',cat:'c8',sn:'0710',en:'Carrot Juice',gu:'ä \'',hi:'गाजर जूस'},
+  {id:'d0711',cat:'c8',sn:'0711',en:'Beetroot Juice',gu:'ä \'',hi:'चुकंदर जूस'},
+  {id:'d0712',cat:'c8',sn:'0712',en:'Amla Juice',gu:'ä \'',hi:'आंवला जूस'},
+  {id:'d0713',cat:'c8',sn:'0713',en:'Aloe Vera Juice',gu:'ä \'',hi:'एलोवेरा जूस'},
+  {id:'d0714',cat:'c8',sn:'0714',en:'Wheat Grass Juice',gu:'ä \'',hi:'व्हीट ग्रास जूस'},
+  {id:'d0715',cat:'c8',sn:'0715',en:'Ash Gourd Juice',gu:'ä \'',hi:'पेठे का जूस'},
+  {id:'d0716',cat:'c8',sn:'0716',en:'Lauki Juice',gu:'ä \'',hi:'लौकी जूस'},
+  {id:'d0717',cat:'c8',sn:'0717',en:'Tomato Soup',gu:'ä \'',hi:'टमाटर सूप'},
+  {id:'d0718',cat:'c8',sn:'0718',en:'Spinach Soup',gu:'ä \'',hi:'पालक सूप'},
+  {id:'d0719',cat:'c8',sn:'0719',en:'Mixed Veg Soup',gu:'ä \'',hi:'मिक्स वेज सूप'},
+  {id:'d0720',cat:'c8',sn:'0720',en:'Pumpkin Soup',gu:'ä \'',hi:'कद्दू सूप'},
+  {id:'d0721',cat:'c8',sn:'0721',en:'Corn Soup',gu:'ä \'',hi:'मकई सूप'},
+  {id:'d0722',cat:'c8',sn:'0722',en:'Lentil Soup',gu:'ä \'',hi:'दाल सूप'},
+  {id:'d0723',cat:'c8',sn:'0723',en:'Barley Soup',gu:'ä \'',hi:'जौ सूप'},
+  {id:'d0724',cat:'c8',sn:'0724',en:'Oats Soup',gu:'ä \'',hi:'ओट्स सूप'},
+  {id:'d0725',cat:'c8',sn:'0725',en:'Carrot Soup',gu:'ä \'',hi:'गाजर सूप'},
+  {id:'d0726',cat:'c8',sn:'0726',en:'Beet Soup',gu:'ä \'',hi:'चुकंदर सूप'},
+  {id:'d0727',cat:'c8',sn:'0727',en:'Coconut Milk Soup',gu:'ä \'',hi:'नारियल दूध सूप'},
+  {id:'d0728',cat:'c8',sn:'0728',en:'Yam Soup',gu:'ä \'',hi:'सूरन सूप'},
+  {id:'d0729',cat:'c8',sn:'0729',en:'Rasam',gu:'ä \'',hi:'रसम'},
+  {id:'d0730',cat:'c8',sn:'0730',en:'Spiced Tomato Rasam',gu:'ä \'',hi:'मसाला टमाटर रसम'},
+  {id:'d0731',cat:'c8',sn:'0731',en:'Pepper Rasam',gu:'ä \'',hi:'काली मिर्च रसम'},
+  {id:'d0732',cat:'c8',sn:'0732',en:'Tamarind Rasam',gu:'ä \'',hi:'इमली रसम'},
+  {id:'d0733',cat:'c8',sn:'0733',en:'Lemon Rasam',gu:'ä \'',hi:'नींबू रसम'},
+  {id:'d0734',cat:'c8',sn:'0734',en:'Drumstick Rasam',gu:'ä \'',hi:'सहजन रसम'},
+  {id:'d0735',cat:'c8',sn:'0735',en:'Aam Panna Cooling',gu:'ä \'',hi:'आम पन्ना शीतल'},
+  {id:'d0736',cat:'c8',sn:'0736',en:'Chandan Sharbat',gu:'ä \'',hi:'चंदन शरबत'},
+  {id:'d0737',cat:'c8',sn:'0737',en:'Variyali Sharbat',gu:'ä \'',hi:'वरियाળ शरबत'},
+  {id:'d0738',cat:'c8',sn:'0738',en:'Kairi Panha',gu:'ä \'',hi:'कैरी पन्हा'},
+  {id:'d0739',cat:'c8',sn:'0739',en:'Sattu Sharbat',gu:'ä \'',hi:'सत्तू शरबत'},
+  {id:'d0740',cat:'c8',sn:'0740',en:'Lassi',gu:'ä \'',hi:'लस्सी'},
+  {id:'d0741',cat:'c8',sn:'0741',en:'Sweet Lassi',gu:'ä \'',hi:'मीठी लस्सी'},
+  {id:'d0742',cat:'c8',sn:'0742',en:'Salted Lassi',gu:'ä \'',hi:'नमकीन लस्सी'},
+  {id:'d0743',cat:'c8',sn:'0743',en:'Rose Lassi',gu:'ä \'',hi:'गुलाब लस्सी'},
+  {id:'d0744',cat:'c8',sn:'0744',en:'Mango Lassi',gu:'ä \'',hi:'आम लस्सी'},
+  {id:'d0745',cat:'c8',sn:'0745',en:'Kesar Badam Sharbat',gu:'ä \'',hi:'केसर बादाम शरबत'},
+  {id:'d0746',cat:'c8',sn:'0746',en:'Gulkand Milk',gu:'ä \'',hi:'गुलकंद दूध'},
+  {id:'d0747',cat:'c8',sn:'0747',en:'Thandai Milk',gu:'ä \'',hi:'ठंडाई दूध'},
+  {id:'d0748',cat:'c8',sn:'0748',en:'Nariyal Pani',gu:'ä \'',hi:'नारियल पानी'},
+  {id:'d0749',cat:'c8',sn:'0749',en:'Panchamrit',gu:'ä \'',hi:'पंचामृत'},
+  {id:'d0750',cat:'c8',sn:'0750',en:'Charnamrit',gu:'ä \'',hi:'चरणामृत'},
+  {id:'d0751',cat:'c8',sn:'0751',en:'Sacred Water',gu:'ä \'',hi:'पवित्र जल'},
+  {id:'d0752',cat:'c8',sn:'0752',en:'Blessed Milk',gu:'ä \'',hi:'आशीर्वाद दूध'},
+  {id:'d0753',cat:'c9',sn:'0753',en:'Coriander Chutney',gu:'ä \'',hi:'धनिया चटनी'},
+  {id:'d0754',cat:'c9',sn:'0754',en:'Mint Chutney',gu:'ä \'',hi:'पुदीना चटनी'},
+  {id:'d0755',cat:'c9',sn:'0755',en:'Tomato Chutney',gu:'ä \'',hi:'टमाटर चटनी'},
+  {id:'d0756',cat:'c9',sn:'0756',en:'Raw Mango Chutney',gu:'ä \'',hi:'आम की चटनी'},
+  {id:'d0757',cat:'c9',sn:'0757',en:'Wheat Pickle',gu:'ä \'',hi:'गेहूं अचार'},
+  {id:'d0758',cat:'c9',sn:'0758',en:'Tamarind Chutney',gu:'ä \'',hi:'इमली चटनी'},
+  {id:'d0759',cat:'c9',sn:'0759',en:'Coconut Chutney',gu:'ä \'',hi:'नारियल चटनी'},
+  {id:'d0760',cat:'c9',sn:'0760',en:'Peanut Chutney',gu:'ä \'',hi:'मूंगफली चटनी'},
+  {id:'d0761',cat:'c9',sn:'0761',en:'Sesame Chutney',gu:'ä \'',hi:'तिल चटनी'},
+  {id:'d0762',cat:'c9',sn:'0762',en:'Spinach Chutney',gu:'ä \'',hi:'पालक चटनी'},
+  {id:'d0763',cat:'c9',sn:'0763',en:'Ginger Chutney',gu:'ä \'',hi:'अदरक चटनी'},
+  {id:'d0764',cat:'c9',sn:'0764',en:'Lemon Pickle',gu:'ä \'',hi:'नींबू अचार'},
+  {id:'d0765',cat:'c9',sn:'0765',en:'Mango Pickle',gu:'ä \'',hi:'आम अचार'},
+  {id:'d0766',cat:'c9',sn:'0766',en:'Amla Pickle',gu:'ä \'',hi:'आंवला अचार'},
+  {id:'d0767',cat:'c9',sn:'0767',en:'Carrot Pickle',gu:'ä \'',hi:'गाजर अचार'},
+  {id:'d0768',cat:'c9',sn:'0768',en:'Mixed Vegetable Pickle',gu:'ä \'',hi:'मिक्स सब्जी अचार'},
+  {id:'d0769',cat:'c9',sn:'0769',en:'Ginger Pickle',gu:'ä \'',hi:'अदरक अचार'},
+  {id:'d0770',cat:'c9',sn:'0770',en:'Turmeric Pickle',gu:'ä \'',hi:'हल्दी अचार'},
+  {id:'d0771',cat:'c9',sn:'0771',en:'Beet Pickle',gu:'ä \'',hi:'चुकंदर अचार'},
+  {id:'d0772',cat:'c9',sn:'0772',en:'Garlic free Pickle',gu:'ä \'',hi:'सात्विक अचार'},
+  {id:'d0773',cat:'c9',sn:'0773',en:'Tomato Pickle',gu:'ä \'',hi:'टमाटर अचार'},
+  {id:'d0774',cat:'c9',sn:'0774',en:'Green Chili Pickle',gu:'ä \'',hi:'हरी मिर्च अचार'},
+  {id:'d0775',cat:'c9',sn:'0775',en:'Capsicum Chutney',gu:'ä \'',hi:'शिमला मिर्च चटनी'},
+  {id:'d0776',cat:'c9',sn:'0776',en:'Radish Chutney',gu:'ä \'',hi:'मूली चटनी'},
+  {id:'d0777',cat:'c9',sn:'0777',en:'Celery Chutney',gu:'ä \'',hi:'अजमोद चटनी'},
+  {id:'d0778',cat:'c9',sn:'0778',en:'Curry Leaf Chutney',gu:'ä \'',hi:'कड़ी पत्ता चटनी'},
+  {id:'d0779',cat:'c9',sn:'0779',en:'Neem Chutney',gu:'ä \'',hi:'नीम चटनी'},
+  {id:'d0780',cat:'c9',sn:'0780',en:'Moringa Chutney',gu:'ä \'',hi:'मोरिंगा चटनी'},
+  {id:'d0781',cat:'c9',sn:'0781',en:'Drumstick Chutney',gu:'ä \'',hi:'सहजन चटनी'},
+  {id:'d0782',cat:'c9',sn:'0782',en:'Guava Chutney',gu:'ä \'',hi:'अमरूद चटनी'},
+  {id:'d0783',cat:'c9',sn:'0783',en:'Apple Chutney',gu:'ä \'',hi:'सेब चटनी'},
+  {id:'d0784',cat:'c9',sn:'0784',en:'Plum Chutney',gu:'ä \'',hi:'बेर चटनी'},
+  {id:'d0785',cat:'c9',sn:'0785',en:'Pomegranate Chutney',gu:'ä \'',hi:'अनार चटनी'},
+  {id:'d0786',cat:'c9',sn:'0786',en:'Pineapple Chutney',gu:'ä \'',hi:'अनानास चटनी'},
+  {id:'d0787',cat:'c9',sn:'0787',en:'Cranberry Chutney',gu:'ä \'',hi:'क्रैनबेरी चटनी'},
+  {id:'d0788',cat:'c9',sn:'0788',en:'Fig Chutney',gu:'ä \'',hi:'अंजीर चटनी'},
+  {id:'d0789',cat:'c9',sn:'0789',en:'Date Chutney',gu:'ä \'',hi:'खजूर चटनी'},
+  {id:'d0790',cat:'c9',sn:'0790',en:'Jaggery Chutney',gu:'ä \'',hi:'गुड़ चटनी'},
+  {id:'d0791',cat:'c9',sn:'0791',en:'Sweet Tamarind',gu:'ä \'',hi:'मीठी इमली'},
+  {id:'d0792',cat:'c9',sn:'0792',en:'Dry Fruit Chutney',gu:'ä \'',hi:'ड्राई फ्रूट चटनी'},
+  {id:'d0793',cat:'c9',sn:'0793',en:'Cashew Chutney',gu:'ä \'',hi:'काजू चटनी'},
+  {id:'d0794',cat:'c9',sn:'0794',en:'Almond Chutney',gu:'ä \'',hi:'बादाम चटनी'},
+  {id:'d0795',cat:'c9',sn:'0795',en:'Red Chutney',gu:'ä \'',hi:'लाल चटनी'},
+  {id:'d0796',cat:'c9',sn:'0796',en:'Green Chutney',gu:'ä \'',hi:'हरी चटनी'},
+  {id:'d0797',cat:'c9',sn:'0797',en:'White Chutney',gu:'ä \'',hi:'सफेद चटनी'},
+  {id:'d0798',cat:'c9',sn:'0798',en:'Sweet Chutney',gu:'ä \'',hi:'मीठी चटनी'},
+  {id:'d0799',cat:'c9',sn:'0799',en:'Spicy Chutney',gu:'ä \'',hi:'तीखी चटनी'},
+  {id:'d0800',cat:'c9',sn:'0800',en:'Sour Chutney',gu:'ä \'',hi:'खट्टी चटनी'},
+  {id:'d0801',cat:'c9',sn:'0801',en:'Mixed Chutney',gu:'ä \'',hi:'मिक्स चटनी'},
+  {id:'d0802',cat:'c9',sn:'0802',en:'Temple Chutney',gu:'ä \'',hi:'मंदिर चटनी'},
+  {id:'d0803',cat:'c9',sn:'0803',en:'Festival Chutney',gu:'ä \'',hi:'त्योहार चटनी'},
+  {id:'d0804',cat:'c9',sn:'0804',en:'Chunda',gu:'ä \'',hi:'छुंदा'},
+  {id:'d0805',cat:'c9',sn:'0805',en:'Golkeri',gu:'ä \'',hi:'गोलकेरी'},
+  {id:'d0806',cat:'c9',sn:'0806',en:'Raw Mango Golkeri',gu:'ä \'',hi:'कच्चे आम का गोलकेरी'},
+  {id:'d0807',cat:'c9',sn:'0807',en:'Lemon Golkeri',gu:'ä \'',hi:'नींबू गोलकेरी'},
+  {id:'d0808',cat:'c9',sn:'0808',en:'Green Mango Pickle',gu:'ä \'',hi:'हरे आम का अचार'},
+  {id:'d0809',cat:'c9',sn:'0809',en:'Mixed Pickle',gu:'ä \'',hi:'मिक्स अचार'},
+  {id:'d0810',cat:'c9',sn:'0810',en:'Cauliflower Pickle',gu:'ä \'',hi:'फूलगोभी अचार'},
+  {id:'d0811',cat:'c9',sn:'0811',en:'Turnip Pickle',gu:'ä \'',hi:'शलजम अचार'},
+  {id:'d0812',cat:'c9',sn:'0812',en:'Okra Pickle',gu:'ä \'',hi:'भिंडी अचार'},
+  {id:'d0813',cat:'c9',sn:'0813',en:'Raw Papaya Pickle',gu:'ä \'',hi:'कच्चे पपीते का अचार'},
+  {id:'d0814',cat:'c9',sn:'0814',en:'Bitter Gourd Pickle',gu:'ä \'',hi:'करेले का अचार'},
+  {id:'d0815',cat:'c9',sn:'0815',en:'Ash Gourd Pickle',gu:'ä \'',hi:'पेठे का अचार'},
+  {id:'d0816',cat:'c9',sn:'0816',en:'Ridge Gourd Pickle',gu:'ä \'',hi:'तुरई अचार'},
+  {id:'d0817',cat:'c9',sn:'0817',en:'Flat Bean Pickle',gu:'ä \'',hi:'फली अचार'},
+  {id:'d0818',cat:'c9',sn:'0818',en:'Jackfruit Pickle',gu:'ä \'',hi:'कटहल अचार'},
+  {id:'d0819',cat:'c9',sn:'0819',en:'Pumpkin Pickle',gu:'ä \'',hi:'कद्दू अचार'},
+  {id:'d0820',cat:'c9',sn:'0820',en:'Yam Pickle',gu:'ä \'',hi:'सूरन अचार'},
+  {id:'d0821',cat:'c9',sn:'0821',en:'Sweet Potato Pickle',gu:'ä \'',hi:'शकरकंद अचार'},
+  {id:'d0822',cat:'c9',sn:'0822',en:'Colocasia Pickle',gu:'ä \'',hi:'अरबी अचार'},
+  {id:'d0823',cat:'c9',sn:'0823',en:'Spinach Pickle',gu:'ä \'',hi:'पालक अचार'},
+  {id:'d0824',cat:'c9',sn:'0824',en:'Methi Pickle',gu:'ä \'',hi:'मेथी अचार'},
+  {id:'d0825',cat:'c9',sn:'0825',en:'Kale Pickle',gu:'ä \'',hi:'केल अचार'},
+  {id:'d0826',cat:'c9',sn:'0826',en:'Cabbage Pickle',gu:'ä \'',hi:'पत्तागोभी अचार'},
+  {id:'d0827',cat:'c9',sn:'0827',en:'Bell Pepper Pickle',gu:'ä \'',hi:'शिमला मिर्च अचार'},
+  {id:'d0828',cat:'c9',sn:'0828',en:'Tomato Green Pickle',gu:'ä \'',hi:'हरे टमाटर अचार'},
+  {id:'d0829',cat:'c9',sn:'0829',en:'Coriander Pickle',gu:'ä \'',hi:'धनिया अचार'},
+  {id:'d0830',cat:'c9',sn:'0830',en:'Curry Leaf Pickle',gu:'ä \'',hi:'कड़ी पत्ता अचार'},
+  {id:'d0831',cat:'c9',sn:'0831',en:'Kokum Pickle',gu:'ä \'',hi:'कोकम अचार'},
+  {id:'d0832',cat:'c9',sn:'0832',en:'Tamarind Pickle',gu:'ä \'',hi:'इमली अचार'},
+  {id:'d0833',cat:'c9',sn:'0833',en:'Amchur Pickle',gu:'ä \'',hi:'आमचूर अचार'},
+  {id:'d0834',cat:'c9',sn:'0834',en:'Jambhul Pickle',gu:'ä \'',hi:'जांभूळ अचार'},
+  {id:'d0835',cat:'c9',sn:'0835',en:'Karonda Pickle',gu:'ä \'',hi:'करोंदा अचार'},
+  {id:'d0836',cat:'c9',sn:'0836',en:'Star Fruit Pickle',gu:'ä \'',hi:'कमरख अचार'},
+  {id:'d0837',cat:'c9',sn:'0837',en:'Ber Pickle',gu:'ä \'',hi:'बेर अचार'},
+  {id:'d0838',cat:'c9',sn:'0838',en:'Chikoo Pickle',gu:'ä \'',hi:'चीकू अचार'},
+  {id:'d0839',cat:'c9',sn:'0839',en:'Banana Flower Pickle',gu:'ä \'',hi:'केले का फूल अचार'},
+  {id:'d0840',cat:'c9',sn:'0840',en:'Custard Apple Chutney',gu:'ä \'',hi:'सीताफल चटनी'},
+  {id:'d0841',cat:'c9',sn:'0841',en:'Wood Apple Chutney',gu:'ä \'',hi:'कैथा चटनी'},
+  {id:'d0842',cat:'c9',sn:'0842',en:'Kachri Chutney',gu:'ä \'',hi:'कचरी चटनी'},
+  {id:'d0843',cat:'c9',sn:'0843',en:'Tendu Chutney',gu:'ä \'',hi:'तेंदू चटनी'},
+  {id:'d0844',cat:'c9',sn:'0844',en:'Bamboo Shoot Pickle',gu:'ä \'',hi:'बांस का अचार'},
+  {id:'d0845',cat:'c9',sn:'0845',en:'Lotus Stem Pickle',gu:'ä \'',hi:'कमल ककड़ी अचार'},
+  {id:'d0846',cat:'c9',sn:'0846',en:'Water Chestnut Chutney',gu:'ä \'',hi:'सिंघाड़ा चटनी'},
+  {id:'d0847',cat:'c9',sn:'0847',en:'Jackfruit Chutney',gu:'ä \'',hi:'कटहल चटनी'},
+  {id:'d0848',cat:'c9',sn:'0848',en:'Sacred Chutney',gu:'ä \'',hi:'पवित्र चटनी'},
+  {id:'d0849',cat:'c9',sn:'0849',en:'Prasad Pickle',gu:'ä \'',hi:'प्रसाद अचार'},
+  {id:'d0850',cat:'c9',sn:'0850',en:'Divine Chutney',gu:'ä \'',hi:'दिव्य चटनी'},
+  {id:'d0851',cat:'c9',sn:'0851',en:'Annakut Pickle',gu:'ä \'',hi:'अन्नकूट अचार'},
+  {id:'d0852',cat:'c9',sn:'0852',en:'Temple Athanu',gu:'ä \'',hi:'मंदिर अथाणु'},
+  {id:'d0853',cat:'c10',sn:'0853',en:'Wheat Bhel',gu:'ä \'',hi:'गेहूं भेल'},
+  {id:'d0854',cat:'c10',sn:'0854',en:'Wheat Sev Usal',gu:'ä \'',hi:'गेहूं सेव उसळ'},
+  {id:'d0855',cat:'c10',sn:'0855',en:'Pani Puri',gu:'ä \'',hi:'पानीपूरी'},
+  {id:'d0856',cat:'c10',sn:'0856',en:'Sev Puri',gu:'ä \'',hi:'सेव पूरी'},
+  {id:'d0857',cat:'c10',sn:'0857',en:'Dahi Vada',gu:'ä \'',hi:'दही वड़ा'},
+  {id:'d0858',cat:'c10',sn:'0858',en:'Bhel Puri',gu:'ä \'',hi:'भेल पूरी'},
+  {id:'d0859',cat:'c10',sn:'0859',en:'Papdi Chaat',gu:'ä \'',hi:'पापड़ी चाट'},
+  {id:'d0860',cat:'c10',sn:'0860',en:'Aloo Tikki Chaat',gu:'ä \'',hi:'आलू टिक्की चाट'},
+  {id:'d0861',cat:'c10',sn:'0861',en:'Dahi Puri',gu:'ä \'',hi:'दही पूरी'},
+  {id:'d0862',cat:'c10',sn:'0862',en:'Sev Batata Puri',gu:'ä \'',hi:'सेव बटाटा पूरी'},
+  {id:'d0863',cat:'c10',sn:'0863',en:'Ragda Pattice',gu:'ä \'',hi:'रगड़ा पैटिस'},
+  {id:'d0864',cat:'c10',sn:'0864',en:'Dabeli',gu:'ä \'',hi:'दाबेली'},
+  {id:'d0865',cat:'c10',sn:'0865',en:'Vada Pav',gu:'ä \'',hi:'वड़ा पाव'},
+  {id:'d0866',cat:'c10',sn:'0866',en:'Misal Pav',gu:'ä \'',hi:'मिसळ पाव'},
+  {id:'d0867',cat:'c10',sn:'0867',en:'Sabudana Khichdi Chaat',gu:'ä \'',hi:'साबुदाना चाट'},
+  {id:'d0868',cat:'c10',sn:'0868',en:'Jhal Muri',gu:'ä \'',hi:'झाल मुड़ी'},
+  {id:'d0869',cat:'c10',sn:'0869',en:'Chaat Masala Mix',gu:'ä \'',hi:'चाट मसाला मिक्स'},
+  {id:'d0870',cat:'c10',sn:'0870',en:'Dahi Bhalla',gu:'ä \'',hi:'दही भल्ला'},
+  {id:'d0871',cat:'c10',sn:'0871',en:'Matar Kulcha',gu:'ä \'',hi:'मटर कुलचा'},
+  {id:'d0872',cat:'c10',sn:'0872',en:'Chole Bhature',gu:'ä \'',hi:'छोले भटूरे'},
+  {id:'d0873',cat:'c10',sn:'0873',en:'Aloo Chaat',gu:'ä \'',hi:'आलू चाट'},
+  {id:'d0874',cat:'c10',sn:'0874',en:'Kachori Chaat',gu:'ä \'',hi:'कचौड़ी चाट'},
+  {id:'d0875',cat:'c10',sn:'0875',en:'Samosa Chaat',gu:'ä \'',hi:'समोसा चाट'},
+  {id:'d0876',cat:'c10',sn:'0876',en:'Corn Chaat',gu:'ä \'',hi:'मकई चाट'},
+  {id:'d0877',cat:'c10',sn:'0877',en:'Sprout Chaat',gu:'ä \'',hi:'अंकुर चाट'},
+  {id:'d0878',cat:'c10',sn:'0878',en:'Fruit Chaat',gu:'ä \'',hi:'फल चाट'},
+  {id:'d0879',cat:'c10',sn:'0879',en:'Mango Chaat',gu:'ä \'',hi:'आम चाट'},
+  {id:'d0880',cat:'c10',sn:'0880',en:'Peanut Chaat',gu:'ä \'',hi:'मूंगफली चाट'},
+  {id:'d0881',cat:'c10',sn:'0881',en:'Chickpea Chaat',gu:'ä \'',hi:'चना चाट'},
+  {id:'d0882',cat:'c10',sn:'0882',en:'Rajma Chaat',gu:'ä \'',hi:'राजमा चाट'},
+  {id:'d0883',cat:'c10',sn:'0883',en:'Lobia Chaat',gu:'ä \'',hi:'लोबिया चाट'},
+  {id:'d0884',cat:'c10',sn:'0884',en:'Moong Chaat',gu:'ä \'',hi:'मूंग चाट'},
+  {id:'d0885',cat:'c10',sn:'0885',en:'Baked Samosa',gu:'ä \'',hi:'बेक्ड समोसा'},
+  {id:'d0886',cat:'c10',sn:'0886',en:'Mini Samosa Chaat',gu:'ä \'',hi:'मिनी समोसा चाट'},
+  {id:'d0887',cat:'c10',sn:'0887',en:'Dhokla Chaat',gu:'ä \'',hi:'ढोकला चाट'},
+  {id:'d0888',cat:'c10',sn:'0888',en:'Khandvi Roll',gu:'ä \'',hi:'खांडवी रोल'},
+  {id:'d0889',cat:'c10',sn:'0889',en:'Patra Roll',gu:'ä \'',hi:'पात्रा रोल'},
+  {id:'d0890',cat:'c10',sn:'0890',en:'Idli Chaat',gu:'ä \'',hi:'इडली चाट'},
+  {id:'d0891',cat:'c10',sn:'0891',en:'Dosa Chaat',gu:'ä \'',hi:'डोसा चाट'},
+  {id:'d0892',cat:'c10',sn:'0892',en:'Uttapam Chaat',gu:'ä \'',hi:'उत्तपम चाट'},
+  {id:'d0893',cat:'c10',sn:'0893',en:'Suji Halwa Chaat',gu:'ä \'',hi:'सूजी हलवा चाट'},
+  {id:'d0894',cat:'c10',sn:'0894',en:'Puri Bhaji Chaat',gu:'ä \'',hi:'पूरी भाजी चाट'},
+  {id:'d0895',cat:'c10',sn:'0895',en:'Paratha Chaat',gu:'ä \'',hi:'पराठा चाट'},
+  {id:'d0896',cat:'c10',sn:'0896',en:'Masala Puri Chaat',gu:'ä \'',hi:'मसाला पूरी चाट'},
+  {id:'d0897',cat:'c10',sn:'0897',en:'Corn Bhel',gu:'ä \'',hi:'मकई भेल'},
+  {id:'d0898',cat:'c10',sn:'0898',en:'Sprouted Bhel',gu:'ä \'',hi:'अंकुर भेल'},
+  {id:'d0899',cat:'c10',sn:'0899',en:'Fruit Bhel',gu:'ä \'',hi:'फल भेल'},
+  {id:'d0900',cat:'c10',sn:'0900',en:'Dry Fruit Chaat',gu:'ä \'',hi:'ड्राई फ्रूट चाट'},
+  {id:'d0901',cat:'c10',sn:'0901',en:'Makhana Chaat',gu:'ä \'',hi:'मखाना चाट'},
+  {id:'d0902',cat:'c10',sn:'0902',en:'Sabudana Chaat',gu:'ä \'',hi:'साबुदाना चाट'},
+  {id:'d0903',cat:'c10',sn:'0903',en:'Kuttu Chaat',gu:'ä \'',hi:'कुट्टू चाट'},
+  {id:'d0904',cat:'c10',sn:'0904',en:'Singhara Chaat',gu:'ä \'',hi:'सिंघाड़ा चाट'},
+  {id:'d0905',cat:'c10',sn:'0905',en:'Rajgira Chaat',gu:'ä \'',hi:'राजगिरा चाट'},
+  {id:'d0906',cat:'c10',sn:'0906',en:'Sweet Potato Chaat',gu:'ä \'',hi:'शकरकंद चाट'},
+  {id:'d0907',cat:'c10',sn:'0907',en:'Yam Chaat',gu:'ä \'',hi:'सूरन चाट'},
+  {id:'d0908',cat:'c10',sn:'0908',en:'Arbi Chaat',gu:'ä \'',hi:'अरबी चाट'},
+  {id:'d0909',cat:'c10',sn:'0909',en:'Raw Banana Chaat',gu:'ä \'',hi:'कच्चे केले चाट'},
+  {id:'d0910',cat:'c10',sn:'0910',en:'Jackfruit Chaat',gu:'ä \'',hi:'कटहल चाट'},
+  {id:'d0911',cat:'c10',sn:'0911',en:'Paneer Chaat',gu:'ä \'',hi:'पनीर चाट'},
+  {id:'d0912',cat:'c10',sn:'0912',en:'Tofu Chaat',gu:'ä \'',hi:'टोफू चाट'},
+  {id:'d0913',cat:'c10',sn:'0913',en:'Cheese Chaat veg',gu:'ä \'',hi:'वेज चीज़ चाट'},
+  {id:'d0914',cat:'c10',sn:'0914',en:'Festival Chaat',gu:'ä \'',hi:'त्योहार चाट'},
+  {id:'d0915',cat:'c10',sn:'0915',en:'Diwali Snack',gu:'ä \'',hi:'दिवाली नाश्ता'},
+  {id:'d0916',cat:'c10',sn:'0916',en:'Annakut Chaat',gu:'ä \'',hi:'अन्नकूट चाट'},
+  {id:'d0917',cat:'c10',sn:'0917',en:'Temple Prasad Snack',gu:'ä \'',hi:'मंदिर प्रसाद नाश्ता'},
+  {id:'d0918',cat:'c10',sn:'0918',en:'Satvic Chaat',gu:'ä \'',hi:'सात्विक चाट'},
+  {id:'d0919',cat:'c10',sn:'0919',en:'Holy Snack',gu:'ä \'',hi:'पवित्र नाश्ता'},
+  {id:'d0920',cat:'c10',sn:'0920',en:'Tawa Bhel',gu:'ä \'',hi:'तवा भेल'},
+  {id:'d0921',cat:'c10',sn:'0921',en:'Dilli Chaat',gu:'ä \'',hi:'दिल्ली चाट'},
+  {id:'d0922',cat:'c10',sn:'0922',en:'Mumbai Bhel',gu:'ä \'',hi:'मुंबई भेल'},
+  {id:'d0923',cat:'c10',sn:'0923',en:'Kolkata Chaat',gu:'ä \'',hi:'कोलकाता चाट'},
+  {id:'d0924',cat:'c10',sn:'0924',en:'Indori Chaat',gu:'ä \'',hi:'इंदौरी चाट'},
+  {id:'d0925',cat:'c10',sn:'0925',en:'Surat Chaat',gu:'ä \'',hi:'सूरत चाट'},
+  {id:'d0926',cat:'c10',sn:'0926',en:'Jaipur Chaat',gu:'ä \'',hi:'जयपुर चाट'},
+  {id:'d0927',cat:'c10',sn:'0927',en:'Lucknow Chaat',gu:'ä \'',hi:'लखनऊ चाट'},
+  {id:'d0928',cat:'c10',sn:'0928',en:'Varanasi Chaat',gu:'ä \'',hi:'वाराणसी चाट'},
+  {id:'d0929',cat:'c10',sn:'0929',en:'Amritsar Chaat',gu:'ä \'',hi:'अमृतसर चाट'},
+  {id:'d0930',cat:'c10',sn:'0930',en:'Hyderabad Chaat',gu:'ä \'',hi:'हैदराबाद चाट'},
+  {id:'d0931',cat:'c10',sn:'0931',en:'Chennai Chaat',gu:'ä \'',hi:'चेन्नई चाट'},
+  {id:'d0932',cat:'c10',sn:'0932',en:'Bangalore Chaat',gu:'ä \'',hi:'बैंगलोर चाट'},
+  {id:'d0933',cat:'c10',sn:'0933',en:'Ahmedabad Chaat',gu:'ä \'',hi:'अहमदाबाद चाट'},
+  {id:'d0934',cat:'c10',sn:'0934',en:'Vadodara Chaat',gu:'ä \'',hi:'वड़ोदरा चाट'},
+  {id:'d0935',cat:'c10',sn:'0935',en:'Edmonton Chaat',gu:'ä \'',hi:'एडमंटन चाट'},
+  {id:'d0936',cat:'c10',sn:'0936',en:'Navratri Chaat',gu:'ä \'',hi:'नवरात्रि चाट'},
+  {id:'d0937',cat:'c10',sn:'0937',en:'Dussehra Chaat',gu:'ä \'',hi:'दशहरा चाट'},
+  {id:'d0938',cat:'c10',sn:'0938',en:'Diwali Chaat',gu:'ä \'',hi:'दिवाली चाट'},
+  {id:'d0939',cat:'c10',sn:'0939',en:'Annakut Special Chaat',gu:'ä \'',hi:'अन्नकूट स्पेशल चाट'},
+  {id:'d0940',cat:'c10',sn:'0940',en:'Swaminarayan Chaat',gu:'ä \'',hi:'स्वामिनारायण चाट'},
+  {id:'d0941',cat:'c10',sn:'0941',en:'Prasad Chaat',gu:'ä \'',hi:'प्रसाद चाट'},
+  {id:'d0942',cat:'c10',sn:'0942',en:'Divine Snack',gu:'ä \'',hi:'दिव्य नाश्ता'},
+  {id:'d0943',cat:'c10',sn:'0943',en:'Blessing Chaat',gu:'ä \'',hi:'आशीर्वाद चाट'},
+  {id:'d0944',cat:'c10',sn:'0944',en:'Sacred Snack',gu:'ä \'',hi:'पवित्र नाश्ता'},
+  {id:'d0945',cat:'c10',sn:'0945',en:'Auspicious Chaat',gu:'ä \'',hi:'शुभ चाट'},
+  {id:'d0946',cat:'c10',sn:'0946',en:'Festive Snack',gu:'ä \'',hi:'उत्सव नाश्ता'},
+  {id:'d0947',cat:'c10',sn:'0947',en:'Celebration Chaat',gu:'ä \'',hi:'उत्सव चाट'},
+  {id:'d0948',cat:'c10',sn:'0948',en:'Joyful Snack',gu:'ä \'',hi:'आनंद नाश्ता'},
+  {id:'d0949',cat:'c10',sn:'0949',en:'Offering Snack',gu:'ä \'',hi:'भोग नाश्ता'},
+  {id:'d0950',cat:'c10',sn:'0950',en:'Bhog Platter',gu:'ä \'',hi:'भोग थाली'},
+  {id:'d0951',cat:'c10',sn:'0951',en:'Annakut Platter',gu:'ä \'',hi:'अन्नकूट थाली'},
+  {id:'d0952',cat:'c11',sn:'0952',en:'Wheat Kheer',gu:'ä \'',hi:'गेहूं खीर'},
+  {id:'d0953',cat:'c11',sn:'0953',en:'Shrikhand',gu:'ä \'',hi:'श्रीखंड'},
+  {id:'d0954',cat:'c11',sn:'0954',en:'Rice Kheer',gu:'ä \'',hi:'चावल की खीर'},
+  {id:'d0955',cat:'c11',sn:'0955',en:'Basundi',gu:'ä \'',hi:'बासुंदी'},
+  {id:'d0956',cat:'c11',sn:'0956',en:'Doodh Peda',gu:'ä \'',hi:'दूध पेड़ा'},
+  {id:'d0957',cat:'c11',sn:'0957',en:'Sabudana Kheer',gu:'ä \'',hi:'साबुदाना खीर'},
+  {id:'d0958',cat:'c11',sn:'0958',en:'Sewai Kheer',gu:'ä \'',hi:'सेवइयां खीर'},
+  {id:'d0959',cat:'c11',sn:'0959',en:'Makhane Ki Kheer',gu:'ä \'',hi:'मखाने की खीर'},
+  {id:'d0960',cat:'c11',sn:'0960',en:'Moong Dal Kheer',gu:'ä \'',hi:'मूंग दाल खीर'},
+  {id:'d0961',cat:'c11',sn:'0961',en:'Chana Dal Kheer',gu:'ä \'',hi:'चना दाल खीर'},
+  {id:'d0962',cat:'c11',sn:'0962',en:'Corn Kheer',gu:'ä \'',hi:'मकई खीर'},
+  {id:'d0963',cat:'c11',sn:'0963',en:'Coconut Milk Kheer',gu:'ä \'',hi:'नारियल दूध खीर'},
+  {id:'d0964',cat:'c11',sn:'0964',en:'Mango Kheer',gu:'ä \'',hi:'आम खीर'},
+  {id:'d0965',cat:'c11',sn:'0965',en:'Rabri',gu:'ä \'',hi:'रबड़ी'},
+  {id:'d0966',cat:'c11',sn:'0966',en:'Phirni',gu:'ä \'',hi:'फिरनी'},
+  {id:'d0967',cat:'c11',sn:'0967',en:'Payasam',gu:'ä \'',hi:'पायसम'},
+  {id:'d0968',cat:'c11',sn:'0968',en:'Kheer Kadam',gu:'ä \'',hi:'खीर कदम'},
+  {id:'d0969',cat:'c11',sn:'0969',en:'Sweet Dahi',gu:'ä \'',hi:'मीठी दही'},
+  {id:'d0970',cat:'c11',sn:'0970',en:'Mishti Doi',gu:'ä \'',hi:'मिष्टी दोई'},
+  {id:'d0971',cat:'c11',sn:'0971',en:'Dahi Bhog',gu:'ä \'',hi:'दही भोग'},
+  {id:'d0972',cat:'c11',sn:'0972',en:'Curd Dessert',gu:'ä \'',hi:'दही मिठाई'},
+  {id:'d0973',cat:'c11',sn:'0973',en:'Paneer Kheer',gu:'ä \'',hi:'पनीर खीर'},
+  {id:'d0974',cat:'c11',sn:'0974',en:'Tofu Kheer',gu:'ä \'',hi:'टोफू खीर'},
+  {id:'d0975',cat:'c11',sn:'0975',en:'Cashew Milk Kheer',gu:'ä \'',hi:'काजू दूध खीर'},
+  {id:'d0976',cat:'c11',sn:'0976',en:'Almond Kheer',gu:'ä \'',hi:'बादाम खीर'},
+  {id:'d0977',cat:'c11',sn:'0977',en:'Pista Kheer',gu:'ä \'',hi:'पिस्ता खीर'},
+  {id:'d0978',cat:'c11',sn:'0978',en:'Walnut Kheer',gu:'ä \'',hi:'अखरोट खीर'},
+  {id:'d0979',cat:'c11',sn:'0979',en:'Raisin Kheer',gu:'ä \'',hi:'किशमिश खीर'},
+  {id:'d0980',cat:'c11',sn:'0980',en:'Dates Kheer',gu:'ä \'',hi:'खजूर खीर'},
+  {id:'d0981',cat:'c11',sn:'0981',en:'Fig Kheer',gu:'ä \'',hi:'अंजीर खीर'},
+  {id:'d0982',cat:'c11',sn:'0982',en:'Mixed Nut Kheer',gu:'ä \'',hi:'मिक्स नट खीर'},
+  {id:'d0983',cat:'c11',sn:'0983',en:'Dry Fruit Kheer',gu:'ä \'',hi:'ड्राई फ्रूट खीर'},
+  {id:'d0984',cat:'c11',sn:'0984',en:'Rose Milk',gu:'ä \'',hi:'गुलाब दूध'},
+  {id:'d0985',cat:'c11',sn:'0985',en:'Kesar Milk',gu:'ä \'',hi:'केसर दूध'},
+  {id:'d0986',cat:'c11',sn:'0986',en:'Badam Milk',gu:'ä \'',hi:'बादाम दूध'},
+  {id:'d0987',cat:'c11',sn:'0987',en:'Haldi Doodh',gu:'ä \'',hi:'हल्दी दूध'},
+  {id:'d0988',cat:'c11',sn:'0988',en:'Thandai Milk',gu:'ä \'',hi:'ठंडाई दूध'},
+  {id:'d0989',cat:'c11',sn:'0989',en:'Gulkand Milk',gu:'ä \'',hi:'गुलकंद दूध'},
+  {id:'d0990',cat:'c11',sn:'0990',en:'Panchamrit',gu:'ä \'',hi:'पंचामृत'},
+  {id:'d0991',cat:'c11',sn:'0991',en:'Charnamrit',gu:'ä \'',hi:'चरणामृत'},
+  {id:'d0992',cat:'c11',sn:'0992',en:'Amrakhand',gu:'ä \'',hi:'आम्रखंड'},
+  {id:'d0993',cat:'c11',sn:'0993',en:'Kesar Shrikhand',gu:'ä \'',hi:'केसर श्रीखंड'},
+  {id:'d0994',cat:'c11',sn:'0994',en:'Strawberry Shrikhand',gu:'ä \'',hi:'स्ट्रॉबेरी श्रीखंड'},
+  {id:'d0995',cat:'c11',sn:'0995',en:'Mixed Fruit Shrikhand',gu:'ä \'',hi:'मिक्स फ्रूट श्रीखंड'},
+  {id:'d0996',cat:'c11',sn:'0996',en:'Oat Milk Kheer',gu:'ä \'',hi:'ओट्स दूध खीर'},
+  {id:'d0997',cat:'c11',sn:'0997',en:'Sweet Potato Kheer',gu:'ä \'',hi:'शकरकंद खीर'},
+  {id:'d0998',cat:'c11',sn:'0998',en:'Yam Kheer',gu:'ä \'',hi:'सूरन खीर'},
+  {id:'d0999',cat:'c11',sn:'0999',en:'Lauki Kheer',gu:'ä \'',hi:'लौकी खीर'},
+  {id:'d1000',cat:'c11',sn:'1000',en:'Carrot Kheer',gu:'ä \'',hi:'गाजर खीर'},
+  {id:'d1001',cat:'c11',sn:'1001',en:'Beet Kheer',gu:'ä \'',hi:'चुकंदर खीर'},
+  {id:'d1002',cat:'c11',sn:'1002',en:'Pumpkin Kheer',gu:'ä \'',hi:'कद्दू खीर'},
+  {id:'d1003',cat:'c11',sn:'1003',en:'Jackfruit Kheer',gu:'ä \'',hi:'कटहल खीर'},
+  {id:'d1004',cat:'c11',sn:'1004',en:'Breadfruit Kheer',gu:'ä \'',hi:'बकल खीर'},
+  {id:'d1005',cat:'c11',sn:'1005',en:'Satvic Kheer',gu:'ä \'',hi:'सात्विक खीर'},
+  {id:'d1006',cat:'c11',sn:'1006',en:'Temple Kheer',gu:'ä \'',hi:'मंदिर खीर'},
+  {id:'d1007',cat:'c11',sn:'1007',en:'Prasad Kheer',gu:'ä \'',hi:'प्रसाद खीर'},
+  {id:'d1008',cat:'c11',sn:'1008',en:'Diwali Kheer',gu:'ä \'',hi:'दिवाली खीर'},
+  {id:'d1009',cat:'c11',sn:'1009',en:'Festival Kheer',gu:'ä \'',hi:'त्योहार खीर'},
+  {id:'d1010',cat:'c11',sn:'1010',en:'Divine Milk',gu:'ä \'',hi:'दिव्य दूध'},
+  {id:'d1011',cat:'c11',sn:'1011',en:'Blessed Kheer',gu:'ä \'',hi:'आशीर्वाद खीर'},
+  {id:'d1012',cat:'c11',sn:'1012',en:'Sacred Dessert',gu:'ä \'',hi:'पवित्र मिठाई'},
+  {id:'d1013',cat:'c11',sn:'1013',en:'Annakut Kheer',gu:'ä \'',hi:'अन्नकूट खीर'},
+  {id:'d1014',cat:'c11',sn:'1014',en:'Swaminarayan Kheer',gu:'ä \'',hi:'स्वामिनारायण खीर'},
+  {id:'d1015',cat:'c11',sn:'1015',en:'Auspicious Milk',gu:'ä \'',hi:'शुभ दूध'},
+  {id:'d1016',cat:'c11',sn:'1016',en:'Joyful Kheer',gu:'ä \'',hi:'आनंद खीर'},
+  {id:'d1017',cat:'c11',sn:'1017',en:'Celebration Dessert',gu:'ä \'',hi:'उत्सव मिठाई'},
+  {id:'d1018',cat:'c11',sn:'1018',en:'Offering Kheer',gu:'ä \'',hi:'भोग खीर'},
+  {id:'d1019',cat:'c11',sn:'1019',en:'Bhog Dessert',gu:'ä \'',hi:'भोग मिठाई'},
+  {id:'d1020',cat:'c11',sn:'1020',en:'Mukhvas Milk',gu:'ä \'',hi:'मुखवास दूध'},
+  {id:'d1021',cat:'c11',sn:'1021',en:'Fennel Milk',gu:'ä \'',hi:'सौंफ दूध'},
+  {id:'d1022',cat:'c11',sn:'1022',en:'Cardamom Milk',gu:'ä \'',hi:'इलायची दूध'},
+  {id:'d1023',cat:'c11',sn:'1023',en:'Cinnamon Milk',gu:'ä \'',hi:'दालचीनी दूध'},
+  {id:'d1024',cat:'c11',sn:'1024',en:'Nutmeg Milk',gu:'ä \'',hi:'जायफल दूध'},
+  {id:'d1025',cat:'c11',sn:'1025',en:'Clove Milk',gu:'ä \'',hi:'लौंग दूध'},
+  {id:'d1026',cat:'c11',sn:'1026',en:'Masala Milk',gu:'ä \'',hi:'मसाला दूध'},
+  {id:'d1027',cat:'c11',sn:'1027',en:'Sweet Rabri',gu:'ä \'',hi:'मीठी रबड़ी'},
+  {id:'d1028',cat:'c12',sn:'1028',en:'Papad',gu:'ä \'',hi:'पापड़'},
+  {id:'d1029',cat:'c12',sn:'1029',en:'Shakarpara',gu:'ä \'',hi:'शक्करपारे'},
+  {id:'d1030',cat:'c12',sn:'1030',en:'Chakli',gu:'ä \'',hi:'चकली'},
+  {id:'d1031',cat:'c12',sn:'1031',en:'Namak Para',gu:'ä \'',hi:'नमक पारे'},
+  {id:'d1032',cat:'c12',sn:'1032',en:'Mukhwas',gu:'ä \'',hi:'मुखवास'},
+  {id:'d1033',cat:'c12',sn:'1033',en:'Saunf Mukhwas',gu:'ä \'',hi:'सौंफ मुखवास'},
+  {id:'d1034',cat:'c12',sn:'1034',en:'Paan Mukhwas',gu:'ä \'',hi:'पान मुखवास'},
+  {id:'d1035',cat:'c12',sn:'1035',en:'Rose Petal Mukhwas',gu:'ä \'',hi:'गुलाब पंखुड़ी मुखवास'},
+  {id:'d1036',cat:'c12',sn:'1036',en:'Cardamom Mukhwas',gu:'ä \'',hi:'इलायची मुखवास'},
+  {id:'d1037',cat:'c12',sn:'1037',en:'Coconut Mukhwas',gu:'ä \'',hi:'नारियल मुखवास'},
+  {id:'d1038',cat:'c12',sn:'1038',en:'Dry Mango Mukhwas',gu:'ä \'',hi:'आमचूर मुखवास'},
+  {id:'d1039',cat:'c12',sn:'1039',en:'Ajwain Mukhwas',gu:'ä \'',hi:'अजवाइन मुखवास'},
+  {id:'d1040',cat:'c12',sn:'1040',en:'Sesame Mukhwas',gu:'ä \'',hi:'तिल मुखवास'},
+  {id:'d1041',cat:'c12',sn:'1041',en:'Sugar Coated Saunf',gu:'ä \'',hi:'शक्कर सौंफ'},
+  {id:'d1042',cat:'c12',sn:'1042',en:'Mishri',gu:'ä \'',hi:'मिश्री'},
+  {id:'d1043',cat:'c12',sn:'1043',en:'Tulsi Mishri',gu:'ä \'',hi:'तुलसी मिश्री'},
+  {id:'d1044',cat:'c12',sn:'1044',en:'Rock Salt',gu:'ä \'',hi:'सेंधा नमक'},
+  {id:'d1045',cat:'c12',sn:'1045',en:'Festival Papad',gu:'ä \'',hi:'त्योहार पापड़'},
+  {id:'d1046',cat:'c12',sn:'1046',en:'Masala Papad',gu:'ä \'',hi:'मसाला पापड़'},
+  {id:'d1047',cat:'c12',sn:'1047',en:'Roasted Papad',gu:'ä \'',hi:'भुना पापड़'},
+  {id:'d1048',cat:'c12',sn:'1048',en:'Fried Papad',gu:'ä \'',hi:'तला पापड़'},
+  {id:'d1049',cat:'c12',sn:'1049',en:'Khichiya Papad',gu:'ä \'',hi:'खिचिया पापड़'},
+  {id:'d1050',cat:'c12',sn:'1050',en:'Rice Papad',gu:'ä \'',hi:'चावल पापड़'},
+  {id:'d1051',cat:'c12',sn:'1051',en:'Dal Papad',gu:'ä \'',hi:'दाल पापड़'},
+  {id:'d1052',cat:'c12',sn:'1052',en:'Urad Dal Papad',gu:'ä \'',hi:'उड़द दाल पापड़'},
+  {id:'d1053',cat:'c12',sn:'1053',en:'Moong Dal Papad',gu:'ä \'',hi:'मूंग दाल पापड़'},
+  {id:'d1054',cat:'c12',sn:'1054',en:'Potato Papad',gu:'ä \'',hi:'आलू पापड़'},
+  {id:'d1055',cat:'c12',sn:'1055',en:'Sabudana Papad',gu:'ä \'',hi:'साबुदाना पापड़'},
+  {id:'d1056',cat:'c12',sn:'1056',en:'Corn Papad',gu:'ä \'',hi:'मकई पापड़'},
+  {id:'d1057',cat:'c12',sn:'1057',en:'Rajgira Papad',gu:'ä \'',hi:'राजगिरा पापड़'},
+  {id:'d1058',cat:'c12',sn:'1058',en:'Kuttu Papad',gu:'ä \'',hi:'कुट्टू पापड़'},
+  {id:'d1059',cat:'c12',sn:'1059',en:'Alsi Papad',gu:'ä \'',hi:'अलसी पापड़'},
+  {id:'d1060',cat:'c12',sn:'1060',en:'Jowar Papad',gu:'ä \'',hi:'ज्वार पापड़'},
+  {id:'d1061',cat:'c12',sn:'1061',en:'Bajri Papad',gu:'ä \'',hi:'बाजरी पापड़'},
+  {id:'d1062',cat:'c12',sn:'1062',en:'Ragi Papad',gu:'ä \'',hi:'रागी पापड़'},
+  {id:'d1063',cat:'c12',sn:'1063',en:'Suji Papad',gu:'ä \'',hi:'सूजी पापड़'},
+  {id:'d1064',cat:'c12',sn:'1064',en:'Mixed Grain Papad',gu:'ä \'',hi:'मिश्रित अनाज पापड़'},
+  {id:'d1065',cat:'c12',sn:'1065',en:'Vat Papdi',gu:'ä \'',hi:'वट पापड़ी'},
+  {id:'d1066',cat:'c12',sn:'1066',en:'Gathiya Medley',gu:'ä \'',hi:'गांठिया मेडली'},
+  {id:'d1067',cat:'c12',sn:'1067',en:'Chikki',gu:'ä \'',hi:'चिक्की'},
+  {id:'d1068',cat:'c12',sn:'1068',en:'Sesame Chikki',gu:'ä \'',hi:'तिल चिक्की'},
+  {id:'d1069',cat:'c12',sn:'1069',en:'Peanut Chikki',gu:'ä \'',hi:'मूंगफली चिक्की'},
+  {id:'d1070',cat:'c12',sn:'1070',en:'Cashew Chikki',gu:'ä \'',hi:'काजू चिक्की'},
+  {id:'d1071',cat:'c12',sn:'1071',en:'Almond Chikki',gu:'ä \'',hi:'बादाम चिक्की'},
+  {id:'d1072',cat:'c12',sn:'1072',en:'Coconut Chikki',gu:'ä \'',hi:'नारियल चिक्की'},
+  {id:'d1073',cat:'c12',sn:'1073',en:'Mixed Nut Chikki',gu:'ä \'',hi:'मिक्स नट चिक्की'},
+  {id:'d1074',cat:'c12',sn:'1074',en:'Jaggery Chikki',gu:'ä \'',hi:'गुड़ चिक्की'},
+  {id:'d1075',cat:'c12',sn:'1075',en:'Revdi',gu:'ä \'',hi:'रेवड़ी'},
+  {id:'d1076',cat:'c12',sn:'1076',en:'Gajak',gu:'ä \'',hi:'गजक'},
+  {id:'d1077',cat:'c12',sn:'1077',en:'Rewri',gu:'ä \'',hi:'रेवड़ी'},
+  {id:'d1078',cat:'c12',sn:'1078',en:'Til Gajak',gu:'ä \'',hi:'तिल गजक'},
+  {id:'d1079',cat:'c12',sn:'1079',en:'Murmura Chikki',gu:'ä \'',hi:'मुरमुरा चिक्की'},
+  {id:'d1080',cat:'c12',sn:'1080',en:'Corn Chikki',gu:'ä \'',hi:'मकई चिक्की'},
+  {id:'d1081',cat:'c12',sn:'1081',en:'Poha Chikki',gu:'ä \'',hi:'पोहा चिक्की'},
+  {id:'d1082',cat:'c12',sn:'1082',en:'Oats Chikki',gu:'ä \'',hi:'ओट्स चिक्की'},
+  {id:'d1083',cat:'c12',sn:'1083',en:'Rice Flake Chikki',gu:'ä \'',hi:'चावल चिक्की'},
+  {id:'d1084',cat:'c12',sn:'1084',en:'Fennel Chikki',gu:'ä \'',hi:'सौंफ चिक्की'},
+  {id:'d1085',cat:'c12',sn:'1085',en:'Ginger Chikki',gu:'ä \'',hi:'अदरक चिक्की'},
+  {id:'d1086',cat:'c12',sn:'1086',en:'Cardamom Chikki',gu:'ä \'',hi:'इलायची चिक्किo'},
+  {id:'d1087',cat:'c12',sn:'1087',en:'Spiced Chikki',gu:'ä \'',hi:'मसाला चिक्की'},
+  {id:'d1088',cat:'c12',sn:'1088',en:'Festival Chikki',gu:'ä \'',hi:'त्योहार चिक्की'},
+  {id:'d1089',cat:'c12',sn:'1089',en:'Diwali Chikki',gu:'ä \'',hi:'दिवाली चिक्की'},
+  {id:'d1090',cat:'c12',sn:'1090',en:'Prasad Chikki',gu:'ä \'',hi:'प्रसाद चिक्की'},
+  {id:'d1091',cat:'c12',sn:'1091',en:'Mukhwas Mix',gu:'ä \'',hi:'मुखवास मिक्स'},
+  {id:'d1092',cat:'c12',sn:'1092',en:'Paan Parcel',gu:'ä \'',hi:'पान पार्सल'},
+  {id:'d1093',cat:'c12',sn:'1093',en:'Sweet Betel',gu:'ä \'',hi:'मीठा पान'},
+  {id:'d1094',cat:'c12',sn:'1094',en:'Fennel Sugar',gu:'ä \'',hi:'सौंफ शक्कर'},
+  {id:'d1095',cat:'c12',sn:'1095',en:'Anise Candy',gu:'ä \'',hi:'अनीस कैंडी'},
+  {id:'d1096',cat:'c12',sn:'1096',en:'Cardamom Sugar',gu:'ä \'',hi:'इलायची शक्कर'},
+  {id:'d1097',cat:'c12',sn:'1097',en:'Sacred Offering',gu:'ä \'',hi:'पवित्र भोग'},
+  {id:'d1098',cat:'c12',sn:'1098',en:'Bhog Assortment',gu:'ä \'',hi:'भोग विविधता'},
+  {id:'d1099',cat:'c12',sn:'1099',en:'Annakut Assortment',gu:'ä \'',hi:'अन्नकूट विविधता'},
+  {id:'d1100',cat:'c12',sn:'1100',en:'Temple Prasad Mix',gu:'ä \'',hi:'मंदिर प्रसाद मिक्स'},
+  {id:'d1101',cat:'c12',sn:'1101',en:'Diwali Assortment',gu:'ä \'',hi:'दिवाली विविधता'},
+  {id:'d1102',cat:'c12',sn:'1102',en:'Festival Mix',gu:'ä \'',hi:'त्योहार मिक्स'},
+  {id:'d1103',cat:'c12',sn:'1103',en:'Divine Assortment',gu:'ä \'',hi:'दिव्य विविधता'},
+  {id:'d1104',cat:'c12',sn:'1104',en:'Sacred Mix',gu:'ä \'',hi:'पवित्र मिक्स'}
+];
+const RECIPE_IMAGES = {
+  d0103:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/3_types_of_lentil.png/480px-3_types_of_lentil.png',
+  d0109:'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Mung_beans_%28Vigna_radiata%29.jpg/480px-Mung_beans_%28Vigna_radiata%29.jpg',
+  d0114:'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Punjabi_style_Dal_Makhani.jpg/480px-Punjabi_style_Dal_Makhani.jpg',
+  d0134:'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Dal_Dhokali.jpg/480px-Dal_Dhokali.jpg',
+  d0180:'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg/480px-20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg',
+  d0192:'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Curd_Rice.jpg/480px-Curd_Rice.jpg',
+  d0194:'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/A_photo_of_Upma.jpg/480px-A_photo_of_Upma.jpg',
+  d0218:'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/%22Hyderabadi_Dum_Biryani%22.jpg/480px-%22Hyderabadi_Dum_Biryani%22.jpg',
+  d0255:'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/2020-05-08_19_34_28_Chapati_being_made_in_a_pan_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg/480px-2020-05-08_19_34_28_Chapati_being_made_in_a_pan_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg',
+  d0257:'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Fluffy_Poori_%28cropped%29.JPG/480px-Fluffy_Poori_%28cropped%29.JPG',
+  d0258:'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Thepla_main.jpg/480px-Thepla_main.jpg',
+  d0261:'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Triangle_paratha_%28cropped%29.JPG/480px-Triangle_paratha_%28cropped%29.JPG',
+  d0288:'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Rajasthani_Raj_Kachori.jpg/480px-Rajasthani_Raj_Kachori.jpg',
+  d0302:'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Mini_Uttappam.jpg/480px-Mini_Uttappam.jpg',
+  d0309:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Khakhra.jpg/480px-Khakhra.jpg',
+  d0360:'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Sev_2013-12-01_16-57.jpg/480px-Sev_2013-12-01_16-57.jpg',
+  d0361:'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Chakli_in_a_bowl.jpg/480px-Chakli_in_a_bowl.jpg',
+  d0362:'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/A_Traditional_Tamil_Snack_Murukku.jpg/480px-A_Traditional_Tamil_Snack_Murukku.jpg',
+  d0369:'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Dhokla_on_Gujrart.jpg/480px-Dhokla_on_Gujrart.jpg',
+  d0370:'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Gate_of_Khandvi.jpg/480px-Gate_of_Khandvi.jpg',
+  d0380:'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Aloo_Tikki_served_with_chutneys.jpg/480px-Aloo_Tikki_served_with_chutneys.jpg',
+  d0381:'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Samosas%2C_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_%2801%29.jpg/480px-Samosas%2C_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_%2801%29.jpg',
+  d0388:'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Idli_Sambar.JPG/480px-Idli_Sambar.JPG',
+  d0389:'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Medu_Vada.JPG/480px-Medu_Vada.JPG',
+  d0407:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Mathri.JPG/480px-Mathri.JPG',
+  d0494:'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Kaju_katli_sweet.jpg/480px-Kaju_katli_sweet.jpg',
+  d0500:'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Gulab-jamun-wallpaper-1.jpg/480px-Gulab-jamun-wallpaper-1.jpg',
+  d0501:'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Rasgulla.jpg/480px-Rasgulla.jpg',
+  d0502:'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Ras_Malai_2.JPG/480px-Ras_Malai_2.JPG',
+  d0510:'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Basavanagudi_Kadalekai_Parishe_%282025%29_Bangalore_%2886%29.jpg/480px-Basavanagudi_Kadalekai_Parishe_%282025%29_Bangalore_%2886%29.jpg',
+  d0513:'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Malpoa_pitha.jpg/480px-Malpoa_pitha.jpg',
+  d0514:'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Ghevar_with_Malai_Topping.jpg/480px-Ghevar_with_Malai_Topping.jpg',
+  d0534:'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Basundi_in_Maharashtrian_style.jpg/480px-Basundi_in_Maharashtrian_style.jpg',
+  d0540:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Almond_Khoa_based_burfi_Mumbai_India_%28cropped%29.jpg/480px-Almond_Khoa_based_burfi_Mumbai_India_%28cropped%29.jpg',
+  d0548:'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Firni_Or_Phirni.jpg/480px-Firni_Or_Phirni.jpg',
+  d0549:'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shrikhand_london_kastoori.jpg/480px-Shrikhand_london_kastoori.jpg',
+  d0556:'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Homemade_Rabri.jpg/480px-Homemade_Rabri.jpg',
+  d0582:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Mysore_pak.jpg/480px-Mysore_pak.jpg',
+  d0591:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Ukadiche_Modak_%28Rice%29.jpg/480px-Ukadiche_Modak_%28Rice%29.jpg'};
+
+/* ============================================================
+   TRANSLATIONS
+   ============================================================ */
+const T = {
+  en: {
+    temple:'Sri Hindu Swaminarayan Temple Vadtal Dham Edmonton',
+    siteTitle:'Annakut Seva 2026',
+    heroEye:'Diwali 2026 · Sacred Offering',
+    heroH1:'Annakut Seva 2026',
+    heroSub:'Offer a sacred dish at the Lotus Feet of Shri Hari',
+    statAvail:'Available',statBooked:'Claimed',statTotal:'Total Dishes',
+    categories:'Browse Categories',
+    backHome:'Home',backBrowse:'Back to Category',backCart:'Back to Cart',
+    filterAll:'All',filterAvail:'Available',filterBooked:'Claimed',
+    searchPlaceholder:'Search dishes…',noResults:'No dishes found',
+    viewRecipe:'Recipe Card',selectSeva:'Select for Seva',
+    selected:'Selected ✓',dishBooked:'Claimed',
+    cartTitle:'Seva Cart',cartEmpty:'No dishes selected yet.',
+    cartEmptySub:'Browse categories and select the dishes you want to offer.',
+    proceedReg:'Proceed to Registration →',
+    regTitle:'Complete Seva Registration',
+    regNote:'Please provide your details. All fields are required.',
+    regSummaryTitle:'Dishes you are offering:',
+    lblName:'Full Name',lblPhone:'Phone Number',lblEmail:'Email Address',
+    confirmBtn:'Confirm Seva Registration 🙏',
+    successTitle:'Jai Swaminarayan! 🙏',
+    successSub:'Your Annakut Seva has been confirmed. May your devotion be blessed by Shri Hari.',
+    successDishTitle:'Your registered dishes:',
+    backHome2:'Return to Home',
+    recipeTitle:'Recipe Card',
+    noRecipeImg:'Recipe card image not available for this dish.',
+    modalClose:'Close',
+    alreadyBooked:'One or more dishes were claimed before your submission. Please go back and choose different dishes.',
+    submitting:'Confirming Seva…',
+    remove:'Remove',
+  },
+  gu: {
+    temple:'શ્રી હિન્દૂ સ્વામિનારાયણ ટેમ્પલ વઢતાળ ધામ એડ્મઉન્ટન',
+    siteTitle:'અન્નકૂટ સેવા ૨૦૨૫',
+    heroEye:'દીવાળી ૨૦૨૫ · પવિત્ર સેવા',
+    heroH1:'અન્નકૂટ સેવા ૨૦૨૫',
+    heroSub:'શ્રી હરિ ના ચરણોમાં અન્ન-ભોગ ધરવાની સેવા',
+    statAvail:'ઉપલબ્ધ',statBooked:'બૂક',statTotal:'કુલ વાનગી',
+    categories:'કેટેગરી',
+    backHome:'હોમ',backBrowse:'પાછળ',backCart:'કાર્ટ',
+    filterAll:'બધી',filterAvail:'ઉપલબ્ધ',filterBooked:'બૂક',
+    searchPlaceholder:'વાનગી શોધો…',noResults:'કોઈ વાનગી મળી નહીં',
+    viewRecipe:'રેસિપી',selectSeva:'સેવામાં ઉમેરો',
+    selected:'ઉમેરાઈ ✓',dishBooked:'બૂક',
+    cartTitle:'સેવા કાર્ટ',cartEmpty:'કોઈ વાનગી પસંદ થઈ નથી.',
+    cartEmptySub:'કેટેગરી માં જઈ ને વાનગી ઉમેરો.',
+    proceedReg:'નોંધણી આગળ વધો →',
+    regTitle:'સેવા નોંધણી',
+    regNote:'આપની વિગત ભરો. બધા ક્ષેત્ર ફરજિયાત છે.',
+    regSummaryTitle:'આ વાનગી ઓ ભોગ ધરાઈ:',
+    lblName:'પૂરું નામ',lblPhone:'ફોન નંબર',lblEmail:'ઈ-મેઈલ',
+    confirmBtn:'સેવા પ્રદાન કરો 🙏',
+    successTitle:'જય સ્વામિનારાયણ! 🙏',
+    successSub:'આ Annakut Seva પ્રદાન કરવા ભગવાન ની ક્રૃ ઠ।',
+    successDishTitle:'નોંધ કરેલ વાનગી:',
+    backHome2:'હોમ',
+    recipeTitle:'રેસિપી',
+    noRecipeImg:'આ વાનગ ની રેસ Img ઉ.',
+    modalClose:'બંધ',
+    alreadyBooked:'કોઈ ઈ-ઈ-ઈ-ઈ-ઈ .',
+    submitting:'સ.',
+    remove:'કાઢો',
+  },
+  hi: {
+    temple:'श्री हिन्दू स्वामिनारायण मंदिर वड़ताल धाम एडमोंटन',
+    siteTitle:'अन्नकूट सेवा 2026',
+    heroEye:'दीवाली 2026 · पवित्र सेवा',
+    heroH1:'अन्नकूट सेवा 2026',
+    heroSub:'श्री हरि के चरणों में अन्न-भोग अर्पित करने की सेवा',
+    statAvail:'उपलब्ध',statBooked:'बुक',statTotal:'कुल व्यंजन',
+    categories:'श्रेणियाँ',
+    backHome:'होम',backBrowse:'पीछे',backCart:'कार्ट',
+    filterAll:'सभी',filterAvail:'उपलब्ध',filterBooked:'बुक',
+    searchPlaceholder:'व्यंजन खोजें…',noResults:'कोई व्यंजन नहीं मिला',
+    viewRecipe:'रेसिपी',selectSeva:'सेवा में जोड़ें',
+    selected:'जोड़ा गया ✓',dishBooked:'बुक',
+    cartTitle:'सेवा कार्ट',cartEmpty:'कोई व्यंजन नहीं चुना।',
+    cartEmptySub:'श्रेणियाँ देखें और व्यंजन जोड़ें।',
+    proceedReg:'पंजीकरण करें →',
+    regTitle:'सेवा पंजीकरण',
+    regNote:'अपनी जानकारी भरें। सभी फ़ील्ड अनिवार्य हैं।',
+    regSummaryTitle:'आप यह व्यंजन अर्पित करेंगे:',
+    lblName:'पूरा नाम',lblPhone:'फ़ोन नंबर',lblEmail:'ईमेल',
+    confirmBtn:'सेवा पंजीकरण करें 🙏',
+    successTitle:'जय स्वामिनारायण! 🙏',
+    successSub:'आपकी अन्नकूट सेवा की पुष्टि हो गई। श्री हरि आपकी भक्ति आशीर्वाद दें।',
+    successDishTitle:'पंजीकृत व्यंजन:',
+    backHome2:'होम वापस',
+    recipeTitle:'रेसिपी',
+    noRecipeImg:'इस व्यंजन की रेसिपी छवि उपलब्ध नहीं है।',
+    modalClose:'बंद करें',
+    alreadyBooked:'कुछ व्यंजन पहले बुक हो गए। वापस जाकर दूसरे चुनें।',
+    submitting:'पुष्टि हो रही है…',
+    remove:'हटाएं',
+  }
+};
+
+/* ============================================================
+   APP STATE
+   ============================================================ */
+let lang = 'en';
+let cart = [];           // dish ids
+let bookedMap = {};      // dishId → booking data (from db)
+let currentCatId = null;
+let currentFilter = 'all';
+let currentPage = 'home';
+let db = null;
+let isSubmitting = false;
+let unsubscribeFn = null;
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const t = k => T[lang][k] || T.en[k] || k;
+const byId = id => document.getElementById(id);
+const cat = id => CATEGORIES.find(c=>c.id===id);
+const dish = id => DISHES.find(d=>d.id===id);
+const dishName = d => d[lang] || d.en;
+const catName = c => c[lang] || c.en;
+
+function totalDishes(catId){
+  return catId ? DISHES.filter(d=>d.cat===catId).length : DISHES.length;
+}
+function availCount(catId){
+  const list = catId ? DISHES.filter(d=>d.cat===catId) : DISHES;
+  return list.filter(d=>!bookedMap[d.id]).length;
+}
+
+/* ============================================================
+   LANGUAGE
+   ============================================================ */
+function setLang(l){
+  lang = l;
+  try{ localStorage.setItem('annakut_lang',l) }catch(e){}
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===l);
+  });
+  refreshAllText();
+  if(currentPage==='cat') renderDishes();
+  else if(currentPage==='cart') renderCart();
+}
+
+function refreshAllText(){
+  const tt = T[lang];
+  byId('hdr-temple').textContent = tt.temple;
+  byId('hdr-title').textContent = tt.siteTitle;
+  byId('hero-eyebrow').textContent = tt.heroEye;
+  byId('hero-h1').textContent = tt.heroH1;
+  byId('hero-sub').textContent = tt.heroSub;
+  byId('stat-avail-lbl').textContent = tt.statAvail;
+  byId('stat-booked-lbl').textContent = tt.statBooked;
+  byId('stat-total-lbl').textContent = tt.statTotal;
+  byId('sec-categories').textContent = tt.categories;
+  byId('back-home-lbl').textContent = tt.backHome;
+  byId('back-browse-lbl').textContent = tt.backBrowse;
+  byId('back-cart-lbl').textContent = tt.backCart;
+  byId('filter-all').textContent = tt.filterAll;
+  byId('filter-avail').textContent = tt.filterAvail;
+  byId('filter-booked').textContent = tt.filterBooked;
+  byId('dish-search').placeholder = tt.searchPlaceholder;
+  byId('cart-title').textContent = tt.cartTitle;
+  byId('btn-to-register').textContent = tt.proceedReg;
+  byId('reg-title').textContent = tt.regTitle;
+  byId('lbl-name').textContent = tt.lblName;
+  byId('lbl-phone').textContent = tt.lblPhone;
+  byId('lbl-email').textContent = tt.lblEmail;
+  byId('btn-confirm-seva').textContent = isSubmitting ? tt.submitting : tt.confirmBtn;
+  byId('success-title').textContent = tt.successTitle;
+  byId('success-sub').textContent = tt.successSub;
+  byId('btn-back-home').textContent = tt.backHome2;
+  byId('cf-cta').textContent = tt.proceedReg.split(' ')[0];
+  updateStats();
+  renderCategories();
+  updateCartUI();
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+function updateStats(){
+  const total = DISHES.length;
+  const booked = Object.keys(bookedMap).length;
+  const avail = total - booked;
+  byId('stat-avail').textContent = avail;
+  byId('stat-booked').textContent = booked;
+  byId('stat-total').textContent = total;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+function showPage(name){
+  ['home','cat','cart','register','success'].forEach(p=>{
+    byId('page-'+p).hidden = (p!==name);
+  });
+  currentPage = name;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goHome(){
+  currentCatId = null;
+  showPage('home');
+  renderCategories();
+}
+function goCart(){
+  if(!cart.length){ goHome(); return; }
+  renderCart();
+  showPage('cart');
+}
+function goRegister(){
+  renderRegSummary();
+  showPage('register');
+}
+function goBack(){
+  if(currentCatId) showPage('cat');
+  else goHome();
+}
+
+/* ============================================================
+   CATEGORIES
+   ============================================================ */
+function renderCategories(){
+  const grid = byId('cat-grid');
+  grid.innerHTML = '';
+  CATEGORIES.forEach(c=>{
+    const av = availCount(c.id);
+    const tot = totalDishes(c.id);
+    const el = document.createElement('div');
+    el.className = 'cat-card';
+    el.style.setProperty('--cat-accent', c.color);
+    el.onclick = ()=>openCategory(c.id);
+    el.innerHTML = `
+      <span class="cat-icon">${c.icon}</span>
+      <div class="cat-name">${catName(c)}</div>
+      <div class="cat-avail">${av}/${tot} ${t('statAvail').toLowerCase()}</div>`;
+    grid.appendChild(el);
+  });
+}
+
+function openCategory(id){
+  currentCatId = id;
+  currentFilter = 'all';
+  byId('dish-search').value = '';
+  const c = cat(id);
+  byId('cat-hdr-icon').textContent = c.icon;
+  byId('cat-hdr-name').textContent = catName(c);
+  renderDishes();
+  showPage('cat');
+}
+
+/* ============================================================
+   DISHES
+   ============================================================ */
+function setFilter(f){
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.filter===f);
+  });
+  renderDishes();
+}
+
+function renderDishes(){
+  const searchVal = (byId('dish-search')?.value||'').toLowerCase().trim();
+  let list = DISHES.filter(d=>d.cat===currentCatId);
+
+  if(currentFilter==='avail') list = list.filter(d=>!bookedMap[d.id]);
+  if(currentFilter==='booked') list = list.filter(d=>bookedMap[d.id]);
+
+  if(searchVal){
+    list = list.filter(d=>{
+      const n = dishName(d).toLowerCase();
+      const enL = d.en.toLowerCase();
+      return n.includes(searchVal)||enL.includes(searchVal);
+    });
+  }
+
+  const grid = byId('dish-grid');
+  const noRes = byId('no-results');
+  grid.innerHTML = '';
+
+  if(!list.length){
+    noRes.hidden = false;
+    noRes.textContent = t('noResults');
+    return;
+  }
+  noRes.hidden = true;
+
+  list.forEach(d=>{
+    const booked = !!bookedMap[d.id];
+    const sel = cart.includes(d.id);
+    const imgUrl = RECIPE_IMAGES[d.id] || null;
+    const c = cat(d.cat);
+
+    const el = document.createElement('div');
+    el.className = 'dish-card' + (booked?' booked-dish':'') + (sel?' selected-dish':'');
+
+    const imgHtml = imgUrl
+      ? `<img class="dish-img" src="${imgUrl}" alt="${dishName(d)}" loading="lazy" onclick="openRecipe('${d.id}')">`
+      : `<div class="dish-img-placeholder" style="background:linear-gradient(135deg,${c.color}33,${c.color}66)" onclick="openRecipe('${d.id}')">
+          ${c.icon}
+          <span class="recipe-hint">📖 ${t('viewRecipe')}</span>
+        </div>`;
+
+    const badgeHtml = booked
+      ? `<span class="dish-status status-booked">${t('dishBooked')}</span>`
+      : `<span class="dish-status status-avail">${t('statAvail')}</span>`;
+
+    const actHtml = booked
+      ? `<button class="btn-recipe" onclick="openRecipe('${d.id}')">${t('viewRecipe')}</button>`
+      : `<button class="btn-recipe" onclick="openRecipe('${d.id}')">${t('viewRecipe')}</button>
+         <button class="btn-select ${sel?'selected':''}" onclick="toggleCart('${d.id}',this)">
+           ${sel ? t('selected') : t('selectSeva')}
+         </button>`;
+
+    el.innerHTML = `
+      ${imgHtml}
+      <div class="dish-body">
+        <div class="dish-num">#${d.sn}</div>
+        <div class="dish-name">${dishName(d)}</div>
+        ${badgeHtml}
+        <div class="dish-actions">${actHtml}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+}
+
+/* ============================================================
+   CART
+   ============================================================ */
+function toggleCart(id, btn){
+  const d = dish(id);
+  if(!d) return;
+  if(cart.includes(id)){
+    cart = cart.filter(x=>x!==id);
+  } else {
+    cart.push(id);
+  }
+  updateCartUI();
+  // Update this button immediately
+  const inCart = cart.includes(id);
+  if(btn){
+    btn.textContent = inCart ? t('selected') : t('selectSeva');
+    btn.classList.toggle('selected', inCart);
+  }
+  // Update dish card border
+  const cards = document.querySelectorAll('.dish-card');
+  // Re-render for accuracy
+  renderDishes();
+}
+
+function updateCartUI(){
+  const n = cart.length;
+  byId('cart-count-badge').textContent = n;
+  byId('cart-fab-btn').hidden = n===0;
+  const floatBtn = byId('cart-float-btn');
+  floatBtn.hidden = (n===0 || currentPage==='cart' || currentPage==='register' || currentPage==='success');
+  if(n>0){
+    byId('cf-items').textContent = cart.map(id=>{ const d=dish(id); return dishName(d);}).join(' · ').slice(0,56)+(cart.length>3?'…':'');
+    byId('cf-count').textContent = `${n} ${n===1?'dish':'dishes'} selected`;
+  }
+}
+
+function renderCart(){
+  const list = byId('cart-list');
+  if(!cart.length){
+    list.innerHTML = `<div class="cart-empty"><span class="cart-empty-icon">🛒</span><div>${t('cartEmpty')}</div><div style="font-size:13px;margin-top:8px">${t('cartEmptySub')}</div></div>`;
+    byId('btn-to-register').disabled = true;
+    return;
+  }
+  byId('btn-to-register').disabled = false;
+  list.innerHTML = '';
+  cart.forEach(id=>{
+    const d = dish(id);
+    const c = cat(d.cat);
+    const el = document.createElement('div');
+    el.className = 'cart-item';
+    el.innerHTML = `
+      <div class="cart-item-info">
+        <div class="cart-item-name">${dishName(d)}</div>
+        <div class="cart-item-cat">${c.icon} ${catName(c)}</div>
+      </div>
+      <button class="btn-remove" onclick="removeFromCart('${id}')">${t('remove')}</button>`;
+    list.appendChild(el);
+  });
+}
+
+function removeFromCart(id){
+  cart = cart.filter(x=>x!==id);
+  updateCartUI();
+  renderCart();
+}
+
+/* ============================================================
+   REGISTRATION
+   ============================================================ */
+function renderRegSummary(){
+  const s = byId('reg-summary');
+  const title = `<h3>${t('regSummaryTitle')}</h3>`;
+  const items = cart.map(id=>{
+    const d = dish(id);
+    const c = cat(d.cat);
+    return `<div class="reg-summary-item"><span class="reg-summary-num">#${d.sn}</span><span>${dishName(d)} — ${catName(c)}</span></div>`;
+  }).join('');
+  s.innerHTML = title + items;
+  byId('form-error').hidden = true;
+}
+
+async function submitBooking(){
+  if(isSubmitting) return;
+  const name = byId('inp-name').value.trim();
+  const phone = byId('inp-phone').value.trim();
+  const email = byId('inp-email').value.trim();
+  const errEl = byId('form-error');
+  errEl.hidden = true;
+
+  if(!name||!phone||!email){
+    errEl.textContent = 'Please fill in all required fields.';
+    errEl.hidden = false;
+    return;
+  }
+  if(!email.includes('@')){
+    errEl.textContent = 'Please enter a valid email address.';
+    errEl.hidden = false;
+    return;
+  }
+
+  if(!db){
+    errEl.textContent = 'Registration system loading. Please wait a moment and try again.';
+    errEl.hidden = false;
+    return;
+  }
+
+  isSubmitting = true;
+  byId('btn-confirm-seva').disabled = true;
+  byId('btn-confirm-seva').textContent = t('submitting');
+
+  try {
+    // Check all dishes still available (bookedMap is live from Firebase listener)
+    const conflicts = [];
+    for(const id of cart){
+      if(bookedMap[id]) conflicts.push(id);
+    }
+    if(conflicts.length){
+      const names = conflicts.map(id=>dishName(dish(id))).join(', ');
+      errEl.textContent = t('alreadyBooked') + ` (${names})`;
+      errEl.hidden = false;
+      isSubmitting = false;
+      byId('btn-confirm-seva').disabled = false;
+      byId('btn-confirm-seva').textContent = t('confirmBtn');
+      return;
+    }
+
+    // Write all bookings to Firebase
+    const now = new Date().toISOString();
+    const writes = cart.map(id =>
+      db.child(id).set({ name, phone, email, bookedAt: now })
+    );
+    await Promise.all(writes);
+
+    // Show success
+    showSuccess(name, cart.slice());
+    cart = [];
+    updateCartUI();
+  } catch(e){
+    errEl.textContent = 'An error occurred. Please try again. ' + (e.message||'');
+    errEl.hidden = false;
+    isSubmitting = false;
+    byId('btn-confirm-seva').disabled = false;
+    byId('btn-confirm-seva').textContent = t('confirmBtn');
+  }
+}
+
+function showSuccess(name, confirmedCart){
+  const box = byId('success-box');
+  const title = `<h3>${t('successDishTitle')}</h3>`;
+  const items = confirmedCart.map(id=>{
+    const d = dish(id);
+    return `<div class="success-dish">${dishName(d)}</div>`;
+  }).join('');
+
+  // Build WhatsApp message
+  const dishList = confirmedCart.map(id=>dishName(dish(id))).join(', ');
+  const waMsg = encodeURIComponent(
+    `Jay Swaminarayan 🙏\n\nI have completed my Annakut Seva 2026 registration.\n\n` +
+    `Name: ${name}\nDishes: ${dishList}\n\nThank you for this opportunity to offer seva.`
+  );
+  const waLink = `https://wa.me/${TEMPLE_WHATSAPP}?text=${waMsg}`;
+
+  const confirmHtml = `<div class="confirm-actions">
+    <a href="${waLink}" target="_blank" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Send WhatsApp to Temple
+    </a>
+    <div class="btn-email-info">
+      📧 A confirmation has been noted. Please save this page as proof of your seva selection.
+    </div>
+  </div>`;
+
+  box.innerHTML = title + items + confirmHtml;
+  byId('success-title').textContent = t('successTitle');
+  byId('success-sub').textContent = t('successSub');
+  showPage('success');
+}
+
+/* ============================================================
+   RECIPE MODAL
+   ============================================================ */
+function openRecipe(id){
+  const d = dish(id);
+  byId('modal-dish-name').textContent = dishName(d);
+  const body = byId('modal-body');
+  const imgUrl = RECIPE_IMAGES[id];
+  if(imgUrl){
+    body.innerHTML = `<img class="modal-img" src="${imgUrl}" alt="${dishName(d)}">`;
+  } else {
+    body.innerHTML = `<div class="modal-no-img">
+      <span class="modal-no-img-icon">📖</span>
+      <p>${t('noRecipeImg')}</p>
+    </div>`;
+  }
+  byId('modal-recipe').hidden = false;
+}
+
+function closeModal(e){
+  if(!e || e.target===byId('modal-recipe') || e.currentTarget===byId('modal-recipe')){
+    byId('modal-recipe').hidden = true;
+  }
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ byId('modal-recipe').hidden = true; byId('gallery-lightbox').hidden = true; } });
+// Gallery lightbox
+document.addEventListener('click', e=>{
+  if(e.target.classList.contains('gallery-img')){
+    byId('lightbox-img').src = e.target.src;
+    byId('gallery-lightbox').hidden = false;
+  }
+});
+
+/* ============================================================
+   DATABASE — Shared booking state
+   ============================================================ */
+async function initDB(){
+  try {
+    if(!FIREBASE_CONFIG.apiKey || FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY'){
+      byId('loading-text').textContent = 'Firebase not configured. See setup guide in HTML file.';
+      return;
+    }
+    firebase.initializeApp(FIREBASE_CONFIG);
+    const fbRef = firebase.database().ref('annakut2026');
+    db = fbRef; // db is now the Firebase ref
+    // Load initial data, then switch to live listener
+    await new Promise(resolve => {
+      fbRef.once('value', snap => {
+        bookedMap = snap.val() || {};
+        fbRef.on('value', livesnap => {
+          bookedMap = livesnap.val() || {};
+          updateStats();
+          if(currentPage==='cat') renderDishes();
+          if(currentPage==='home') renderCategories();
+          updateCartUI();
+        });
+        resolve();
+      });
+    });
+  } catch(e){
+    console.warn('DB init error:', e);
+  }
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+(async function boot(){
+  // Restore language preference
+  try{
+    const saved = localStorage.getItem('annakut_lang');
+    if(saved && T[saved]) lang = saved;
+  }catch(e){}
+
+  // Set active lang button
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===lang);
+  });
+
+  // Apply all text
+  refreshAllText();
+  updateStats();
+
+  // Init DB
+  await initDB();
+
+  // Remove loading overlay
+  const overlay = byId('loading-overlay');
+  overlay.style.transition = 'opacity .4s';
+  overlay.style.opacity = '0';
+  setTimeout(()=>{ overlay.hidden = true; }, 400);
+
+  // Show initial page
+  showPage('home');
+})();
+
+// Gallery lightbox
+document.addEventListener('click', e => {
+  if(e.target.classList.contains('gallery-img')){
+    byId('lightbox-img').src = e.target.src;
+    byId('gallery-lightbox').hidden = false;
+  }
+});
+
+</script>
