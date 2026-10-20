@@ -7,144 +7,211 @@
 <meta name="description" content="Choose a dish to offer for Annakut 2026 at Vadtal Dham Edmonton.">
 <link rel="icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Serif:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Serif+Gujarati:wght@600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap">
 <style>
-:root{--bg:#fbf7f1;--card:#fff;--ink:#1f1a17;--muted:#5d534b;--line:#e6dccf;--brand:#7a1f2b;--brand-d:#5e1620;--brand-soft:#f6e9e6;--gold:#b7791f;--ok:#1d6b3a;--ok-soft:#e5f3e9;--off:#8a8077;--focus:#e0a100;
---f:'Noto Sans','Noto Sans Gujarati','Noto Sans Devanagari',system-ui,sans-serif}
+:root{--m9:#33070f;--m8:#520c1a;--m7:#721325;--m6:#8c1a2e;--gold:#d4a64a;--gold-d:#a97a26;--gold-l:#f6e2a4;--saffron:#e8891c;--ivory:#fdf8ef;--paper:#fff;--ink:#2b1a12;--muted:#6f5d50;--line:#ecdfc9;--soft:#faf1e1;--ok:#2e7d4f;--ok-soft:#e8f4ec;--off:#9a8b7d;--focus:#e0a100;
+--sans:Inter,'Noto Sans Gujarati','Noto Sans Devanagari',system-ui,sans-serif;--serif:'Cormorant Garamond','Noto Serif Gujarati','Noto Serif Devanagari',Georgia,serif;--caps:Cinzel,Georgia,serif;color-scheme:light}
 *{box-sizing:border-box}
 html{font-size:19px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);line-height:1.55}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
 button,input{font:inherit;color:inherit}
 button{cursor:pointer}
+[hidden]{display:none!important}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
-header{background:var(--brand);color:#fff}
-.top{display:flex;align-items:center;gap:14px;padding-block:14px;flex-wrap:wrap}
-.top img{width:56px;height:56px;border-radius:50%;background:#fff}
-.brand{flex:1;min-width:200px}
-.brand h1{margin:0;font-family:'Noto Serif',Georgia,serif;font-size:1.45rem;line-height:1.2;font-weight:600}
-.brand p{margin:2px 0 0;font-size:.9rem;opacity:.9}
-.langs{display:flex;gap:6px;flex-wrap:wrap}
-.langs button{background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;border-radius:10px;padding:6px 14px;min-height:48px;font-weight:600}
-.langs button[aria-pressed=true]{background:#fff;color:var(--brand);border-color:#fff}
-.steps{display:flex;gap:6px;padding-block:12px;margin:0;list-style:none;font-size:.9rem;color:var(--muted);flex-wrap:wrap}
-.steps li{display:flex;align-items:center;gap:8px;padding:4px 12px 4px 4px;border-radius:999px;background:#fff;border:1px solid var(--line)}
-.steps b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--line);color:var(--ink);font-size:.85rem}
-.steps li.on{color:var(--ink);border-color:var(--brand);font-weight:600}
-.steps li.on b{background:var(--brand);color:#fff}
-main{padding-bottom:140px}
-h2{font-size:1.35rem;margin:18px 0 6px;text-wrap:balance}
-.lead{margin:0 0 14px;color:var(--muted)}
-.search{position:relative;margin:8px 0 18px}
-.search label{display:block;font-weight:600;margin-bottom:6px}
-.search input{width:100%;min-height:58px;border:2px solid var(--line);border-radius:12px;padding:10px 16px;background:#fff;font-size:1.05rem}
-.search input:focus{border-color:var(--brand);outline:none}
-.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.cat{display:flex;gap:12px;align-items:center;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px;min-height:84px}
-.cat:hover{border-color:var(--brand)}
-.cat img{width:64px;height:64px;border-radius:10px;object-fit:cover;flex:none;background:var(--line)}
-.cat span{display:block;font-weight:700;line-height:1.25}
-.cat small{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
-.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0}
-.back{background:#fff;border:2px solid var(--line);border-radius:12px;min-height:52px;padding:6px 18px;font-weight:600}
-.back:hover{border-color:var(--brand)}
-.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-.dish{background:var(--card);border:2px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.dish.sel{border-color:var(--ok);box-shadow:0 0 0 2px var(--ok) inset}
-.dish.off{opacity:.78}
-.dish .ph{position:relative;aspect-ratio:4/3;background:var(--line);max-width:100%}
-.dish .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.no{position:absolute;left:10px;top:10px;background:rgba(31,26,23,.82);color:#fff;font-weight:700;border-radius:8px;padding:2px 10px;font-size:.9rem}
-.tag{position:absolute;right:10px;top:10px;border-radius:8px;padding:2px 10px;font-size:.85rem;font-weight:700}
-.tag.taken{background:#fff;color:var(--off);border:1px solid var(--line)}
-.tag.mine{background:var(--ok);color:#fff}
-.dish .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;flex:1}
-.dish h3{margin:0;font-size:1.12rem;line-height:1.3}
-.dish .alt{margin:-6px 0 0;color:var(--muted);font-size:.92rem}
+.caps{font-family:var(--caps);letter-spacing:.18em;text-transform:uppercase}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;text-align:center;padding:64px max(16px,env(safe-area-inset-right)) 120px max(16px,env(safe-area-inset-left));
+background:radial-gradient(90% 70% at 50% 0%,rgba(212,166,74,.22),transparent 60%),radial-gradient(60% 60% at 0% 100%,rgba(232,137,28,.18),transparent 70%),linear-gradient(180deg,var(--m7) 0%,var(--m8) 55%,var(--m9) 100%);transition:padding .3s}
+.hero.compact{padding-top:58px;padding-bottom:96px}
+.toran{position:absolute;left:0;right:0;top:0;height:44px;pointer-events:none;
+background:radial-gradient(circle at 14px 16px,#f59e0b 0 9px,transparent 10px) 0 0/56px 44px repeat-x,radial-gradient(circle at 42px 26px,#fbbf24 0 10px,transparent 11px) 0 0/56px 44px repeat-x,radial-gradient(ellipse 6px 11px at 28px 12px,#2f7d32 0 100%,transparent 101%) 0 0/56px 44px repeat-x,linear-gradient(180deg,rgba(0,0,0,.25),transparent) 0 0/100% 6px no-repeat;filter:drop-shadow(0 3px 3px rgba(0,0,0,.25))}
+.mandala{position:absolute;left:50%;top:52%;width:980px;height:980px;margin:-490px 0 0 -490px;opacity:.13;pointer-events:none;animation:turn 240s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.doodle{position:absolute;pointer-events:none;opacity:.34}
+.big{width:190px;height:260px;bottom:140px;opacity:.5;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+.big.left{left:max(12px,calc(50% - 600px));animation:sway 6s ease-in-out infinite alternate}
+.big.right{right:max(12px,calc(50% - 600px));animation:sway 6s ease-in-out -3s infinite alternate}
+.motif{animation:float 7s ease-in-out infinite alternate}
+.m1{width:54px;height:42px;left:9%;top:96px}.m2{width:56px;height:46px;right:10%;top:100px;animation-delay:-2s}
+.m3{width:50px;height:38px;left:17%;top:300px;animation-delay:-4s}.m4{width:52px;height:40px;right:18%;top:330px;animation-delay:-1s}
+.m5{width:46px;height:36px;left:4%;top:430px;animation-delay:-3s}.m6{width:50px;height:40px;right:4%;top:470px;animation-delay:-5s}
+@keyframes float{from{transform:translateY(0) rotate(-4deg)}to{transform:translateY(-12px) rotate(4deg)}}
+@keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+@media(max-width:1100px){.big{width:130px;height:178px;opacity:.38}.m3,.m4{display:none}}
+@media(max-width:680px){.big{width:70px;height:96px;top:64px;bottom:auto;opacity:.45}.big.left{left:6px}.big.right{right:6px}.motif{opacity:.22}.m1,.m2{top:auto;bottom:130px;width:36px;height:30px}.m5,.m6{display:none}}
+.hero.compact .big,.hero.compact .m3,.hero.compact .m4,.hero.compact .m5,.hero.compact .m6{display:none}
+.langs{position:absolute;top:52px;right:max(12px,env(safe-area-inset-right));z-index:3;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.langs button{background:rgba(51,7,15,.45);border:1px solid rgba(212,166,74,.7);color:var(--gold-l);border-radius:999px;padding:6px 14px;min-height:46px;font-weight:600;backdrop-filter:blur(4px)}
+.langs button[aria-pressed=true]{background:linear-gradient(180deg,#f7dc8f,var(--gold));color:var(--m9);border-color:var(--gold)}
+.hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto;padding-top:40px}
+.plaque{display:inline-block;margin:0 auto 22px;padding:12px 20px;border-radius:18px;background:linear-gradient(180deg,#fffdf7,#f7eedb);border:1px solid rgba(212,166,74,.9);box-shadow:0 16px 36px -10px rgba(0,0,0,.55),inset 0 0 0 4px #fffdf7,inset 0 0 0 5px rgba(212,166,74,.55)}
+.plaque img{display:block;width:min(300px,64vw);height:auto}
+.hero.compact .plaque img{width:min(200px,50vw)}
+.presents{font-size:.68rem;color:var(--gold-l);opacity:.92}
+.ornament{display:block;width:220px;max-width:70%;height:18px;margin:14px auto 6px;color:var(--gold)}
+h1{margin:6px 0 0;font-family:var(--serif);font-weight:700;font-size:clamp(46px,9vw,88px);line-height:1;background:linear-gradient(180deg,#fff6d6 0%,#f0cf7c 45%,#c8953a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance;padding-bottom:.06em}
+.hero.compact h1{font-size:clamp(36px,6vw,56px)}
+.year{display:block;margin-top:8px;font-family:var(--caps);font-size:1rem;color:var(--gold-l);letter-spacing:.5em;padding-left:.5em}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 18px;border-radius:999px;background:linear-gradient(180deg,#f7dc8f,var(--gold));color:var(--m9);font:700 .7rem/1.2 var(--caps);letter-spacing:.2em;box-shadow:0 6px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.6)}
+.tagline{margin:16px auto 0;max-width:580px;font-size:1.02rem;color:rgba(255,255,255,.86)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:32px auto 0;max-width:800px;border-radius:16px;overflow:hidden;background:rgba(212,166,74,.35);border:1px solid rgba(212,166,74,.45);backdrop-filter:blur(6px)}
+.fact{background:rgba(51,7,15,.55);padding:14px 10px;color:#fff;text-decoration:none;display:block;min-width:0}
+a.fact:hover{background:rgba(51,7,15,.35)}
+.fact svg{width:22px;height:22px;color:var(--gold);display:block;margin:0 auto 6px}
+.fact b{display:block;font-weight:700;font-size:1.05rem}
+.fact span{display:block;font-size:.72rem;color:rgba(255,255,255,.75);margin-top:2px}
+@media(max-width:680px){.facts{grid-template-columns:repeat(2,1fr)}.langs{top:50px;left:0;right:0;justify-content:center}.hero-inner{padding-top:64px}}
+.hero.compact .facts,.hero.compact .tagline,.hero.compact .badge,.hero.compact .presents{display:none}
+
+/* layout */
+main{max-width:1080px;margin:-72px auto 0;padding:0 max(16px,env(safe-area-inset-right)) 48px max(16px,env(safe-area-inset-left));position:relative;z-index:2;outline:none}
+.steps{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;list-style:none;margin:0 0 16px;padding:0}
+.steps li{display:flex;align-items:center;gap:8px;padding:5px 14px 5px 5px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.85rem;color:var(--muted);box-shadow:0 6px 18px -8px rgba(51,7,15,.35)}
+.steps b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font:700 .8rem/1 var(--caps);color:var(--m7);background:radial-gradient(circle at 30% 30%,#fff8e1,#f3dfae);border:1px solid #e6cf97}
+.steps li.on{color:var(--m8);font-weight:700;border-color:var(--gold)}
+.steps li.on b{background:linear-gradient(180deg,var(--m6),var(--m8));color:var(--gold-l);border-color:var(--m8)}
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 1px 2px rgba(43,26,18,.04),0 18px 48px -12px rgba(51,7,15,.18)}
+.card::before{content:"";position:absolute;left:24px;right:24px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.card+.card{margin-top:22px}
+@media(max-width:520px){.card{padding:20px 16px}}
+.step{display:flex;align-items:center;gap:14px;margin:0 0 4px}
+.step-no{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 .85rem/1 var(--caps);color:var(--m7);background:radial-gradient(circle at 30% 30%,#fff8e1,#f3dfae);border:1px solid #e6cf97}
+h2{margin:0;font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--m8);line-height:1.15;text-wrap:balance}
+.sub{margin:4px 0 20px 54px;color:var(--muted);font-size:.95rem}
+@media(max-width:520px){.sub{margin-left:0}}
+.eyebrow{font:600 .68rem/1.4 var(--caps);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);margin-bottom:6px}
+.search label{display:block;font-weight:700;margin-bottom:6px;color:var(--m8)}
+.search{margin:0 0 22px}
+.search input{width:100%;min-height:60px;border:1.5px solid #e4d3b4;border-radius:14px;padding:10px 18px;background:#fffdf8;font-size:1.05rem;box-shadow:inset 0 1px 3px rgba(51,7,15,.06)}
+.search input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 4px rgba(212,166,74,.25)}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.cat{display:flex;gap:14px;align-items:center;text-align:left;background:linear-gradient(180deg,#fffaf0,var(--soft));border:1px solid var(--line);border-radius:16px;padding:12px;min-height:92px;transition:transform .15s,border-color .15s,box-shadow .15s}
+.cat:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(51,7,15,.4)}
+.cat img{width:68px;height:68px;border-radius:50%;object-fit:cover;flex:none;border:3px solid #fff;box-shadow:0 0 0 2px var(--gold)}
+.cat span{display:block;font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.15;color:var(--m8)}
+.cat small{display:block;color:var(--muted);font-size:.8rem;margin-top:4px}
+.back{display:inline-flex;align-items:center;gap:6px;background:#fffaf0;border:1px solid var(--gold);color:var(--m7);border-radius:999px;min-height:50px;padding:6px 20px;font-weight:700;margin-bottom:16px}
+.back:hover{background:var(--soft)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.dish{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 22px -14px rgba(51,7,15,.35);transition:transform .15s,box-shadow .15s}
+.dish:hover{transform:translateY(-2px);box-shadow:0 16px 30px -16px rgba(51,7,15,.45)}
+.dish.sel{box-shadow:0 0 0 3px var(--gold),0 16px 30px -16px rgba(51,7,15,.45)}
+.dish.off .ph img{filter:grayscale(.7) brightness(.95)}
+.ph{position:relative;aspect-ratio:4/3;background:var(--soft);max-width:100%}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.no{position:absolute;left:10px;top:10px;background:linear-gradient(180deg,var(--m6),var(--m8));color:var(--gold-l);font:700 .8rem/1 var(--caps);border-radius:999px;padding:7px 12px;border:1px solid rgba(212,166,74,.7)}
+.tag{position:absolute;right:10px;top:10px;border-radius:999px;padding:5px 12px;font-size:.8rem;font-weight:700}
+.tag.taken{background:rgba(255,255,255,.95);color:var(--muted);border:1px solid var(--line)}
+.tag.mine{background:linear-gradient(180deg,#f7dc8f,var(--gold));color:var(--m9)}
+.dish .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.dish h3{margin:0;font-family:var(--serif);font-size:1.4rem;line-height:1.15;color:var(--m8)}
+.alt{margin:-6px 0 0;color:var(--muted);font-size:.92rem}
 .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
-.btn{min-height:54px;border-radius:12px;border:2px solid var(--brand);background:var(--brand);color:#fff;font-weight:700;padding:6px 12px;line-height:1.2}
-.btn:hover{background:var(--brand-d)}
-.btn.ghost{background:#fff;color:var(--brand)}
-.btn.ghost:hover{background:var(--brand-soft)}
-.btn.done{background:var(--ok);border-color:var(--ok)}
-.btn[disabled]{background:#eee;border-color:#ddd;color:var(--off);cursor:not-allowed}
-.banner{margin:6px 0 4px;border-radius:16px;overflow:hidden;position:relative;background:#2a1a12}
-.banner img{width:100%;max-width:100%;aspect-ratio:16/7;object-fit:cover;display:block}
-.banner p{position:absolute;left:0;right:0;bottom:0;margin:0;padding:28px 16px 12px;color:#fff;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.72))}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-.gal button{padding:0;border:none;border-radius:10px;overflow:hidden;background:var(--line);aspect-ratio:4/3}
-.gal img{width:100%;height:100%;object-fit:cover;display:block}
-.big{width:100%;border-radius:12px;display:block}
-.gnav{display:flex;gap:8px;margin-top:12px}.gnav .btn{flex:1}
-.empty{padding:28px;text-align:center;color:var(--muted);background:#fff;border-radius:14px;border:2px dashed var(--line)}
-.tray{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:2px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.08);padding-bottom:env(safe-area-inset-bottom);z-index:5}
-.tray .wrap{display:flex;align-items:center;gap:12px;padding-block:12px}
-.tray p{margin:0;flex:1;font-weight:600}
+.btn{min-height:56px;border-radius:14px;border:1px solid var(--m8);background:linear-gradient(180deg,var(--m6),var(--m8));color:#fff;font-weight:700;padding:8px 14px;line-height:1.2;box-shadow:0 6px 16px -8px rgba(51,7,15,.6),inset 0 1px 0 rgba(255,255,255,.15)}
+.btn:hover{background:linear-gradient(180deg,var(--m7),var(--m9))}
+.btn.ghost{background:#fffaf0;color:var(--m7);border-color:var(--gold);box-shadow:none}
+.btn.ghost:hover{background:var(--soft)}
+.btn.done{background:linear-gradient(180deg,#3a9462,var(--ok));border-color:var(--ok)}
+.btn.gold{background:linear-gradient(180deg,#f7dc8f,var(--gold));color:var(--m9);border-color:var(--gold-d)}
+.btn[disabled]{background:#f1ebe3;border-color:#e2d8cb;color:var(--off);box-shadow:none;cursor:not-allowed}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--soft);border-radius:14px;border:1px dashed #e4d3b4}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:10px}
+.mosaic button{padding:0;border:none;border-radius:14px;overflow:hidden;background:var(--soft);position:relative}
+.mosaic button:first-child{grid-column:span 2;grid-row:span 2}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.mosaic button:hover img{transform:scale(1.04)}
+@media(max-width:680px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}}
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:5;background:linear-gradient(180deg,var(--m7),var(--m9));border-top:2px solid var(--gold);box-shadow:0 -8px 24px rgba(0,0,0,.25);padding-bottom:env(safe-area-inset-bottom)}
+.tray .in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:12px max(16px,env(safe-area-inset-right)) 12px max(16px,env(safe-area-inset-left))}
+.tray p{margin:0;flex:1;font-weight:700;color:var(--gold-l)}
 .tray .btn{min-width:180px;font-size:1.05rem}
-form{background:#fff;border:2px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:16px;max-width:640px}
-.field label{display:block;font-weight:700;margin-bottom:6px}
+@media(max-width:520px){html{font-size:18px}.list{grid-template-columns:1fr}.tray .btn{min-width:0}}
+form{display:grid;gap:16px;max-width:640px}
+.field label{display:block;font-weight:700;margin-bottom:6px;color:var(--m8)}
 .field small{display:block;color:var(--muted);font-size:.85rem;margin-top:4px}
-.field input{width:100%;min-height:58px;border:2px solid var(--line);border-radius:12px;padding:10px 14px;font-size:1.05rem}
-.field input:focus{border-color:var(--brand);outline:none}
-.chosen{display:grid;gap:10px;max-width:640px;margin-bottom:16px}
-.row{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px}
-.row img{width:72px;height:72px;border-radius:10px;object-fit:cover;flex:none}
+.field input{width:100%;min-height:60px;border:1.5px solid #e4d3b4;border-radius:14px;padding:10px 16px;font-size:1.05rem;background:#fffdf8}
+.field input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 4px rgba(212,166,74,.25)}
+.chosen{display:grid;gap:10px;max-width:640px;margin-bottom:18px}
+.row{display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#fffaf0,var(--soft));border:1px solid var(--line);border-radius:16px;padding:8px}
+.row img{width:72px;height:72px;border-radius:12px;object-fit:cover;flex:none}
 .row div{flex:1;min-width:0}
-.row b{display:block;line-height:1.3}
+.row b{display:block;line-height:1.3;color:var(--m8)}
 .row small{color:var(--muted)}
-.row button{min-height:48px;border-radius:10px;border:2px solid var(--line);background:#fff;padding:4px 12px;font-weight:600}
-.msg{padding:12px 14px;border-radius:12px;font-weight:600}
-.msg.err{background:#fdecea;color:#8a1c12;border:2px solid #f3b8b0}
-.msg.info{background:#fff7e6;color:#6b4a00;border:2px solid #f1d9a6}
-.ok-box{background:var(--ok-soft);border:2px solid #b6dcc3;border-radius:16px;padding:20px;max-width:640px}
-.ok-box h2{margin-top:0;color:var(--ok)}
-.ref{font-size:1.5rem;font-weight:700;letter-spacing:.06em}
-footer{padding-block:24px 120px}
-.contact{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px;max-width:640px}
-.contact h2{margin:0 0 4px;font-size:1.15rem;color:var(--brand)}
-.contact .tn{margin:0 0 10px;font-weight:700}
-.contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
-.contact dt{color:var(--muted);font-weight:600}
-.contact dd{margin:0;min-width:0;overflow-wrap:anywhere}
-.contact a{color:var(--brand);font-weight:600}
-dialog{border:none;padding:0;width:min(760px,100%);max-width:100%;max-height:100%;height:100%;margin:0 auto;background:var(--bg);color:var(--ink)}
-@media(min-width:800px){dialog{height:auto;max-height:92vh;margin-top:4vh;border-radius:18px}}
-dialog::backdrop{background:rgba(20,14,10,.6)}
-.dh{position:sticky;top:0;background:var(--brand);color:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top));z-index:2}
-.dh h2{flex:1;margin:0;font-size:1.15rem;min-width:0}
-.dh button{background:#fff;color:var(--brand);border:none;border-radius:10px;min-height:48px;padding:4px 16px;font-weight:700}
-.db{padding:16px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
-.db .hero{width:100%;max-width:420px;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block;margin:0 auto 14px}
-.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.tabs button{flex:1;min-height:50px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-width:96px}
-.tabs button[aria-selected=true]{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
-.meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-.meta span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.9rem}
-.db h3{margin:18px 0 8px;font-size:1.1rem;color:var(--brand)}
+.row button{min-height:48px;border-radius:999px;border:1px solid var(--gold);background:#fff;color:var(--m7);padding:4px 14px;font-weight:700}
+.msg{padding:12px 16px;border-radius:14px;font-weight:600}
+.msg.err{background:#fdecea;color:#8a1c12;border:1px solid #f3b8b0}
+.msg.info{background:#fff7e6;color:#6b4a00;border:1px solid #f1d9a6}
+.ok h2{color:var(--ok)}
+.ref{display:inline-block;font:700 1.5rem/1 var(--caps);letter-spacing:.12em;color:var(--m8);background:linear-gradient(180deg,#fff8e1,#f3dfae);border:1px solid #e6cf97;border-radius:12px;padding:12px 18px;margin:4px 0 16px}
+footer{position:relative;background:linear-gradient(180deg,var(--m8),var(--m9));color:#fff;padding:60px max(16px,env(safe-area-inset-right)) 130px max(16px,env(safe-area-inset-left));text-align:center;overflow:hidden}
+.contact{max-width:560px;margin:0 auto;position:relative}
+.contact h2{color:var(--gold-l);font-size:1.7rem}
+.contact .tn{margin:6px 0 16px;font:600 .72rem/1.6 var(--caps);letter-spacing:.16em;color:var(--gold)}
+.contact dl{margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:10px 16px;text-align:left;max-width:440px}
+.contact dt{color:var(--gold);font-weight:600}
+.contact dd{margin:0;min-width:0;overflow-wrap:anywhere;color:rgba(255,255,255,.9)}
+.contact a{color:var(--gold-l);font-weight:600}
+.blessing{margin:22px 0 0;font-family:var(--serif);font-size:1.4rem;color:var(--gold-l)}
+dialog{border:none;padding:0;width:min(760px,100%);max-width:100%;max-height:100%;height:100%;margin:0 auto;background:var(--ivory);color:var(--ink)}
+@media(min-width:800px){dialog{height:auto;max-height:92vh;margin-top:4vh;border-radius:20px;border:1px solid var(--gold)}}
+dialog::backdrop{background:rgba(26,4,8,.7)}
+.dh{position:sticky;top:0;background:linear-gradient(180deg,var(--m7),var(--m8));color:#fff;display:flex;align-items:center;gap:10px;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));z-index:2;border-bottom:2px solid var(--gold)}
+.dh h2{flex:1;margin:0;font-size:1.35rem;color:var(--gold-l);min-width:0}
+.dh button{background:linear-gradient(180deg,#f7dc8f,var(--gold));color:var(--m9);border:none;border-radius:999px;min-height:48px;padding:4px 18px;font-weight:700}
+.db{padding:18px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+.db .hero-img{width:100%;max-width:420px;aspect-ratio:1;object-fit:cover;border-radius:16px;display:block;margin:0 auto 16px;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--gold)}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{flex:1;min-height:52px;border-radius:999px;border:1px solid var(--gold);background:#fff;font-weight:700;min-width:96px;color:var(--m7)}
+.tabs button[aria-selected=true]{background:linear-gradient(180deg,var(--m6),var(--m8));color:var(--gold-l);border-color:var(--m8)}
+.db h2{font-size:1.8rem}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.meta span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:.9rem}
+.db h3{margin:20px 0 8px;font-family:var(--serif);font-size:1.45rem;color:var(--m7)}
 .db ul{padding-left:1.2em;margin:0}.db li{margin:5px 0}
 .db ol{padding-left:1.4em;margin:0}.db ol li{margin:10px 0}
-.note{background:#fff7e6;border-radius:12px;padding:10px 14px;margin-top:14px}
-.spin{display:inline-block;width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:s 1s linear infinite;vertical-align:middle;margin-right:8px}
-@keyframes s{to{transform:rotate(360deg)}}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media(max-width:520px){html{font-size:18px}.list{grid-template-columns:1fr}.tray .btn{min-width:0}.brand h1{font-size:1.25rem}}
-@media(prefers-reduced-motion:reduce){.spin{animation:none}}
+.note{background:#fff7e6;border-left:4px solid var(--gold);border-radius:10px;padding:10px 14px;margin-top:16px}
+.bigimg{width:100%;border-radius:14px;display:block}
+.gnav{display:flex;gap:8px;margin-top:12px}.gnav .btn{flex:1}
+.spin{display:inline-block;width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--m7);border-radius:50%;animation:turn 1s linear infinite;vertical-align:middle;margin-right:8px}
+@media(prefers-reduced-motion:reduce){.mandala,.motif,.big,.spin{animation:none}}
+html:not([lang=en]) .caps,html:not([lang=en]) .badge,html:not([lang=en]) .eyebrow,html:not([lang=en]) .contact .tn{letter-spacing:.03em;text-transform:none}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap top">
-    <img src="img/logo.webp" alt="" width="56" height="56">
-    <div class="brand"><h1 id="t-title">Annakut Seva 2026</h1><p id="t-sub"></p></div>
-    <div class="langs" role="group" aria-label="Language">
-      <button data-lang="en">English</button><button data-lang="gu">ગુજરાતી</button><button data-lang="hi">हिंदी</button>
-    </div>
+<header class="hero" id="hero">
+  <div class="toran" aria-hidden="true"></div>
+  <svg class="mandala" id="mandala" viewBox="-500 -500 1000 1000" aria-hidden="true"></svg>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="d-kalash" viewBox="0 0 220 300"><g fill="#E8C06A"><path d="M110 74 Q84 40 52 44 Q74 70 110 74Z"/><path d="M110 74 Q136 40 168 44 Q146 70 110 74Z"/><path d="M110 76 Q70 66 40 82 Q74 92 110 76Z"/><path d="M110 76 Q150 66 180 82 Q146 92 110 76Z"/><circle cx="110" cy="50" r="24"/><path d="M88 80 L132 80 L128 100 L92 100Z"/><path d="M92 100 Q38 122 42 182 Q48 244 110 252 Q172 244 178 182 Q182 122 128 100Z"/><path d="M62 256 Q110 272 158 256 L164 268 Q110 288 56 268Z"/></g><g fill="none" stroke="#7a1426" stroke-width="3" opacity=".35"><path d="M50 150 Q110 170 170 150"/><path d="M46 196 Q110 218 174 196"/></g><path d="M110 26 Q103 14 110 2 Q117 14 110 26Z" fill="#fff1c4"/><g fill="#fff1c4"><circle cx="80" cy="176" r="4"/><circle cx="110" cy="182" r="4"/><circle cx="140" cy="176" r="4"/></g></symbol>
+  <symbol id="d-annakut" viewBox="0 0 220 300"><path d="M110 58 V104" stroke="#E8C06A" stroke-width="4"/><path d="M110 58 L142 68 L110 78Z" fill="#fff1c4"/><g fill="#E8C06A"><circle cx="110" cy="120" r="14"/><circle cx="96" cy="148" r="14"/><circle cx="124" cy="148" r="14"/><circle cx="82" cy="176" r="14"/><circle cx="110" cy="176" r="14"/><circle cx="138" cy="176" r="14"/><circle cx="68" cy="204" r="14"/><circle cx="96" cy="204" r="14"/><circle cx="124" cy="204" r="14"/><circle cx="152" cy="204" r="14"/><circle cx="54" cy="232" r="14"/><circle cx="82" cy="232" r="14"/><circle cx="110" cy="232" r="14"/><circle cx="138" cy="232" r="14"/><circle cx="166" cy="232" r="14"/></g><g fill="#fff1c4" opacity=".8"><circle cx="105" cy="115" r="3"/><circle cx="91" cy="143" r="3"/><circle cx="119" cy="143" r="3"/><circle cx="77" cy="171" r="3"/><circle cx="105" cy="171" r="3"/><circle cx="133" cy="171" r="3"/><circle cx="63" cy="199" r="3"/><circle cx="91" cy="199" r="3"/><circle cx="119" cy="199" r="3"/><circle cx="147" cy="199" r="3"/><circle cx="49" cy="227" r="3"/><circle cx="77" cy="227" r="3"/><circle cx="105" cy="227" r="3"/><circle cx="133" cy="227" r="3"/><circle cx="161" cy="227" r="3"/></g><path d="M20 254 Q110 238 200 254" stroke="#E8C06A" stroke-width="4" fill="none"/><path d="M12 254 Q110 290 208 254 Q200 274 110 282 Q20 274 12 254Z" fill="#E8C06A"/></symbol>
+  <symbol id="d-diya" viewBox="0 0 80 60"><path d="M40 2 Q50 16 40 28 Q30 16 40 2 Z" fill="#fff1c4"/><path d="M6 32 Q40 30 74 32 Q66 56 40 56 Q14 56 6 32 Z" fill="#E8C06A"/><path d="M14 38 Q40 44 66 38" stroke="#7a1426" stroke-width="2" fill="none" opacity=".4"/></symbol>
+  <symbol id="d-laddoo" viewBox="0 0 80 64"><g fill="#E8C06A"><circle cx="18" cy="50" r="11"/><circle cx="40" cy="50" r="11"/><circle cx="62" cy="50" r="11"/><circle cx="29" cy="31" r="11"/><circle cx="51" cy="31" r="11"/><circle cx="40" cy="12" r="11"/></g><g fill="#fff1c4"><circle cx="14" cy="46" r="2.5"/><circle cx="36" cy="46" r="2.5"/><circle cx="58" cy="46" r="2.5"/><circle cx="25" cy="27" r="2.5"/><circle cx="47" cy="27" r="2.5"/><circle cx="36" cy="8" r="2.5"/></g></symbol>
+  <symbol id="d-lotus" viewBox="0 0 80 60"><g fill="#E8C06A"><path d="M40 4 Q53 26 40 48 Q27 26 40 4Z"/><path d="M40 48 Q15 40 6 18 Q30 22 40 48Z"/><path d="M40 48 Q65 40 74 18 Q50 22 40 48Z"/></g><path d="M8 52 Q40 62 72 52" stroke="#fff1c4" stroke-width="3" fill="none"/></symbol>
+</svg>
+  <svg class="doodle big left" aria-hidden="true"><use href="#d-kalash"/></svg>
+  <svg class="doodle big right" aria-hidden="true"><use href="#d-annakut"/></svg>
+  <svg class="doodle motif m1" aria-hidden="true"><use href="#d-diya"/></svg>
+  <svg class="doodle motif m2" aria-hidden="true"><use href="#d-laddoo"/></svg>
+  <svg class="doodle motif m3" aria-hidden="true"><use href="#d-lotus"/></svg>
+  <svg class="doodle motif m4" aria-hidden="true"><use href="#d-diya"/></svg>
+  <svg class="doodle motif m5" aria-hidden="true"><use href="#d-laddoo"/></svg>
+  <svg class="doodle motif m6" aria-hidden="true"><use href="#d-lotus"/></svg>
+  <div class="langs" role="group" aria-label="Language"><button data-lang="en">English</button><button data-lang="gu">ગુજરાતી</button><button data-lang="hi">हिंदी</button></div>
+  <div class="hero-inner">
+    <div class="plaque"><img src="img/logo-wide.webp" alt="Shree Swaminarayan Vadtal Dham, Hindu Temple, Edmonton, Canada" width="300" height="101"></div>
+    <div class="presents caps" id="t-pre"></div>
+    <svg class="ornament" viewBox="0 0 220 18" aria-hidden="true"><path d="M0 9h86M134 9h86" stroke="currentColor" stroke-width="1"/><path d="M110 1l8 8-8 8-8-8z" fill="currentColor"/><circle cx="92" cy="9" r="2.5" fill="currentColor"/><circle cx="128" cy="9" r="2.5" fill="currentColor"/></svg>
+    <h1 id="t-title">Annakut Utsav</h1>
+    <div class="badge" id="t-badge"></div>
+    <p class="tagline" id="t-sub"></p>
+    <div class="facts" id="facts"></div>
   </div>
 </header>
-<div class="wrap"><ol class="steps" id="steps"></ol></div>
-<main class="wrap" id="app" tabindex="-1"></main>
-<div class="tray" id="tray" hidden><div class="wrap"><p id="tray-t"></p><button class="btn" id="tray-go"></button></div></div>
-<footer class="wrap" id="foot"></footer>
+<main><ol class="steps" id="steps"></ol><div id="app" tabindex="-1"></div></main>
+<div class="tray" id="tray" hidden><div class="in"><p id="tray-t"></p><button class="btn gold" id="tray-go"></button></div></div>
+<footer id="foot"></footer>
 <dialog id="dlg" aria-labelledby="dlg-t">
   <div class="dh"><h2 id="dlg-t"></h2><button id="dlg-x"></button></div>
   <div class="db" id="dlg-b"></div>
@@ -176,7 +243,7 @@ const CATS = [
   [14,'Dry Fruits & Mukhvas','સૂકો મેવો અને મુખવાસ','सूखे मेवे और मुखवास',1048]
 ];
 const T = {
-  en:{contact:'Contact the temple',addr:'Address',ph:'Phone',em:'Email',map:'Open in Google Maps',req:'Please fill in your name, phone and email.',gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Vadtal Dham Edmonton · Offer a dish at the lotus feet of Shri Hari',s1:'Choose dishes',s2:'Your details',s3:'Done',
+  en:{pre:'Shree Hindu Swaminarayan Temple · Vadtaldham Edmonton',title:'Annakut Utsav',badge:'✦ Annakut Seva ✦',fDish:'dishes to offer',fOpen:'still open',fLang:'recipe languages',fWhere:'Edmonton',bless:'Jay Swaminarayan',contact:'Contact the temple',addr:'Address',ph:'Phone',em:'Email',map:'Open in Google Maps',req:'Please fill in your name, phone and email.',gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Offer a dish at the lotus feet of Shri Hari. Choose your dish, read its recipe, and register in two easy steps.',s1:'Choose dishes',s2:'Your details',s3:'Done',
     pick:'Choose a section',pickLead:'Tap a section to see its dishes. Each dish shows its photo; tap “View recipe” to read how to make it.',
     search:'Search by dish name or number',searchPh:'For example: Ladoo, Dhokla, 229',
     back:'← All sections',dishes:'dishes',open:'open',recipe:'View recipe',select:'Select',selected:'✓ Selected',taken:'Already offered',mine:'Your choice',
@@ -188,7 +255,7 @@ const T = {
     close:'Close',ing:'Ingredients',method:'Method',note:'Note',time:'Time',serves:'Serves',noRec:'The recipe for this dish is not available yet.',
     loading:'Loading recipe…',transl:'Translating recipe…',failed:'Could not load the recipe. Please check your internet and try again.',
     notOpen:'Registration will open soon. You can still browse dishes and recipes.',err:'Something went wrong. Please try again.',total:(a,b)=>a+' of '+b+' dishes still open'},
-  gu:{contact:'મંદિરનો સંપર્ક',addr:'સરનામું',ph:'ફોન',em:'ઈમેલ',map:'Google Maps માં ખોલો',req:'કૃપા કરીને નામ, ફોન અને ઈમેલ ભરો.',gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'વડતાલ ધામ એડમન્ટન · શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
+  gu:{pre:'શ્રી હિન્દુ સ્વામિનારાયણ મંદિર · વડતાલધામ એડમન્ટન',title:'અન્નકૂટ ઉત્સવ',badge:'✦ અન્નકૂટ સેવા ✦',fDish:'વાનગીઓ',fOpen:'હજી બાકી',fLang:'ભાષામાં રેસીપી',fWhere:'એડમન્ટન',bless:'જય સ્વામિનારાયણ',contact:'મંદિરનો સંપર્ક',addr:'સરનામું',ph:'ફોન',em:'ઈમેલ',map:'Google Maps માં ખોલો',req:'કૃપા કરીને નામ, ફોન અને ઈમેલ ભરો.',gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા. વાનગી પસંદ કરો, રેસીપી જુઓ અને બે સરળ પગલામાં નોંધણી કરો.',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
     pick:'વિભાગ પસંદ કરો',pickLead:'વિભાગ પર ટેપ કરો. દરેક વાનગી સાથે તેનો ફોટો છે; બનાવવાની રીત જોવા “રેસીપી જુઓ” દબાવો.',
     search:'વાનગીનું નામ અથવા નંબર શોધો',searchPh:'ઉદાહરણ: લાડુ, ઢોકળા, 229',
     back:'← બધા વિભાગ',dishes:'વાનગી',open:'બાકી',recipe:'રેસીપી જુઓ',select:'પસંદ કરો',selected:'✓ પસંદ કરેલ',taken:'સેવા નોંધાઈ ગઈ',mine:'તમારી પસંદ',
@@ -200,7 +267,7 @@ const T = {
     close:'બંધ કરો',ing:'સામગ્રી',method:'બનાવવાની રીત',note:'નોંધ',time:'સમય',serves:'પ્રમાણ',noRec:'આ વાનગીની રેસીપી હજુ ઉપલબ્ધ નથી.',
     loading:'રેસીપી ખુલે છે…',transl:'ભાષાંતર થાય છે…',failed:'રેસીપી ખુલી નહીં. ઇન્ટરનેટ તપાસી ફરી પ્રયત્ન કરો.',
     notOpen:'નોંધણી ટૂંક સમયમાં શરૂ થશે. ત્યાં સુધી વાનગી અને રેસીપી જોઈ શકો છો.',err:'કંઈક ખોટું થયું. ફરી પ્રયત્ન કરો.',total:(a,b)=>b+' માંથી '+a+' વાનગી બાકી'},
-  hi:{contact:'मंदिर से संपर्क',addr:'पता',ph:'फ़ोन',em:'ईमेल',map:'Google Maps में खोलें',req:'कृपया नाम, फ़ोन और ईमेल भरें।',gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'वडताल धाम एडमन्टन · श्री हरि के चरणों में अन्नकूट सेवा',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
+  hi:{pre:'श्री हिन्दू स्वामिनारायण मंदिर · वडतालधाम एडमन्टन',title:'अन्नकूट उत्सव',badge:'✦ अन्नकूट सेवा ✦',fDish:'व्यंजन',fOpen:'अभी बाकी',fLang:'भाषाओं में रेसिपी',fWhere:'एडमन्टन',bless:'जय स्वामिनारायण',contact:'मंदिर से संपर्क',addr:'पता',ph:'फ़ोन',em:'ईमेल',map:'Google Maps में खोलें',req:'कृपया नाम, फ़ोन और ईमेल भरें।',gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'श्री हरि के चरणों में अन्नकूट सेवा। व्यंजन चुनें, रेसिपी देखें और दो आसान चरणों में पंजीकरण करें।',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
     pick:'विभाग चुनें',pickLead:'विभाग पर टैप करें। हर व्यंजन के साथ उसकी फोटो है; बनाने की विधि देखने के लिए “रेसिपी देखें” दबाएँ।',
     search:'व्यंजन का नाम या नंबर खोजें',searchPh:'उदाहरण: लड्डू, ढोकला, 229',
     back:'← सभी विभाग',dishes:'व्यंजन',open:'बाकी',recipe:'रेसिपी देखें',select:'चुनें',selected:'✓ चुना गया',taken:'सेवा हो चुकी',mine:'आपकी पसंद',
@@ -239,12 +306,22 @@ function renderChrome(){
   document.documentElement.lang = lang;
   document.querySelectorAll('.langs button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lang===lang));
   $('#t-sub').textContent = t().sub + (CONFIG.DATE ? ' · '+CONFIG.DATE : '');
+  $('#hero').classList.toggle('compact', view.v!=='home');
+  $('#t-pre').textContent=t().pre; $('#t-badge').textContent=t().badge;
+  $('#t-title').innerHTML=`${esc(t().title)}<span class="year">2026</span>`;
+  const openN=DISHES.filter(d=>!booked.has(d[0])).length, ic=p=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+  $('#facts').innerHTML=DISHES.length?[
+    [ic('<ellipse cx="12" cy="16" rx="10" ry="3"/><path d="M5 15a7 7 0 0 1 14 0M12 6v2"/>'),DISHES.length,t().fDish],
+    [ic('<path d="M20 6 9 17l-5-5"/>'),openN,t().fOpen],
+    [ic('<path d="M4 5h9M8.5 3v2M6 5c1 4 3.5 6.5 7 7.5M11 5c-1 4-3.5 6.5-7 7.5M13 21l4-9 4 9M14.5 18h5"/>'),3,t().fLang],
+    [ic('<path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>'),'Vadtaldham',t().fWhere,1]
+  ].map(([i,b,s,l])=>l?`<a class="fact" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.ADDRESS)}" target="_blank" rel="noopener">${i}<b>${esc(b)}</b><span>${esc(s)}</span></a>`:`<div class="fact">${i}<b>${esc(b)}</b><span>${esc(s)}</span></div>`).join(''):'';
   const step = view.v==='form'?2:view.v==='done'?3:1;
-  $('#steps').innerHTML = [t().s1,t().s2,t().s3].map((s,i)=>`<li class="${i+1===step?'on':''}"${i+1===step?' aria-current="step"':''}><b>${i+1}</b>${esc(s)}</li>`).join('');
-  $('#foot').innerHTML = `<div class="contact"><h2>${esc(t().contact)}</h2><p class="tn">${esc(CONFIG.TEMPLE)}</p>
+  $('#steps').innerHTML = [t().s1,t().s2,t().s3].map((s,i)=>`<li class="${i+1===step?'on':''}"${i+1===step?' aria-current="step"':''}><b>${['I','II','III'][i]}</b>${esc(s)}</li>`).join('');
+  $('#foot').innerHTML = `<div class="toran" aria-hidden="true"></div><div class="contact"><h2>${esc(t().contact)}</h2><p class="tn">${esc(CONFIG.TEMPLE)}</p>
     <dl><dt>${esc(t().addr)}</dt><dd>${esc(CONFIG.ADDRESS)}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.ADDRESS)}" target="_blank" rel="noopener">${esc(t().map)}</a></dd>
     <dt>${esc(t().ph)}</dt><dd><a href="tel:${CONFIG.PHONE.replace(/[^0-9+]/g,'')}">${esc(CONFIG.PHONE)}</a></dd>
-    <dt>${esc(t().em)}</dt><dd><a href="mailto:${CONFIG.EMAIL}">${esc(CONFIG.EMAIL)}</a></dd></dl></div>`;
+    <dt>${esc(t().em)}</dt><dd><a href="mailto:${CONFIG.EMAIL}">${esc(CONFIG.EMAIL)}</a></dd></dl><p class="blessing">${esc(t().bless)}</p></div>`;
   const showTray = sel.size>0 && view.v!=='form' && view.v!=='done';
   $('#tray').hidden = !showTray;
   if(showTray){ $('#tray-t').textContent=t().nsel(sel.size); $('#tray-go').textContent=t().cont; }
@@ -272,38 +349,38 @@ function matches(){
 function render(focus){
   renderChrome();
   const app=$('#app'); let h='';
+  const step=(n,title,sub)=>`<div class="step"><span class="step-no">${n}</span><h2>${esc(title)}</h2></div>${sub?`<p class="sub">${esc(sub)}</p>`:''}`;
   if(view.v==='home'){
-    const open=DISHES.filter(d=>!booked.has(d[0])).length;
-    h = `<figure class="banner" style="margin-inline:0"><img src="img/g/1.webp" alt="${esc(t().cap)}" fetchpriority="high"><p>${esc(t().cap)}</p></figure>` + searchBox() + `<div id="res">${resultsHtml()}</div>
-      <h2>${esc(t().gal)}</h2><p class="lead">${esc(t().galLead)}</p><div class="gal">${Array.from({length:GAL},(_,i)=>`<button data-gal="${i+1}" aria-label="${esc(t().photo)} ${i+1}"><img src="img/g/${i+1}t.webp" alt="" loading="lazy"></button>`).join('')}</div>`;
+    h = `<section class="card">${step('✦',t().pick,t().pickLead)}${searchBox()}<div id="res">${resultsHtml()}</div></section>
+      <section class="card"><div class="eyebrow">${esc(t().cap)}</div><h2>${esc(t().gal)}</h2><p class="sub" style="margin-left:0">${esc(t().galLead)}</p>
+      <div class="mosaic">${Array.from({length:GAL},(_,i)=>`<button data-gal="${i+1}" aria-label="${esc(t().photo)} ${i+1}"><img src="img/g/${i?i+1+'t':1}.webp" alt="" loading="lazy"></button>`).join('')}</div></section>`;
   } else if(view.v==='cat'){
     const c=CATS.find(c=>c[0]===view.c), ds=DISHES.filter(d=>d[3]===view.c);
-    h = `<div class="bar"><button class="back" data-go="home">${esc(t().back)}</button></div>
-      <h2>${esc(catName(c))}</h2><p class="lead">${esc(t().total(ds.filter(d=>!booked.has(d[0])).length, ds.length))}</p>
-      <div class="list">${ds.map(card).join('')}</div>`;
+    h = `<section class="card"><button class="back" data-go="home">${esc(t().back)}</button>${step('✦',catName(c),t().total(ds.filter(d=>!booked.has(d[0])).length, ds.length))}
+      <div class="list">${ds.map(card).join('')}</div></section>`;
   } else if(view.v==='form'){
-    const ds=[...sel].map(n=>BY[n]).filter(Boolean);
-    h = `<div class="bar"><button class="back" data-go="home">${esc(t().more)}</button></div>
-      <h2>${esc(t().yours)}</h2><div class="chosen">${ds.map(d=>{const [a,b]=nameOf(d);return `<div class="row"><img src="img/${d[0]}.webp" alt=""><div><b>#${d[0]} · ${esc(a)}</b><small>${esc(b)}</small></div><button data-rm="${d[0]}">${esc(t().remove)}</button></div>`}).join('')}</div>
+    const ds=[...sel].map(n=>BY[n]).filter(Boolean), me=store.get('me',{});
+    h = `<section class="card"><button class="back" data-go="home">${esc(t().more)}</button>${step('II',t().yours)}
+      <div class="chosen" style="margin-top:14px">${ds.map(d=>{const [a,b]=nameOf(d);return `<div class="row"><img src="img/${d[0]}.webp" alt=""><div><b>#${d[0]} · ${esc(a)}</b><small>${esc(b)}</small></div><button data-rm="${d[0]}">${esc(t().remove)}</button></div>`}).join('')}</div>
       ${view.msg?`<p class="msg ${view.msgType||'err'}" role="alert">${view.msg}</p>`:''}
       ${CONFIG.API?'':`<p class="msg info">${esc(t().notOpen)}</p>`}
       <form id="f" novalidate>
-        <div class="field"><label for="fn">${esc(t().name)}</label><input id="fn" name="name" autocomplete="name" required value="${esc(store.get('me',{}).name||'')}"></div>
-        <div class="field"><label for="fp">${esc(t().phone)}</label><input id="fp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required value="${esc(store.get('me',{}).phone||'')}"><small>${esc(t().phoneHelp)}</small></div>
-        <div class="field"><label for="fe">${esc(t().email)}</label><input id="fe" name="email" type="email" inputmode="email" autocomplete="email" required value="${esc(store.get('me',{}).email||'')}"><small>${esc(t().emailHelp)}</small></div>
+        <div class="field"><label for="fn">${esc(t().name)}</label><input id="fn" name="name" autocomplete="name" required value="${esc(me.name||'')}"></div>
+        <div class="field"><label for="fp">${esc(t().phone)}</label><input id="fp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required value="${esc(me.phone||'')}"><small>${esc(t().phoneHelp)}</small></div>
+        <div class="field"><label for="fe">${esc(t().email)}</label><input id="fe" name="email" type="email" inputmode="email" autocomplete="email" required value="${esc(me.email||'')}"><small>${esc(t().emailHelp)}</small></div>
         <button class="btn" type="submit" id="fs"${CONFIG.API&&ds.length?'':' disabled'}>${esc(t().confirm)}</button>
-      </form>`;
+      </form></section>`;
   } else if(view.v==='done'){
-    h = `<div class="ok-box" role="status"><h2>${esc(t().okT)}</h2><p>${esc(t().okRef)}:</p><p class="ref">${esc(view.ref)}</p>
+    h = `<section class="card ok" role="status">${step('III',t().okT)}<p style="margin:14px 0 4px">${esc(t().okRef)}:</p><p class="ref">${esc(view.ref)}</p>
       <div class="chosen">${view.list.map(n=>{const d=BY[n],[a,b]=nameOf(d);return `<div class="row"><img src="img/${n}.webp" alt=""><div><b>#${n} · ${esc(a)}</b><small>${esc(b)}</small></div><button data-rec="${n}">${esc(t().recipe)}</button></div>`}).join('')}</div>
-      <p>${esc(t().okShot)}</p><button class="btn" data-go="home">${esc(t().again)}</button></div>`;
+      <p>${esc(t().okShot)}</p><button class="btn" data-go="home">${esc(t().again)}</button></section>`;
   }
   app.innerHTML=h;
   if(focus){ app.focus({preventScroll:true}); window.scrollTo(0,0); }
 }
 function resultsHtml(){
   if(q.trim()){ const m=matches(); return m.length?`<div class="list">${m.map(card).join('')}</div>`:`<p class="empty">${esc(t().noMatch)}</p>`; }
-  return `<h2>${esc(t().pick)}</h2><p class="lead">${esc(t().pickLead)}</p><div class="cats">${CATS.map(c=>{
+  return `<div class="cats">${CATS.map(c=>{
     const ds=DISHES.filter(d=>d[3]===c[0]), open=ds.filter(d=>!booked.has(d[0])).length;
     return `<button class="cat" data-cat="${c[0]}"><img src="img/${c[4]}.webp" alt="" loading="lazy"><div><span>${esc(catName(c))}</span><small>${ds.length} ${esc(t().dishes)} · ${open} ${esc(t().open)}</small></div></button>`}).join('')}</div>`;
 }
@@ -312,7 +389,7 @@ async function openRecipe(sn, rl){
   const d=BY[sn], dlg=$('#dlg'); rl = rl || (lang);
   $('#dlg-t').textContent = '#'+sn+' · '+nameOf(d)[0];
   const tabs=`<div class="tabs" role="tablist">${[['en','English'],['gu','ગુજરાતી'],['hi','हिंदी']].map(([k,l])=>`<button role="tab" data-rl="${k}" data-sn="${sn}" aria-selected="${k===rl}">${l}</button>`).join('')}</div>`;
-  const top=`<img class="hero" src="img/${sn}.webp" alt="${esc(d[2])}">${tabs}`;
+  const top=`<img class="hero-img" src="img/${sn}.webp" alt="${esc(d[2])}">${tabs}`;
   const body=$('#dlg-b');
   if(!dlg.open) dlg.showModal();
   body.innerHTML = top + `<p><span class="spin"></span>${esc(rl==='gu'?t().loading:t().transl)}</p>`;
@@ -336,10 +413,10 @@ async function openRecipe(sn, rl){
       ${r.note?`<p class="note"><b>${esc(L.note)}:</b> ${esc(r.note)}</p>`:''}`;
   }catch(e){ if(!stale(sn,rl)) body.innerHTML = top + `<p class="msg err">${esc(t().failed)}</p>`; }
 }
-const GAL=14;
+const GAL=12;
 function showPhoto(i){
   $('#dlg-b').dataset.sn=''; $('#dlg-t').textContent=t().gal+' · '+i+' / '+GAL;
-  $('#dlg-b').innerHTML=`<img class="big" src="img/g/${i}.webp" alt="${esc(t().cap)}"><div class="gnav"><button class="btn ghost" data-gal="${i>1?i-1:GAL}">${esc(t().prev)}</button><button class="btn ghost" data-gal="${i<GAL?i+1:1}">${esc(t().next)}</button></div>`;
+  $('#dlg-b').innerHTML=`<img class="bigimg" src="img/g/${i}.webp" alt="${esc(t().cap)}"><div class="gnav"><button class="btn ghost" data-gal="${i>1?i-1:GAL}">${esc(t().prev)}</button><button class="btn ghost" data-gal="${i<GAL?i+1:1}">${esc(t().next)}</button></div>`;
   if(!$('#dlg').open) $('#dlg').showModal();
 }
 function stale(sn,rl){ const b=$('#dlg-b'); return Number(b.dataset.sn)!==sn || b.dataset.rl!==rl; }
@@ -397,7 +474,17 @@ document.addEventListener('input',e=>{ if(e.target.id==='q'){ q=e.target.value; 
 document.addEventListener('submit',e=>{ if(e.target.id==='f') submit(e); });
 $('#dlg').addEventListener('click',e=>{ if(e.target.id==='dlg') e.target.close(); });
 
+function drawMandala(){
+  let g='';[[90,12,38],[170,16,60],[260,24,70],[360,32,84],[455,40,60]].forEach(([R,n,h],k)=>{
+    const w=Math.PI*R/n*.9; g+=`<circle r="${R-h*.55}" fill="none" stroke="#f6e2a4" stroke-width="1.2"/>`;
+    for(let i=0;i<n;i++){const a=(360/n*i+(k%2?180/n:0)).toFixed(2);
+      g+=`<path transform="rotate(${a})" d="M0 ${-(R-h*.55)} C ${w*.6} ${-(R-h*.1)} ${w*.25} ${-(R+h*.35)} 0 ${-(R+h*.5)} C ${-w*.25} ${-(R+h*.35)} ${-w*.6} ${-(R-h*.1)} 0 ${-(R-h*.55)}Z" fill="none" stroke="#f6e2a4" stroke-width="1.1"/>`;
+      if(k>1) g+=`<circle transform="rotate(${(+a+180/n).toFixed(2)})" cy="${-(R+h*.2)}" r="3" fill="#f6e2a4"/>`;}
+  });
+  $('#mandala').innerHTML=g+'<circle r="26" fill="none" stroke="#f6e2a4" stroke-width="1.5"/><circle r="8" fill="#f6e2a4"/>';
+}
 (async function init(){
+  drawMandala();
   renderChrome();
   $('#app').innerHTML='<p><span class="spin"></span>Loading…</p>';
   DISHES = await (await fetch('data/dishes.json')).json();
