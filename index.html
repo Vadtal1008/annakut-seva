@@ -99,7 +99,14 @@ form{background:#fff;border:2px solid var(--line);border-radius:16px;padding:18p
 .ok-box{background:var(--ok-soft);border:2px solid #b6dcc3;border-radius:16px;padding:20px;max-width:640px}
 .ok-box h2{margin-top:0;color:var(--ok)}
 .ref{font-size:1.5rem;font-weight:700;letter-spacing:.06em}
-footer{color:var(--muted);font-size:.85rem;padding-block:24px;text-align:center}
+footer{padding-block:24px 120px}
+.contact{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px;max-width:640px}
+.contact h2{margin:0 0 4px;font-size:1.15rem;color:var(--brand)}
+.contact .tn{margin:0 0 10px;font-weight:700}
+.contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
+.contact dt{color:var(--muted);font-weight:600}
+.contact dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.contact a{color:var(--brand);font-weight:600}
 dialog{border:none;padding:0;width:min(760px,100%);max-width:100%;max-height:100%;height:100%;margin:0 auto;background:var(--bg);color:var(--ink)}
 @media(min-width:800px){dialog{height:auto;max-height:92vh;margin-top:4vh;border-radius:18px}}
 dialog::backdrop{background:rgba(20,14,10,.6)}
@@ -146,7 +153,10 @@ dialog::backdrop{background:rgba(20,14,10,.6)}
 const CONFIG = {
   API: 'https://script.google.com/macros/s/AKfycbyRY0_dSN0dptVP5b5wbytYk2CkH3DB-amCWZSygSmlWHoijpe9dImNG6Vr9V_ds9kA/exec',            // Apps Script web app URL (ends with /exec)
   DATE: '',           // e.g. 'Sunday, November 8, 2026'
-  HELP: '',           // e.g. 'Questions? Call 780-000-0000'
+  TEMPLE: 'Shree Hindu Swaminarayan Temple - Vadtaldham Edmonton',
+  ADDRESS: '4133 98 St NW, Edmonton, AB T6E 5N5',
+  PHONE: '+1 (780) 301-1008',
+  EMAIL: 'vadtaldhamedm@gmail.com',
   MAX: 10
 };
 const CATS = [
@@ -166,36 +176,36 @@ const CATS = [
   [14,'Dry Fruits & Mukhvas','સૂકો મેવો અને મુખવાસ','सूखे मेवे और मुखवास',1048]
 ];
 const T = {
-  en:{gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Vadtal Dham Edmonton · Offer a dish at the lotus feet of Shri Hari',s1:'Choose dishes',s2:'Your details',s3:'Done',
+  en:{contact:'Contact the temple',addr:'Address',ph:'Phone',em:'Email',map:'Open in Google Maps',req:'Please fill in your name, phone and email.',gal:'2025 Annakut Utsav',galLead:'Moments from last year at Vadtal Dham Edmonton. Tap a photo to see it larger.',cap:'2025 Annakut Utsav · Vadtal Dham Edmonton',prev:'← Previous',next:'Next →',photo:'Photo',sub:'Vadtal Dham Edmonton · Offer a dish at the lotus feet of Shri Hari',s1:'Choose dishes',s2:'Your details',s3:'Done',
     pick:'Choose a section',pickLead:'Tap a section to see its dishes. Each dish shows its photo; tap “View recipe” to read how to make it.',
     search:'Search by dish name or number',searchPh:'For example: Ladoo, Dhokla, 229',
     back:'← All sections',dishes:'dishes',open:'open',recipe:'View recipe',select:'Select',selected:'✓ Selected',taken:'Already offered',mine:'Your choice',
     noMatch:'No dish matches your search.',nsel:n=>n===1?'1 dish selected':n+' dishes selected',cont:'Continue →',
-    yours:'Your dishes',remove:'Remove',name:'Full name',phone:'Phone number',phoneHelp:'We will call this number only if needed.',email:'Email (optional)',emailHelp:'We will email your confirmation.',
+    yours:'Your dishes',remove:'Remove',name:'Full name',phone:'Phone number',phoneHelp:'We will call this number only if needed.',email:'Email',emailHelp:'We will email your confirmation.',
     confirm:'Confirm my seva',sending:'Saving…',more:'← Choose more dishes',max:n=>'You can choose up to '+n+' dishes.',
     taken2:'Sorry, someone just offered these dishes. They were removed from your list:',
     okT:'Jay Swaminarayan! Your seva is confirmed.',okRef:'Your reference number',okShot:'Please take a screenshot of this page for your records.',again:'Offer another dish',
     close:'Close',ing:'Ingredients',method:'Method',note:'Note',time:'Time',serves:'Serves',noRec:'The recipe for this dish is not available yet.',
     loading:'Loading recipe…',transl:'Translating recipe…',failed:'Could not load the recipe. Please check your internet and try again.',
     notOpen:'Registration will open soon. You can still browse dishes and recipes.',err:'Something went wrong. Please try again.',total:(a,b)=>a+' of '+b+' dishes still open'},
-  gu:{gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'વડતાલ ધામ એડમન્ટન · શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
+  gu:{contact:'મંદિરનો સંપર્ક',addr:'સરનામું',ph:'ફોન',em:'ઈમેલ',map:'Google Maps માં ખોલો',req:'કૃપા કરીને નામ, ફોન અને ઈમેલ ભરો.',gal:'અન્નકૂટ ઉત્સવ 2025',galLead:'ગયા વર્ષના વડતાલ ધામ એડમન્ટનના દર્શન. મોટો ફોટો જોવા ટેપ કરો.',cap:'અન્નકૂટ ઉત્સવ 2025 · વડતાલ ધામ એડમન્ટન',prev:'← પાછળ',next:'આગળ →',photo:'ફોટો',sub:'વડતાલ ધામ એડમન્ટન · શ્રી હરિના ચરણોમાં અન્નકૂટની સેવા',s1:'વાનગી પસંદ કરો',s2:'તમારી વિગત',s3:'પૂર્ણ',
     pick:'વિભાગ પસંદ કરો',pickLead:'વિભાગ પર ટેપ કરો. દરેક વાનગી સાથે તેનો ફોટો છે; બનાવવાની રીત જોવા “રેસીપી જુઓ” દબાવો.',
     search:'વાનગીનું નામ અથવા નંબર શોધો',searchPh:'ઉદાહરણ: લાડુ, ઢોકળા, 229',
     back:'← બધા વિભાગ',dishes:'વાનગી',open:'બાકી',recipe:'રેસીપી જુઓ',select:'પસંદ કરો',selected:'✓ પસંદ કરેલ',taken:'સેવા નોંધાઈ ગઈ',mine:'તમારી પસંદ',
     noMatch:'કોઈ વાનગી મળી નથી.',nsel:n=>n+' વાનગી પસંદ કરી',cont:'આગળ વધો →',
-    yours:'તમારી વાનગીઓ',remove:'કાઢો',name:'પૂરું નામ',phone:'ફોન નંબર',phoneHelp:'જરૂર પડે તો જ ફોન કરીશું.',email:'ઈમેલ (વૈકલ્પિક)',emailHelp:'પુષ્ટિ ઈમેલથી મોકલીશું.',
+    yours:'તમારી વાનગીઓ',remove:'કાઢો',name:'પૂરું નામ',phone:'ફોન નંબર',phoneHelp:'જરૂર પડે તો જ ફોન કરીશું.',email:'ઈમેલ',emailHelp:'પુષ્ટિ ઈમેલથી મોકલીશું.',
     confirm:'મારી સેવા નોંધો',sending:'નોંધાય છે…',more:'← વધુ વાનગી પસંદ કરો',max:n=>'વધુમાં વધુ '+n+' વાનગી પસંદ કરી શકાય.',
     taken2:'માફ કરશો, આ વાનગીની સેવા હમણાં જ બીજાએ નોંધાવી. તે તમારી યાદીમાંથી કાઢી છે:',
     okT:'જય સ્વામિનારાયણ! તમારી સેવા નોંધાઈ ગઈ છે.',okRef:'તમારો નંબર',okShot:'કૃપા કરીને આ પાનાનો સ્ક્રીનશોટ લઈ રાખો.',again:'બીજી વાનગી પસંદ કરો',
     close:'બંધ કરો',ing:'સામગ્રી',method:'બનાવવાની રીત',note:'નોંધ',time:'સમય',serves:'પ્રમાણ',noRec:'આ વાનગીની રેસીપી હજુ ઉપલબ્ધ નથી.',
     loading:'રેસીપી ખુલે છે…',transl:'ભાષાંતર થાય છે…',failed:'રેસીપી ખુલી નહીં. ઇન્ટરનેટ તપાસી ફરી પ્રયત્ન કરો.',
     notOpen:'નોંધણી ટૂંક સમયમાં શરૂ થશે. ત્યાં સુધી વાનગી અને રેસીપી જોઈ શકો છો.',err:'કંઈક ખોટું થયું. ફરી પ્રયત્ન કરો.',total:(a,b)=>b+' માંથી '+a+' વાનગી બાકી'},
-  hi:{gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'वडताल धाम एडमन्टन · श्री हरि के चरणों में अन्नकूट सेवा',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
+  hi:{contact:'मंदिर से संपर्क',addr:'पता',ph:'फ़ोन',em:'ईमेल',map:'Google Maps में खोलें',req:'कृपया नाम, फ़ोन और ईमेल भरें।',gal:'अन्नकूट उत्सव 2025',galLead:'पिछले वर्ष वडताल धाम एडमन्टन के दर्शन। बड़ा फोटो देखने के लिए टैप करें।',cap:'अन्नकूट उत्सव 2025 · वडताल धाम एडमन्टन',prev:'← पिछला',next:'अगला →',photo:'फोटो',sub:'वडताल धाम एडमन्टन · श्री हरि के चरणों में अन्नकूट सेवा',s1:'व्यंजन चुनें',s2:'आपकी जानकारी',s3:'पूर्ण',
     pick:'विभाग चुनें',pickLead:'विभाग पर टैप करें। हर व्यंजन के साथ उसकी फोटो है; बनाने की विधि देखने के लिए “रेसिपी देखें” दबाएँ।',
     search:'व्यंजन का नाम या नंबर खोजें',searchPh:'उदाहरण: लड्डू, ढोकला, 229',
     back:'← सभी विभाग',dishes:'व्यंजन',open:'बाकी',recipe:'रेसिपी देखें',select:'चुनें',selected:'✓ चुना गया',taken:'सेवा हो चुकी',mine:'आपकी पसंद',
     noMatch:'कोई व्यंजन नहीं मिला।',nsel:n=>n+' व्यंजन चुने',cont:'आगे बढ़ें →',
-    yours:'आपके व्यंजन',remove:'हटाएँ',name:'पूरा नाम',phone:'फ़ोन नंबर',phoneHelp:'ज़रूरत होने पर ही फ़ोन करेंगे।',email:'ईमेल (वैकल्पिक)',emailHelp:'पुष्टि ईमेल से भेजेंगे।',
+    yours:'आपके व्यंजन',remove:'हटाएँ',name:'पूरा नाम',phone:'फ़ोन नंबर',phoneHelp:'ज़रूरत होने पर ही फ़ोन करेंगे।',email:'ईमेल',emailHelp:'पुष्टि ईमेल से भेजेंगे।',
     confirm:'मेरी सेवा दर्ज करें',sending:'दर्ज हो रहा है…',more:'← और व्यंजन चुनें',max:n=>'अधिकतम '+n+' व्यंजन चुन सकते हैं।',
     taken2:'क्षमा करें, ये व्यंजन अभी किसी और ने चुन लिए। इन्हें आपकी सूची से हटा दिया गया:',
     okT:'जय स्वामिनारायण! आपकी सेवा दर्ज हो गई है।',okRef:'आपका नंबर',okShot:'कृपया इस पेज का स्क्रीनशॉट ले लें।',again:'और व्यंजन चुनें',
@@ -231,7 +241,10 @@ function renderChrome(){
   $('#t-sub').textContent = t().sub + (CONFIG.DATE ? ' · '+CONFIG.DATE : '');
   const step = view.v==='form'?2:view.v==='done'?3:1;
   $('#steps').innerHTML = [t().s1,t().s2,t().s3].map((s,i)=>`<li class="${i+1===step?'on':''}"${i+1===step?' aria-current="step"':''}><b>${i+1}</b>${esc(s)}</li>`).join('');
-  $('#foot').textContent = (CONFIG.HELP||'') + (CONFIG.HELP?' · ':'') + 'Shree Swaminarayan Mandir, Vadtal Dham Edmonton';
+  $('#foot').innerHTML = `<div class="contact"><h2>${esc(t().contact)}</h2><p class="tn">${esc(CONFIG.TEMPLE)}</p>
+    <dl><dt>${esc(t().addr)}</dt><dd>${esc(CONFIG.ADDRESS)}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONFIG.ADDRESS)}" target="_blank" rel="noopener">${esc(t().map)}</a></dd>
+    <dt>${esc(t().ph)}</dt><dd><a href="tel:${CONFIG.PHONE.replace(/[^0-9+]/g,'')}">${esc(CONFIG.PHONE)}</a></dd>
+    <dt>${esc(t().em)}</dt><dd><a href="mailto:${CONFIG.EMAIL}">${esc(CONFIG.EMAIL)}</a></dd></dl></div>`;
   const showTray = sel.size>0 && view.v!=='form' && view.v!=='done';
   $('#tray').hidden = !showTray;
   if(showTray){ $('#tray-t').textContent=t().nsel(sel.size); $('#tray-go').textContent=t().cont; }
@@ -277,7 +290,7 @@ function render(focus){
       <form id="f" novalidate>
         <div class="field"><label for="fn">${esc(t().name)}</label><input id="fn" name="name" autocomplete="name" required value="${esc(store.get('me',{}).name||'')}"></div>
         <div class="field"><label for="fp">${esc(t().phone)}</label><input id="fp" name="phone" type="tel" inputmode="tel" autocomplete="tel" required value="${esc(store.get('me',{}).phone||'')}"><small>${esc(t().phoneHelp)}</small></div>
-        <div class="field"><label for="fe">${esc(t().email)}</label><input id="fe" name="email" type="email" inputmode="email" autocomplete="email" value="${esc(store.get('me',{}).email||'')}"><small>${esc(t().emailHelp)}</small></div>
+        <div class="field"><label for="fe">${esc(t().email)}</label><input id="fe" name="email" type="email" inputmode="email" autocomplete="email" required value="${esc(store.get('me',{}).email||'')}"><small>${esc(t().emailHelp)}</small></div>
         <button class="btn" type="submit" id="fs"${CONFIG.API&&ds.length?'':' disabled'}>${esc(t().confirm)}</button>
       </form>`;
   } else if(view.v==='done'){
@@ -343,6 +356,7 @@ function alertMax(){ const p=document.createElement('p'); p.className='msg info'
 async function submit(e){
   e.preventDefault();
   const f=e.target, form={name:f.name.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),dishes:[...sel]};
+  if(!form.name||!form.phone||!form.email){ view={v:'form',msg:esc(t().req)}; render(true); return; }
   store.set('me',{name:form.name,phone:form.phone,email:form.email});
   const b=$('#fs'); b.disabled=true; b.textContent=t().sending;
   try{
