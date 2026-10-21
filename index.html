@@ -742,6 +742,9 @@ function drawMandala(){
   render();
   refreshBooked(); setInterval(refreshBooked, 60000); loadCustom(); setInterval(loadCustom, 120000);
   fromHash();
+  try{ if(CONFIG.API && !sessionStorage.getItem('v')){ sessionStorage.setItem('v','1'); let vid=store.get('vid',null), ret=!!vid; if(!vid){ vid=Math.random().toString(36).slice(2,12); store.set('vid',vid); }
+    let ref=''; try{ ref=document.referrer?new URL(document.referrer).hostname:''; }catch{}
+    api('logVisit',[{vid,ret,lang,w:innerWidth,ref}]).catch(()=>{}); } }catch{}
   setTimeout(()=>{ loadStatic('gu'); if(lang!=='gu') loadStatic(lang); },2500);
   if(lang==='hi') loadHi();
 })();
