@@ -549,14 +549,15 @@ async function openRecipe(sn, rl){
         <h3>${esc(L.ing)}</h3><ul>${cr.ing.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h3>${esc(L.method)}</h3><ol>${cr.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>${cr.note?`<p class="note"><b>${esc(L.note)}:</b> ${esc(cr.note)}</p>`:''}`;
       return;
     }
-    if(!guRec){ guRec = await (await fetch('data/recipes-gu.json')).json(); }
+    if(!guRec){ guRec = await loadStatic('gu'); }
     const g=guRec[sn];
     if(!g || !g.steps.length){ body.innerHTML = top + `<p class="empty">${esc(t().noRec)}</p>`; return; }
     let L=T[rl]||T.en, warn='';
     if(rl==='gu') r=g;
     else {
       const k=sn+':'+rl;
-      try { r = recCache[k] || (recCache[k] = await api('getRecipe',[sn,rl])); }
+      if(rl==='en'||rl==='hi'){ const st=await loadStatic(rl); if(st&&st[sn]) r=st[sn]; }
+      if(!r) try { r = recCache[k] || (recCache[k] = await api('getRecipe',[sn,rl])); }
       catch(e){ r=g; L=T.gu; warn=`<p class="msg info">${esc(t().failed)}</p>`; }
       if(!T[rl] && r.L) L={ing:r.L[0],method:r.L[1],time:r.L[2],serves:r.L[3],note:r.L[4]};
     }
@@ -627,6 +628,8 @@ function showCart(){
   if(!$('#dlg').open) $('#dlg').showModal();
 }
 function cartChanged(){ saveSel(); const y=window.scrollY; render(); window.scrollTo(0,y); showCart(); }
+const STATIC={};
+function loadStatic(l){ return STATIC[l] || (STATIC[l]=fetch('data/recipes-'+l+'.json').then(r=>r.ok?r.json():null).catch(()=>null)); }
 const GAL=12;
 function showPhoto(i){
   $('#dlg-b').dataset.sn=''; $('#dlg-t').textContent=t().gal+' · '+i+' / '+GAL;
@@ -739,6 +742,7 @@ function drawMandala(){
   render();
   refreshBooked(); setInterval(refreshBooked, 60000); loadCustom(); setInterval(loadCustom, 120000);
   fromHash();
+  setTimeout(()=>{ loadStatic('gu'); if(lang!=='gu') loadStatic(lang); },2500);
   if(lang==='hi') loadHi();
 })();
 </script>
