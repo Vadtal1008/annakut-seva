@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Annakut Admin</title>
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;600&display=swap">
+<style>
+:root{--m9:#33070f;--m8:#520c1a;--m7:#721325;--m6:#8c1a2e;--gold:#d4a64a;--gold-l:#f6e2a4;--ivory:#fdf8ef;--ink:#2b1a12;--muted:#6f5d50;--line:#ecdfc9;--soft:#faf1e1;--ok:#2e7d4f;--warn:#b26a00;--bad:#b3261e;color-scheme:light}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Poppins,'Noto Sans Gujarati',system-ui,sans-serif;line-height:1.5}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+header{background:linear-gradient(180deg,var(--m7),var(--m9));color:#fff;padding:14px max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left));position:sticky;top:0;z-index:5;border-bottom:2px solid var(--gold)}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.top h1{margin:0;font-size:1.2rem;flex:1;color:var(--gold-l)}
+.top button{background:rgba(255,255,255,.12);border:1px solid rgba(212,166,74,.7);color:var(--gold-l);border-radius:999px;padding:6px 14px;min-height:40px}
+nav{display:flex;gap:4px;overflow-x:auto;max-width:1200px;margin:10px auto 0}
+nav button{background:none;border:none;color:rgba(255,255,255,.75);padding:10px 14px;border-bottom:3px solid transparent;font-weight:600;white-space:nowrap}
+nav button[aria-selected=true]{color:#fff;border-bottom-color:var(--gold)}
+main{max-width:1200px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-right)) 60px max(16px,env(safe-area-inset-left))}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 10px 30px -18px rgba(51,7,15,.35);margin-bottom:16px}
+h2{margin:0 0 12px;font-size:1.15rem;color:var(--m8)}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.stat b{display:block;font-size:1.7rem;color:var(--m7);line-height:1.1}
+.stat span{color:var(--muted);font-size:.85rem}
+.bar{display:grid;grid-template-columns:minmax(120px,220px) 1fr 70px;gap:10px;align-items:center;margin:8px 0;font-size:.9rem}
+.bar i{display:block;height:12px;border-radius:999px;background:var(--soft);overflow:hidden}
+.bar i em{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--m6))}
+.search{width:100%;min-height:52px;border:1.5px solid #e4d3b4;border-radius:12px;padding:10px 14px;background:#fffdf8;margin-bottom:12px}
+.person{border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:#fff}
+.person .h{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.person .h b{font-size:1.05rem;color:var(--m8)}
+.person .h a{color:var(--m7)}
+.person .h small{color:var(--muted)}
+.dish{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 0;border-top:1px dashed var(--line)}
+.dish:first-of-type{border-top:none}
+.dish .n{flex:1;min-width:180px}
+.tag{font-size:.75rem;font-weight:600;border-radius:999px;padding:2px 10px;background:var(--soft);color:var(--muted)}
+.tag.ok{background:#e8f4ec;color:var(--ok)}.tag.warn{background:#fff3df;color:var(--warn)}.tag.bad{background:#fdecea;color:var(--bad)}
+.b{border:1px solid var(--gold);background:#fffaf0;color:var(--m7);border-radius:999px;padding:6px 14px;min-height:40px;font-weight:600}
+.b.main{background:linear-gradient(180deg,var(--m6),var(--m8));color:#fff;border-color:var(--m8)}
+.b.got{background:var(--ok);color:#fff;border-color:var(--ok)}
+.b.red{color:var(--bad);border-color:#f3b8b0;background:#fff}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.row input{min-height:40px;border:1px solid var(--line);border-radius:10px;padding:4px 10px;width:110px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filters select{min-height:44px;border:1px solid var(--line);border-radius:10px;padding:4px 10px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.tw{overflow-x:auto}
+.login{max-width:380px;margin:12vh auto;text-align:center}
+.login input{width:100%;min-height:56px;font-size:1.4rem;text-align:center;letter-spacing:.3em;border:1.5px solid #e4d3b4;border-radius:12px;margin:12px 0}
+.msg{padding:10px 14px;border-radius:12px;background:#fdecea;color:var(--bad);font-weight:600}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--m8);color:#fff;padding:10px 18px;border-radius:999px;z-index:9;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+@media print{header,.filters,.noprint,.toast{display:none!important}body{background:#fff}main{padding:0}.card{box-shadow:none;border:none}}
+</style>
+</head>
+<body>
+<div id="login" class="login card">
+  <h2>Annakut Seva Admin</h2>
+  <p>Enter the organizer PIN.</p>
+  <form id="lf"><input id="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="10" aria-label="Organizer PIN"><button class="b main" style="width:100%;min-height:52px">Open</button></form>
+  <p id="lmsg" class="msg" hidden></p>
+</div>
+<div id="app" hidden>
+<header><div class="top"><h1>Annakut Seva 2026 · Admin</h1><button id="refresh">Refresh</button><button id="logout">Lock</button></div>
+<nav role="tablist"><button data-tab="dash" aria-selected="true">Dashboard</button><button data-tab="reg">Registrations</button><button data-tab="chk">Check-in</button><button data-tab="lists">Lists</button><button data-tab="wa">WhatsApp</button></nav></header>
+<main id="main"></main>
+</div>
+<script>
+const API='https://script.google.com/macros/s/AKfycbyRY0_dSN0dptVP5b5wbytYk2CkH3DB-amCWZSygSmlWHoijpe9dImNG6Vr9V_ds9kA/exec';
+const CATS={1:'Sweets & Mithai',2:'Farsan & Namkeen',3:'Rotli, Puri & Naan',4:'Shaak (Vegetables)',5:'Paneer, Dal & Kathol',6:'Dosa, Idli & Chaat',7:'Sandwich, Pizza & World',8:'Chutney, Salad, Pickle & Papad',9:'Rice, Khichdi & Porridge',10:'Dal, Kadhi & Soup',11:'Bakery, Desserts & Jam',12:'Drinks, Juice & Soda',13:'Ice Cream & Kulfi',14:'Dry Fruits & Mukhvas',16:'Fruits',15:'Special offerings by devotees'};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let PIN=sessionStorage.getItem('orgpin')||'', DISH={}, data=null, tab='dash', q='', cq='', cOnly=false, lcat='all';
+async function api(fn,args){ const r=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn,args})}); const j=await r.json(); if(!j.ok) throw new Error(j.error); return j.data; }
+function toast(t){ const d=document.createElement('div'); d.className='toast'; d.textContent=t; document.body.append(d); setTimeout(()=>d.remove(),2500); }
+const when=ms=>ms?new Date(ms).toLocaleString('en-CA',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'';
+const dn=sn=>DISH[sn]||{en:'#'+sn,gu:'',cat:0};
+
+async function load(){
+  if(!Object.keys(DISH).length){ (await (await fetch('data/dishes.json')).json()).forEach(d=>DISH[d[0]]={en:d[2],gu:d[1],cat:d[3]}); }
+  data=await api('orgData',[PIN]);
+  data.custom.forEach(c=>DISH[c[0]]={en:c[2],gu:c[1],cat:15});
+  render();
+}
+function people(){
+  const by={};
+  data.rows.forEach(r=>{ const [row,t,ref,sn,en,gu,name,phone,email,status,wa,recv]=r; const p=by[ref]||(by[ref]={ref,t,name,phone,email,wa,dishes:[]}); p.dishes.push({row,sn,en,gu,status,recv}); if(/^(Pending|Retry|Sent|Delivered|Read|Failed|Not)/.test(wa)) p.wa=wa; });
+  return Object.values(by).sort((a,b)=>b.t-a.t);
+}
+const active=d=>d.status.toLowerCase()==='confirmed';
+function stTag(d){ return active(d)?(d.recv?'<span class="tag ok">Received</span>':'<span class="tag">Confirmed</span>'):`<span class="tag bad">${esc(d.status)}</span>`; }
+function waTag(w){ w=w||''; const c=/^(Delivered|Read)/.test(w)?'ok':/^(Pending|Sent|Retry)/.test(w)?'warn':/^(Failed|Not on)/.test(w)?'bad':''; return `<span class="tag ${c}">WhatsApp: ${esc(w||'—')}</span>`; }
+function match(p,s){ s=s.toLowerCase(); return !s||[p.ref,p.name,p.phone,p.email].some(x=>String(x).toLowerCase().includes(s))||p.dishes.some(d=>String(d.sn)===s||d.en.toLowerCase().includes(s)); }
+
+function render(){
+  document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===tab));
+  const P=people(), act=data.rows.filter(r=>r[9].toLowerCase()==='confirmed'), total=Object.keys(DISH).length;
+  let h='';
+  if(tab==='dash'){
+    const reg=P.filter(p=>p.dishes.some(active)), recv=act.filter(r=>r[11]).length;
+    const byCat={}; Object.entries(DISH).forEach(([sn,d])=>{ const c=byCat[d.cat]||(byCat[d.cat]={t:0,b:0}); c.t++; });
+    act.forEach(r=>{ const c=byCat[dn(r[3]).cat]; if(c) c.b++; });
+    h=`<div class="stats">
+      <div class="stat"><b>${reg.length}</b><span>people registered</span></div>
+      <div class="stat"><b>${act.length}</b><span>dishes booked of ${total}</span></div>
+      <div class="stat"><b>${total-act.length}</b><span>dishes still open</span></div>
+      <div class="stat"><b>${recv}</b><span>dishes received</span></div>
+      <div class="stat"><b>${data.visits.total}</b><span>visits (${data.visits.unique} unique)</span></div>
+      <div class="stat"><b>${data.visits.today}</b><span>visits today</span></div></div>
+      <div class="card"><h2>Sections</h2>${Object.keys(CATS).filter(c=>byCat[c]).map(c=>{const x=byCat[c],pc=Math.round(100*x.b/x.t);return `<div class="bar"><span>${esc(CATS[c])}</span><i><em style="width:${pc}%"></em></i><span>${x.b}/${x.t}</span></div>`}).join('')}</div>
+      <div class="card"><h2>Latest registrations</h2>${P.slice(0,8).map(p=>`<div>${when(p.t)} · <b>${esc(p.name)}</b> · ${p.dishes.filter(active).length} dishes · ${esc(p.ref)}</div>`).join('')||'None yet.'}</div>`;
+  }
+  if(tab==='reg'){
+    const L=P.filter(p=>match(p,q));
+    h=`<input class="search" id="q" placeholder="Search name, phone, email, reference or dish" value="${esc(q)}"><p style="margin:0 0 10px;color:var(--muted)">${L.length} registrations</p>`+
+    L.map(p=>`<div class="person"><div class="h"><b>${esc(p.name)}</b><a href="tel:${esc(p.phone)}">${esc(p.phone)}</a><a href="mailto:${esc(p.email)}">${esc(p.email)}</a><small>${esc(p.ref)} · ${when(p.t)}</small>${waTag(p.wa)}</div>
+      ${p.dishes.map(d=>`<div class="dish"><span class="n">#${d.sn} ${esc(dn(d.sn).en)} <small>${esc(dn(d.sn).gu)}</small></span>${stTag(d)}${active(d)?`<button class="b red" data-cancel="${esc(p.ref)}" data-sn="${d.sn}">Cancel dish</button>`:''}</div>`).join('')}
+      <div class="row noprint"><input placeholder="Dish #" inputmode="numeric" id="add-${esc(p.ref)}"><button class="b" data-add="${esc(p.ref)}">Add dish</button><button class="b" data-resend="${esc(p.ref)}">Resend WhatsApp</button>${p.dishes.some(active)?`<button class="b red" data-cancelall="${esc(p.ref)}">Cancel whole seva</button>`:''}</div></div>`).join('');
+  }
+  if(tab==='chk'){
+    const L=P.filter(p=>p.dishes.some(active)&&match(p,cq)).filter(p=>!cOnly||p.dishes.some(d=>active(d)&&!d.recv));
+    const left=act.filter(r=>!r[11]).length;
+    h=`<input class="search" id="cq" placeholder="Search name, phone, reference or dish number" value="${esc(cq)}">
+      <div class="filters"><label><input type="checkbox" id="conly" ${cOnly?'checked':''}> Only people with dishes not yet received</label><span class="tag warn">${left} dishes still to arrive</span></div>`+
+      L.map(p=>`<div class="person"><div class="h"><b>${esc(p.name)}</b><a href="tel:${esc(p.phone)}">${esc(p.phone)}</a><small>${esc(p.ref)}</small></div>
+      ${p.dishes.filter(active).map(d=>`<div class="dish"><span class="n">#${d.sn} ${esc(dn(d.sn).en)} <small>${esc(dn(d.sn).gu)}</small></span>${d.recv?`<button class="b got" data-recv="${d.row}" data-on="0">✓ Received</button>`:`<button class="b main" data-recv="${d.row}" data-on="1">Mark received</button>`}</div>`).join('')}</div>`).join('');
+  }
+  if(tab==='lists'){
+    const rows=act.map(r=>({sn:r[3],en:dn(r[3]).en,gu:dn(r[3]).gu,cat:dn(r[3]).cat,name:r[6],phone:r[7],ref:r[2],recv:r[11]})).filter(r=>lcat==='all'||String(r.cat)===lcat).sort((a,b)=>a.cat-b.cat||a.sn-b.sn);
+    h=`<div class="filters"><select id="lcat"><option value="all">All sections</option>${Object.entries(CATS).map(([k,v])=>`<option value="${k}"${lcat===k?' selected':''}>${esc(v)}</option>`).join('')}</select>
+      <button class="b" id="csv">Download spreadsheet (CSV)</button><button class="b" id="print">Print</button></div>
+      <div class="card tw"><h2>${esc(lcat==='all'?'All booked dishes':CATS[lcat])} (${rows.length})</h2><table><thead><tr><th>#</th><th>Dish</th><th>Section</th><th>Name</th><th>Phone</th><th>Ref</th><th>Received</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.sn}</td><td>${esc(r.en)}<br><small>${esc(r.gu)}</small></td><td>${esc(CATS[r.cat]||'')}</td><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.ref)}</td><td>${r.recv?'Yes':''}</td></tr>`).join('')}</tbody></table></div>`;
+    window._rows=rows;
+  }
+  if(tab==='wa'){
+    const L=P.filter(p=>p.dishes.some(active)&&!/^(Delivered|Read)/.test(p.wa||''));
+    h=`<div class="card"><h2>Not yet delivered (${L.length})</h2><p style="margin-top:0;color:var(--muted)">Pending messages go out automatically 2–8 hours after registration, 9 am – 8 pm. "Not requested" means the person did not tick WhatsApp.</p>
+      ${L.map(p=>`<div class="dish"><span class="n"><b>${esc(p.name)}</b> · ${esc(p.phone)} · ${esc(p.ref)}</span>${waTag(p.wa)}<button class="b" data-resend="${esc(p.ref)}">Send again</button></div>`).join('')||'Everyone has received their WhatsApp confirmation.'}</div>`;
+  }
+  $('#main').innerHTML=h;
+}
+async function act(fn,args,okMsg){ try{ await api(fn,[PIN,...args]); toast(okMsg); await load(); }catch(e){ alert(e.message); } }
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.tab){ tab=b.dataset.tab; render(); return; }
+  if(b.id==='refresh'){ b.disabled=true; await load().catch(err=>alert(err.message)); b.disabled=false; toast('Updated'); return; }
+  if(b.id==='logout'){ sessionStorage.removeItem('orgpin'); location.reload(); return; }
+  if(b.dataset.cancel){ if(confirm(`Cancel #${b.dataset.sn} for ${b.dataset.cancel}? The dish becomes open for others.`)) act('orgCancel',[b.dataset.cancel,+b.dataset.sn],'Dish cancelled'); return; }
+  if(b.dataset.cancelall){ if(confirm(`Cancel the whole seva ${b.dataset.cancelall}?`)) act('orgCancel',[b.dataset.cancelall,0],'Seva cancelled'); return; }
+  if(b.dataset.add){ const v=document.getElementById('add-'+b.dataset.add).value.trim(); if(v) act('orgAdd',[b.dataset.add,+v],'Dish added'); return; }
+  if(b.dataset.resend){ act('orgResendWa',[b.dataset.resend],'WhatsApp will be sent within 30 minutes (9 am – 8 pm)'); return; }
+  if(b.dataset.recv){ b.disabled=true; try{ await api('orgReceived',[PIN,+b.dataset.recv,b.dataset.on==='1']); const r=data.rows.find(x=>x[0]===+b.dataset.recv); r[11]=b.dataset.on==='1'?'Yes':''; render(); }catch(err){ alert(err.message); b.disabled=false; } return; }
+  if(b.id==='print'){ window.print(); return; }
+  if(b.id==='csv'){ const rows=[['Dish #','Dish','Gujarati','Section','Name','Phone','Reference','Received']].concat(window._rows.map(r=>[r.sn,r.en,r.gu,CATS[r.cat]||'',r.name,r.phone,r.ref,r.recv?'Yes':''])); const csv='﻿'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n'); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='annakut-'+(lcat==='all'?'all':CATS[lcat].replace(/\W+/g,'-'))+'.csv'; a.click(); return; }
+});
+document.addEventListener('input',e=>{ if(e.target.id==='q'){ q=e.target.value; render(); const i=$('#q'); i.focus(); i.setSelectionRange(q.length,q.length); } if(e.target.id==='cq'){ cq=e.target.value; render(); const i=$('#cq'); i.focus(); i.setSelectionRange(cq.length,cq.length); } });
+document.addEventListener('change',e=>{ if(e.target.id==='conly'){ cOnly=e.target.checked; render(); } if(e.target.id==='lcat'){ lcat=e.target.value; render(); } });
+$('#lf').addEventListener('submit',async e=>{ e.preventDefault(); const p=$('#pin').value.trim(); try{ await api('orgLogin',[p]); PIN=p; sessionStorage.setItem('orgpin',p); start(); }catch(err){ $('#lmsg').hidden=false; $('#lmsg').textContent=err.message; } });
+async function start(){ $('#login').hidden=true; $('#app').hidden=false; $('#main').textContent='Loading…'; try{ await load(); }catch(err){ sessionStorage.removeItem('orgpin'); $('#login').hidden=false; $('#app').hidden=true; $('#lmsg').hidden=false; $('#lmsg').textContent=err.message; } setInterval(()=>{ if(tab!=='reg'&&tab!=='chk') load().catch(()=>{}); },120000); }
+if(PIN) start();
+</script>
+</body>
+</html>
