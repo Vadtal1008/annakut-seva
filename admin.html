@@ -143,7 +143,7 @@ function render(){
   }
   if(tab==='wa'){
     const L=P.filter(p=>p.dishes.some(active)&&!/^(Delivered|Read)/.test(p.wa||''));
-    h=`<div class="card"><h2>Not yet delivered (${L.length})</h2><p style="margin-top:0;color:var(--muted)">Pending messages go out automatically 2–8 hours after registration, 9 am – 8 pm. "Not requested" means the person did not tick WhatsApp.</p>
+    h=`<div class="card"><h2>Not yet delivered (${L.length})</h2><p style="margin-top:0;color:var(--muted)">Pending messages go out automatically within a minute or two of registration. "Not requested" means the person did not tick WhatsApp.</p>
       ${L.map(p=>`<div class="dish"><span class="n"><b>${esc(p.name)}</b> · ${esc(p.phone)} · ${esc(p.ref)}</span>${waTag(p.wa)}<button class="b" data-resend="${esc(p.ref)}">Send again</button></div>`).join('')||'Everyone has received their WhatsApp confirmation.'}</div>`;
   }
   $('#main').innerHTML=h;
@@ -157,7 +157,7 @@ document.addEventListener('click',async e=>{
   if(b.dataset.cancel){ if(confirm(`Cancel #${b.dataset.sn} for ${b.dataset.cancel}? The dish becomes open for others.`)) act('orgCancel',[b.dataset.cancel,+b.dataset.sn],'Dish cancelled'); return; }
   if(b.dataset.cancelall){ if(confirm(`Cancel the whole seva ${b.dataset.cancelall}?`)) act('orgCancel',[b.dataset.cancelall,0],'Seva cancelled'); return; }
   if(b.dataset.add){ const v=document.getElementById('add-'+b.dataset.add).value.trim(); if(v) act('orgAdd',[b.dataset.add,+v],'Dish added'); return; }
-  if(b.dataset.resend){ act('orgResendWa',[b.dataset.resend],'WhatsApp will be sent within 30 minutes (9 am – 8 pm)'); return; }
+  if(b.dataset.resend){ act('orgResendWa',[b.dataset.resend],'WhatsApp will be sent within a minute or two'); return; }
   if(b.dataset.recv){ b.disabled=true; try{ await api('orgReceived',[PIN,+b.dataset.recv,b.dataset.on==='1']); const r=data.rows.find(x=>x[0]===+b.dataset.recv); r[11]=b.dataset.on==='1'?'Yes':''; render(); }catch(err){ alert(err.message); b.disabled=false; } return; }
   if(b.id==='print'){ window.print(); return; }
   if(b.id==='csv'){ const rows=[['Dish #','Dish','Gujarati','Section','Name','Phone','Reference','Received']].concat(window._rows.map(r=>[r.sn,r.en,r.gu,CATS[r.cat]||'',r.name,r.phone,r.ref,r.recv?'Yes':''])); const csv='﻿'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n'); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='annakut-'+(lcat==='all'?'all':CATS[lcat].replace(/\W+/g,'-'))+'.csv'; a.click(); return; }
