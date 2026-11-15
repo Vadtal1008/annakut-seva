@@ -37,7 +37,7 @@ input{width:100%;font:inherit;padding:12px 14px;border:1.5px solid var(--line);b
 .list .n{min-width:30px;font-weight:700;color:var(--m7)}
 .list .it div{flex:1;min-width:0}
 .tag{font-size:.75rem;padding:2px 8px;border-radius:99px;background:var(--line);white-space:nowrap}
-.tag.Delivered{background:#dff2e6;color:var(--ok)}.tag.Not{background:#fdebd3;color:var(--warn)}
+.tag.Excluded{background:#eee;color:#555}.tag.Delivered{background:#dff2e6;color:var(--ok)}.tag.Not{background:#fdebd3;color:var(--warn)}
 a{color:var(--m7)}
 .small{background:none;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:.85rem}
 </style>
@@ -101,13 +101,14 @@ function startPoint(mine) {
 const maps = a => 'https://maps.apple.com/?daddr=' + encodeURIComponent(a) + '&dirflg=d';
 
 function render() {
-  const mine = stops.filter(s => s.driver === DRIVER);
+  const live = stops.filter(s => s.status !== 'Excluded');
+  const mine = live.filter(s => s.driver === DRIVER);
   const done = mine.filter(s => s.status === 'Delivered').length;
   $('prog').textContent = `Driver ${DRIVER}: ${done} of ${mine.length} delivered`;
   $('pbar').style.width = (mine.length ? 100 * done / mine.length : 0) + '%';
-  const all = stops.filter(s => s.status === 'Delivered').length;
-  $('prog2').textContent = `Everyone: ${all} of ${stops.length} delivered · ${stops.filter(s => !s.driver).length} out of town, not on a route`;
-  const pool = showAll ? stops.filter(s => s.driver) : mine;
+  const all = live.filter(s => s.status === 'Delivered').length, ex = stops.length - live.length;
+  $('prog2').textContent = `Everyone: ${all} of ${live.length} delivered · ${live.filter(s => !s.driver).length} out of town` + (ex ? ` · ${ex} excluded` : '');
+  const pool = showAll ? stops.filter(s => s.driver) : stops.filter(s => s.driver === DRIVER);
   const order = route(startPoint(mine), pool.filter(todo));
   const nx = order[0];
   $('next').innerHTML = nx ? `<div class="muted">Next stop${nx.driver !== DRIVER ? ' (Driver ' + nx.driver + ')' : ''} · ${order.length} left today</div>
@@ -115,12 +116,13 @@ function render() {
     ${nx.phone ? `<div style="margin-top:6px"><a href="tel:${esc(nx.phone)}">Call ${esc(nx.phone)}</a></div>` : ''}
     ${nx.notes ? `<div class="note">${esc(nx.notes)}</div>` : ''}<div class="muted" style="margin-top:6px">${esc(nx.from)}</div>
     <a href="${maps(nx.address)}" style="text-decoration:none"><button class="big go">Navigate in Apple Maps</button></a>
-    <div class="row2"><button class="big done" data-mark="Delivered" data-id="${esc(nx.id)}">Delivered</button><button class="big nh" data-mark="Not home" data-id="${esc(nx.id)}">Not home</button></div>`
+    <div class="row2"><button class="big done" data-mark="Delivered" data-id="${esc(nx.id)}">Delivered</button><button class="big nh" data-mark="Not home" data-id="${esc(nx.id)}">Not home</button></div>
+    <button class="small" style="margin-top:12px" data-mark="Excluded" data-id="${esc(nx.id)}">Exclude from list (duplicate / not needed)</button>`
     : `<div class="name">All done for today 🙏</div><div class="muted">Stops marked Not home today come back on tomorrow's route.</div>
     <a href="${maps(TEMPLE.address)}" style="text-decoration:none"><button class="big go">Navigate back to the temple</button></a>`;
   const rest = pool.filter(s => !todo(s));
-  $('list').innerHTML = order.map((s, i) => `<div class="it"><span class="n">${i + 1}</span><div><b>${esc(s.name)}</b>${s.driver !== DRIVER ? ' <span class="tag">Driver ' + esc(s.driver) + '</span>' : ''}<br><span class="muted">${esc(s.address)}</span></div><a class="small" href="${maps(s.address)}">Go</a></div>`).join('')
-    + rest.map(s => `<div class="it"><span class="n">✓</span><div><b>${esc(s.name)}</b> <span class="tag ${esc(s.status.split(' ')[0])}">${esc(s.status)}</span><br><span class="muted">${esc(s.address)} · ${esc(s.updated)} ${esc(s.by)}</span></div><button class="small" data-mark="Pending" data-id="${esc(s.id)}">Undo</button></div>`).join('');
+  $('list').innerHTML = order.map((s, i) => `<div class="it"><span class="n">${i + 1}</span><div><b>${esc(s.name)}</b>${s.driver !== DRIVER ? ' <span class="tag">Driver ' + esc(s.driver) + '</span>' : ''}<br><span class="muted">${esc(s.address)}</span></div><div style="display:flex;flex-direction:column;gap:6px"><a class="small" href="${maps(s.address)}">Go</a><button class="small" data-mark="Excluded" data-id="${esc(s.id)}">Exclude</button></div></div>`).join('')
+    + rest.map(s => `<div class="it"><span class="n">✓</span><div><b>${esc(s.name)}</b> <span class="tag ${esc(s.status.split(' ')[0])}">${esc(s.status)}</span>${s.wa ? ` <span class="tag">WhatsApp: ${esc(s.wa)}</span>` : ''}<br><span class="muted">${esc(s.address)} · ${esc(s.updated)} ${esc(s.by)}</span></div><button class="small" data-mark="Pending" data-id="${esc(s.id)}">Undo</button></div>`).join('');
 }
 
 async function load() {
@@ -146,12 +148,14 @@ $('all').onclick = () => { showAll = !showAll; $('all').textContent = showAll ? 
 document.addEventListener('click', async e => {
   const b = e.target.closest('[data-mark]'); if (!b) return;
   const s = stops.find(x => x.id === b.dataset.id); if (!s) return;
+  if (b.dataset.mark === 'Excluded' && !confirm(`Exclude ${s.name} from the delivery list? You can undo it later.`)) return;
   b.disabled = true;
-  const prev = [s.status, s.updated, s.by];
+  const prev = [s.status, s.updated, s.by, s.wa];
+  s.wa = b.dataset.mark === 'Delivered' ? (s.wa || 'Pending') : (s.wa === 'Pending' ? '' : s.wa);
   s.status = b.dataset.mark; s.updated = s.status === 'Pending' ? '' : today + ' ' + new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); s.by = WHO;
   render();
   try { await api('delMark', [PIN, s.id, s.status, WHO]); }
-  catch (x) { [s.status, s.updated, s.by] = prev; render(); alert('Not saved, please try again: ' + x.message); }
+  catch (x) { [s.status, s.updated, s.by, s.wa] = prev; render(); alert('Not saved, please try again: ' + x.message); }
 });
 try { const p = sessionStorage.getItem('orgpin'); if (p && DRIVER) { $('pin').value = p; $('login').requestSubmit(); } } catch {}
 </script>
