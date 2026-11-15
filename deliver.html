@@ -62,7 +62,7 @@ a{color:var(--m7)}
 </main>
 <script>
 const API = 'https://script.google.com/macros/s/AKfycbyRY0_dSN0dptVP5b5wbytYk2CkH3DB-amCWZSygSmlWHoijpe9dImNG6Vr9V_ds9kA/exec';
-const TEMPLE = { lat: 53.4636, lng: -113.4927, address: '4133 98 St NW, Edmonton, AB' };
+const TEMPLE = { lat: 53.4776, lng: -113.4818, address: '4133 98 St NW, Edmonton, AB' };
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const store = { get: k => { try { return localStorage.getItem(k) || ''; } catch { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
