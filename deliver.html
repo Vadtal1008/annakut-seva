@@ -48,8 +48,12 @@ a{color:var(--m7)}
   <form class="card" id="login">
     <p style="margin-top:0">Organizer PIN</p>
     <input id="pin" type="password" inputmode="numeric" autocomplete="off" aria-label="Organizer PIN">
-    <p style="margin-bottom:0">Which driver are you?</p>
-    <div class="seg"><button type="button" data-d="1" aria-pressed="false">Driver 1</button><button type="button" data-d="2" aria-pressed="false">Driver 2</button></div>
+    <p style="margin-bottom:0">Which zone are you delivering?</p>
+    <div class="seg zone"><button type="button" data-d="NW" aria-pressed="false">North West</button><button type="button" data-d="NE" aria-pressed="false">North East</button></div>
+    <div class="seg zone"><button type="button" data-d="SW" aria-pressed="false">South West</button><button type="button" data-d="SE" aria-pressed="false">South East</button></div>
+    <p class="muted" id="zinfo" style="margin:0 0 10px"></p>
+    <p style="margin-bottom:0">Which maps app?</p>
+    <div class="seg map"><button type="button" data-m="apple" aria-pressed="false">Apple Maps</button><button type="button" data-m="google" aria-pressed="false">Google Maps</button></div>
     <input id="who" placeholder="Your name" autocomplete="name" aria-label="Your name">
     <button class="big go">Start</button>
     <p class="muted" id="lerr" role="status"></p>
@@ -57,7 +61,7 @@ a{color:var(--m7)}
   <div id="app" hidden>
     <div class="card"><b id="prog"></b><div class="bar"><i id="pbar"></i></div><div class="muted" id="prog2"></div></div>
     <div class="card" id="next"></div>
-    <div class="card list"><div style="display:flex;justify-content:space-between;align-items:center"><b>Route</b><button class="small" id="all">Show other driver too</button></div><div id="list"></div></div>
+    <div class="card list"><div style="display:flex;justify-content:space-between;align-items:center"><b>Route</b><span style="display:flex;gap:6px"><button class="small" id="mapsw"></button><button class="small" id="all">Show all zones</button></span></div><div id="list"></div></div>
   </div>
 </main>
 <script>
@@ -66,7 +70,14 @@ const TEMPLE = { lat: 53.4776, lng: -113.4818, address: '4133 98 St NW, Edmonton
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const store = { get: k => { try { return localStorage.getItem(k) || ''; } catch { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
-let PIN = '', DRIVER = store.get('drv'), WHO = store.get('who'), stops = [], showAll = false;
+const ZONES = { NW: 'North West', NE: 'North East', SW: 'South West', SE: 'South East' };
+const AREAS = { NW: 'North of 23 Ave, west of 99 St: Kaskitayo, Riverbend, west end, downtown, north side, St. Albert',
+  NE: 'North of 23 Ave, east of 99 St: Mill Woods, Meadows, Sherwood Park, northeast',
+  SW: 'South of 23 Ave, west of 99 St: Windermere, Heritage Valley, Rutherford, Blackmud Creek',
+  SE: 'South of 23 Ave, east of 99 St: Ellerslie, Summerside, Walker, Charlesworth, Beaumont' };
+let PIN = '', DRIVER = ZONES[store.get('zone')] ? store.get('zone') : '', WHO = store.get('who'), stops = [], showAll = false;
+let MAP = store.get('maps') || (/iPhone|iPad|Macintosh/.test(navigator.userAgent) ? 'apple' : 'google');
+const zname = z => ZONES[z] || z;
 
 async function api(fn, args) {
   const r = await (await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ fn, args }) })).json();
@@ -98,30 +109,34 @@ function startPoint(mine) {
   const mins = u => { const m = u.match(/(\d+):(\d+) ([AP]M)$/i); return m ? (m[1] % 12 + (/p/i.test(m[3]) ? 12 : 0)) * 60 + +m[2] : 0; };
   return t.length ? t.sort((a, b) => mins(b.updated) - mins(a.updated))[0] : TEMPLE;
 }
-const maps = a => 'https://maps.apple.com/?daddr=' + encodeURIComponent(a) + '&dirflg=d';
+const maps = a => MAP === 'google'
+  ? 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(a) + '&travelmode=driving'
+  : 'https://maps.apple.com/?daddr=' + encodeURIComponent(a) + '&dirflg=d';
+const mapName = () => MAP === 'google' ? 'Google Maps' : 'Apple Maps';
 
 function render() {
   const live = stops.filter(s => s.status !== 'Excluded');
   const mine = live.filter(s => s.driver === DRIVER);
   const done = mine.filter(s => s.status === 'Delivered').length;
-  $('prog').textContent = `Driver ${DRIVER}: ${done} of ${mine.length} delivered`;
+  $('prog').textContent = `${zname(DRIVER)}: ${done} of ${mine.length} delivered`;
+  $('mapsw').textContent = 'Use ' + (MAP === 'google' ? 'Apple Maps' : 'Google Maps');
   $('pbar').style.width = (mine.length ? 100 * done / mine.length : 0) + '%';
   const all = live.filter(s => s.status === 'Delivered').length, ex = stops.length - live.length;
   $('prog2').textContent = `Everyone: ${all} of ${live.length} delivered · ${live.filter(s => !s.driver).length} out of town` + (ex ? ` · ${ex} excluded` : '');
   const pool = showAll ? stops.filter(s => s.driver) : stops.filter(s => s.driver === DRIVER);
   const order = route(startPoint(mine), pool.filter(todo));
   const nx = order[0];
-  $('next').innerHTML = nx ? `<div class="muted">Next stop${nx.driver !== DRIVER ? ' (Driver ' + nx.driver + ')' : ''} · ${order.length} left today</div>
+  $('next').innerHTML = nx ? `<div class="muted">Next stop${nx.driver !== DRIVER ? ' (' + zname(nx.driver) + ')' : ''} · ${order.length} left today</div>
     <div class="name">${esc(nx.name)}</div><div class="addr">${esc(nx.address)}</div>
     ${nx.phone ? `<div style="margin-top:6px"><a href="tel:${esc(nx.phone)}">Call ${esc(nx.phone)}</a></div>` : ''}
     ${nx.notes ? `<div class="note">${esc(nx.notes)}</div>` : ''}<div class="muted" style="margin-top:6px">${esc(nx.from)}</div>
-    <a href="${maps(nx.address)}" style="text-decoration:none"><button class="big go">Navigate in Apple Maps</button></a>
+    <a href="${maps(nx.address)}" style="text-decoration:none"><button class="big go">Navigate in ${mapName()}</button></a>
     <div class="row2"><button class="big done" data-mark="Delivered" data-id="${esc(nx.id)}">Delivered</button><button class="big nh" data-mark="Not home" data-id="${esc(nx.id)}">Not home</button></div>
     <button class="small" style="margin-top:12px" data-mark="Excluded" data-id="${esc(nx.id)}">Exclude from list (duplicate / not needed)</button>`
     : `<div class="name">All done for today 🙏</div><div class="muted">Stops marked Not home today come back on tomorrow's route.</div>
     <a href="${maps(TEMPLE.address)}" style="text-decoration:none"><button class="big go">Navigate back to the temple</button></a>`;
   const rest = pool.filter(s => !todo(s));
-  $('list').innerHTML = order.map((s, i) => `<div class="it"><span class="n">${i + 1}</span><div><b>${esc(s.name)}</b>${s.driver !== DRIVER ? ' <span class="tag">Driver ' + esc(s.driver) + '</span>' : ''}<br><span class="muted">${esc(s.address)}</span></div><div style="display:flex;flex-direction:column;gap:6px"><a class="small" href="${maps(s.address)}">Go</a><button class="small" data-mark="Excluded" data-id="${esc(s.id)}">Exclude</button></div></div>`).join('')
+  $('list').innerHTML = order.map((s, i) => `<div class="it"><span class="n">${i + 1}</span><div><b>${esc(s.name)}</b>${s.driver !== DRIVER ? ' <span class="tag">' + esc(zname(s.driver)) + '</span>' : ''}<br><span class="muted">${esc(s.address)}</span></div><div style="display:flex;flex-direction:column;gap:6px"><a class="small" href="${maps(s.address)}">Go</a><button class="small" data-mark="Excluded" data-id="${esc(s.id)}">Exclude</button></div></div>`).join('')
     + rest.map(s => `<div class="it"><span class="n">✓</span><div><b>${esc(s.name)}</b> <span class="tag ${esc(s.status.split(' ')[0])}">${esc(s.status)}</span>${s.wa ? ` <span class="tag">WhatsApp: ${esc(s.wa)}</span>` : ''}<br><span class="muted">${esc(s.address)} · ${esc(s.updated)} ${esc(s.by)}</span></div><button class="small" data-mark="Pending" data-id="${esc(s.id)}">Undo</button></div>`).join('');
 }
 
@@ -130,21 +145,26 @@ async function load() {
   render();
 }
 
-document.querySelectorAll('.seg button').forEach(b => { b.setAttribute('aria-pressed', b.dataset.d === DRIVER); b.onclick = () => { DRIVER = b.dataset.d; document.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed', x === b)); }; });
+const zbtn = document.querySelectorAll('.zone button'), mbtn = document.querySelectorAll('.map button');
+const paint = () => { zbtn.forEach(x => x.setAttribute('aria-pressed', x.dataset.d === DRIVER)); mbtn.forEach(x => x.setAttribute('aria-pressed', x.dataset.m === MAP)); $('zinfo').textContent = AREAS[DRIVER] || ''; };
+zbtn.forEach(b => b.onclick = () => { DRIVER = b.dataset.d; paint(); });
+mbtn.forEach(b => b.onclick = () => { MAP = b.dataset.m; store.set('maps', MAP); paint(); });
+paint();
 $('who').value = WHO;
 $('login').onsubmit = async e => {
   e.preventDefault();
   PIN = $('pin').value.trim(); WHO = $('who').value.trim();
-  if (!DRIVER) { $('lerr').textContent = 'Choose Driver 1 or Driver 2.'; return; }
+  if (!DRIVER) { $('lerr').textContent = 'Choose your zone.'; return; }
   $('lerr').textContent = 'Loading...';
   try { await load(); } catch (x) { $('lerr').textContent = x.message === 'Not allowed.' ? 'Wrong PIN.' : x.message; return; }
-  store.set('drv', DRIVER); store.set('who', WHO);
+  store.set('zone', DRIVER); store.set('who', WHO); store.set('maps', MAP);
   try { sessionStorage.setItem('orgpin', PIN); } catch {}
   $('login').hidden = true; $('app').hidden = false; $('refresh').hidden = false;
-  setInterval(() => load().catch(() => {}), 60000);  // see the other driver's progress
+  setInterval(() => load().catch(() => {}), 60000);  // see other zones' progress
 };
 $('refresh').onclick = () => load().catch(x => alert(x.message));
-$('all').onclick = () => { showAll = !showAll; $('all').textContent = showAll ? 'Only my stops' : 'Show other driver too'; render(); };
+$('all').onclick = () => { showAll = !showAll; $('all').textContent = showAll ? 'Only my zone' : 'Show all zones'; render(); };
+$('mapsw').onclick = () => { MAP = MAP === 'google' ? 'apple' : 'google'; store.set('maps', MAP); paint(); render(); };
 document.addEventListener('click', async e => {
   const b = e.target.closest('[data-mark]'); if (!b) return;
   const s = stops.find(x => x.id === b.dataset.id); if (!s) return;
