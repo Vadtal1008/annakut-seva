@@ -39,6 +39,8 @@ input{width:100%;font:inherit;padding:12px 14px;border:1.5px solid var(--line);b
 .tag{font-size:.75rem;padding:2px 8px;border-radius:99px;background:var(--line);white-space:nowrap}
 .tag.Excluded{background:#eee;color:#555}.tag.Delivered{background:#dff2e6;color:var(--ok)}.tag.Not{background:#fdebd3;color:var(--warn)}
 a{color:var(--m7)}
+.donor{background:#fbeec4!important;border-left:5px solid var(--gold);padding-left:8px!important;border-radius:8px}.chk{background:#fff8de!important;border-left:5px dashed var(--gold);padding-left:8px!important;border-radius:8px}
+.dtag{font-size:.75rem;padding:2px 8px;border-radius:99px;background:var(--gold);color:var(--m9);font-weight:700;white-space:nowrap}
 .small{background:none;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:.85rem}
 </style>
 </head>
@@ -78,6 +80,9 @@ const AREAS = { NW: 'North of 23 Ave, west of 99 St: Kaskitayo, Riverbend, west 
 let PIN = '', DRIVER = ZONES[store.get('zone')] ? store.get('zone') : '', WHO = store.get('who'), stops = [], showAll = false;
 let MAP = store.get('maps') || (/iPhone|iPad|Macintosh/.test(navigator.userAgent) ? 'apple' : 'google');
 const zname = z => ZONES[z] || z;
+// Donor tags are written into Notes by push_donor_flags.py ('⭐ 2026 donor' / '⭐? Possible 2026 donor - check').
+const dcls = s => s.notes.startsWith('⭐?') ? 'chk' : s.notes.startsWith('⭐') ? 'donor' : '';
+const dtag = s => dcls(s) === 'donor' ? ' <span class="dtag">⭐ Donor</span>' : dcls(s) === 'chk' ? ' <span class="dtag">⭐? Check</span>' : '';
 
 async function api(fn, args) {
   const r = await (await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ fn, args }) })).json();
@@ -122,11 +127,14 @@ function render() {
   $('mapsw').textContent = 'Use ' + (MAP === 'google' ? 'Apple Maps' : 'Google Maps');
   $('pbar').style.width = (mine.length ? 100 * done / mine.length : 0) + '%';
   const all = live.filter(s => s.status === 'Delivered').length, ex = stops.length - live.length;
-  $('prog2').textContent = `Everyone: ${all} of ${live.length} delivered · ${live.filter(s => !s.driver).length} out of town` + (ex ? ` · ${ex} excluded` : '');
+  const dn = mine.filter(s => dcls(s) === 'donor');
+  $('prog2').textContent = (dn.length ? `⭐ Donors in your zone: ${dn.filter(s => s.status === 'Delivered').length} of ${dn.length} delivered · ` : '')
+    + `Everyone: ${all} of ${live.length} delivered · ${live.filter(s => !s.driver).length} out of town` + (ex ? ` · ${ex} excluded` : '');
   const pool = showAll ? stops.filter(s => s.driver) : stops.filter(s => s.driver === DRIVER);
   const order = route(startPoint(mine), pool.filter(todo));
   const nx = order[0];
-  $('next').innerHTML = nx ? `<div class="muted">Next stop${nx.driver !== DRIVER ? ' (' + zname(nx.driver) + ')' : ''} · ${order.length} left today</div>
+  $('next').className = 'card' + (nx && dcls(nx) ? ' ' + dcls(nx) : '');
+  $('next').innerHTML = nx ? `${dtag(nx) ? `<div style="margin-bottom:6px">${dtag(nx)}</div>` : ''}<div class="muted">Next stop${nx.driver !== DRIVER ? ' (' + zname(nx.driver) + ')' : ''} · ${order.length} left today</div>
     <div class="name">${esc(nx.name)}</div><div class="addr">${esc(nx.address)}</div>
     ${nx.phone ? `<div style="margin-top:6px"><a href="tel:${esc(nx.phone)}">Call ${esc(nx.phone)}</a></div>` : ''}
     ${nx.notes ? `<div class="note">${esc(nx.notes)}</div>` : ''}<div class="muted" style="margin-top:6px">${esc(nx.from)}</div>
@@ -136,8 +144,8 @@ function render() {
     : `<div class="name">All done for today 🙏</div><div class="muted">Stops marked Not home today come back on tomorrow's route.</div>
     <a href="${maps(TEMPLE.address)}" style="text-decoration:none"><button class="big go">Navigate back to the temple</button></a>`;
   const rest = pool.filter(s => !todo(s));
-  $('list').innerHTML = order.map((s, i) => `<div class="it"><span class="n">${i + 1}</span><div><b>${esc(s.name)}</b>${s.driver !== DRIVER ? ' <span class="tag">' + esc(zname(s.driver)) + '</span>' : ''}<br><span class="muted">${esc(s.address)}</span></div><div style="display:flex;flex-direction:column;gap:6px"><a class="small" href="${maps(s.address)}">Go</a><button class="small" data-mark="Excluded" data-id="${esc(s.id)}">Exclude</button></div></div>`).join('')
-    + rest.map(s => `<div class="it"><span class="n">✓</span><div><b>${esc(s.name)}</b> <span class="tag ${esc(s.status.split(' ')[0])}">${esc(s.status)}</span>${s.wa ? ` <span class="tag">WhatsApp: ${esc(s.wa)}</span>` : ''}<br><span class="muted">${esc(s.address)} · ${esc(s.updated)} ${esc(s.by)}</span></div><button class="small" data-mark="Pending" data-id="${esc(s.id)}">Undo</button></div>`).join('');
+  $('list').innerHTML = order.map((s, i) => `<div class="it ${dcls(s)}"><span class="n">${i + 1}</span><div><b>${esc(s.name)}</b>${dtag(s)}${s.driver !== DRIVER ? ' <span class="tag">' + esc(zname(s.driver)) + '</span>' : ''}<br><span class="muted">${esc(s.address)}</span></div><div style="display:flex;flex-direction:column;gap:6px"><a class="small" href="${maps(s.address)}">Go</a><button class="small" data-mark="Excluded" data-id="${esc(s.id)}">Exclude</button></div></div>`).join('')
+    + rest.map(s => `<div class="it ${dcls(s)}"><span class="n">✓</span><div><b>${esc(s.name)}</b>${dtag(s)} <span class="tag ${esc(s.status.split(' ')[0])}">${esc(s.status)}</span>${s.wa ? ` <span class="tag">WhatsApp: ${esc(s.wa)}</span>` : ''}<br><span class="muted">${esc(s.address)} · ${esc(s.updated)} ${esc(s.by)}</span></div><button class="small" data-mark="Pending" data-id="${esc(s.id)}">Undo</button></div>`).join('');
 }
 
 async function load() {
