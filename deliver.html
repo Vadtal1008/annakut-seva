@@ -50,9 +50,9 @@ a{color:var(--m7)}
   <form class="card" id="login">
     <p style="margin-top:0">Organizer PIN</p>
     <input id="pin" type="password" inputmode="numeric" autocomplete="off" aria-label="Organizer PIN">
-    <p style="margin-bottom:0">Which zone are you delivering?</p>
-    <div class="seg zone"><button type="button" data-d="NW" aria-pressed="false">North West</button><button type="button" data-d="NE" aria-pressed="false">North East</button></div>
-    <div class="seg zone"><button type="button" data-d="SW" aria-pressed="false">South West</button><button type="button" data-d="SE" aria-pressed="false">South East</button></div>
+    <p style="margin-bottom:0">Which area are you delivering?</p>
+    <div class="seg zone"><button type="button" data-d="MT" aria-pressed="false">Millwoods</button><button type="button" data-d="WE" aria-pressed="false">Walker</button><button type="button" data-d="CH" aria-pressed="false">Chappelle</button></div>
+    <div class="seg zone"><button type="button" data-d="CP" aria-pressed="false">Century Park</button><button type="button" data-d="NW" aria-pressed="false">North &amp; Other</button></div>
     <p class="muted" id="zinfo" style="margin:0 0 10px"></p>
     <p style="margin-bottom:0">Which maps app?</p>
     <div class="seg map"><button type="button" data-m="apple" aria-pressed="false">Apple Maps</button><button type="button" data-m="google" aria-pressed="false">Google Maps</button></div>
@@ -72,12 +72,14 @@ const TEMPLE = { lat: 53.4776, lng: -113.4818, address: '4133 98 St NW, Edmonton
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const store = { get: k => { try { return localStorage.getItem(k) || ''; } catch { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
-const ZONES = { NW: 'North West', NE: 'North East', SW: 'South West', SE: 'South East' };
-const AREAS = { NW: 'North of 23 Ave, west of 99 St: Kaskitayo, Riverbend, west end, downtown, north side, St. Albert',
-  NE: 'North of 23 Ave, east of 99 St: Mill Woods, Meadows, Sherwood Park, northeast',
-  SW: 'South of 23 Ave, west of 99 St: Windermere, Heritage Valley, Rutherford, Blackmud Creek',
-  SE: 'South of 23 Ave, east of 99 St: Ellerslie, Summerside, Walker, Charlesworth, Beaumont' };
-let PIN = '', DRIVER = ZONES[store.get('zone')] ? store.get('zone') : '', WHO = store.get('who'), stops = [], showAll = false;
+const ZONES = { MT: 'Millwoods / Tamarack', WE: 'Walker / Ellerslie', CH: 'Chappelle / Heritage', CP: 'Century Park / South', NW: 'North & Other' };
+const AREAS = {
+  MT: 'Millwoods, Tamarack, Astor, Silverberry, Laurel (T6T, T6K, T6L)',
+  WE: 'Walker, Ellerslie, Summerside, Orchards, Allard north (T6X)',
+  CH: 'Chappelle, Keswick, DeRocher, Heritage Valley, Windermere (T6W)',
+  CP: 'Century Park, Kaskitayo, Riverbend, Twin Brooks, Blackmud Creek (T6J, T6H, T6R)',
+  NW: 'North Edmonton, Downtown, West Edmonton, Sherwood Park, Spruce Grove & other' };
+let PIN = '', DRIVER = (store.get('zone') in ZONES) ? store.get('zone') : '', WHO = store.get('who'), stops = [], showAll = false;
 let MAP = store.get('maps') || (/iPhone|iPad|Macintosh/.test(navigator.userAgent) ? 'apple' : 'google');
 const zname = z => ZONES[z] || z;
 // Donor tags are written into Notes by push_donor_flags.py ('⭐ 2026 donor' / '⭐? Possible 2026 donor - check').
